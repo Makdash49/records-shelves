@@ -40,11 +40,3 @@ var TodoApp = React.createClass({
 });
 
 module.exports = TodoApp;
-
-
-// What am I doing?  Creating an AddTodo component which is a form with a button.
-// On submit, it should call the handleAddTodo function which will pop a modal onto
-// the screen with the text of the new todo.  Also, write tests. You could create a
-// phone test and put it in the DOM and then run a test on it like last time.
-// The add todo component goes in the TodoApp underneath the TodoList. It is not
-// nested in TodoList.
