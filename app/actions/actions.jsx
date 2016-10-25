@@ -5,10 +5,9 @@ export var setSearchText = (searchText) => {
   };
 };
 
-// toggleShowCompleted type: TOGGLE_SHOW_COMPLETED
 export var toggleShowCompleted = () => {
   return {
-    type: 'TOGGLE_SHOW_COMPLETED',
+    type: 'TOGGLE_SHOW_COMPLETED'
   };
 };
 
@@ -19,7 +18,6 @@ export var addTodo = (text) => {
   };
 };
 
-// toggleTodo(id) type: TOGGGLE_TODO
 export var toggleTodo = (id) => {
   return {
     type: 'TOGGLE_TODO',

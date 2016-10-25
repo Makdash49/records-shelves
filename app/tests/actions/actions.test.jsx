@@ -20,7 +20,7 @@ describe('Actions', () => {
 
     expect(res).toEqual(action);
   });
-  it('should generate a toggle show completed action', () => {
+  it('should generate toggle show completed action', () => {
     var action = {
       type: 'TOGGLE_SHOW_COMPLETED'
     };
@@ -28,10 +28,10 @@ describe('Actions', () => {
 
     expect(res).toEqual(action);
   });
-  it('should generate a toggle todo with id', () => {
+  it('should generate toggle todo action', () => {
     var action = {
       type: 'TOGGLE_TODO',
-      id: 4
+      id: '123'
     };
     var res = actions.toggleTodo(action.id);
 
