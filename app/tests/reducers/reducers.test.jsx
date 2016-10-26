@@ -40,23 +40,23 @@ describe('Reducers', () => {
       expect(res.length).toEqual(1);
       expect(res[0].text).toEqual(action.text);
     });
-    it('should toggle a todo', () => {
+    it('should toggle todo', () => {
+      var todos = [{
+        id: '123',
+        text: 'Something',
+        completed: true,
+        createdAt: 123,
+        completedAt: 125
+      }];
+
       var action = {
         type: 'TOGGLE_TODO',
-        id: 1
+        id: '123'
       };
-      var testArray = [{
-        id: 1,
-        text: "Holy cow.",
-        completed: true,
-        createdAt: moment().unix(),
-        completedAt: moment().unix()
-      }]
-
-      var res = reducers.todosReducer(testArray, action);
+      var res = reducers.todosReducer(df(todos), df(action));
 
       expect(res[0].completed).toEqual(false);
-      expect(res[0].completedAt).toNotExist();
+      expect(res[0].completedAt).toEqual(undefined);
     });
   });
 });
