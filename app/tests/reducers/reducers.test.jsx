@@ -20,9 +20,9 @@ describe('Reducers', () => {
       var action = {
         type: 'TOGGLE_SHOW_COMPLETED',
       };
-      var res = reducers.showCompletedReducer(true, action);
+      var res = reducers.showCompletedReducer(false, action);
 
-      expect(res).toEqual(false)
+      expect(res).toEqual(true)
     });
   });
 });
