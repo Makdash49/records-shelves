@@ -60,9 +60,3 @@ describe('Reducers', () => {
     });
   });
 });
-
-// send int todos array as default.  Pass into a reducer a toggle todo action.
-// Check that it has a completed status opposite of what you passed int.
-// Define todos array with realistic todo item.
-// Generate action with with id from thing.
-// Check it toggled.

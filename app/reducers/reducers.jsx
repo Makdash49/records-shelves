@@ -49,21 +49,3 @@ export var todosReducer = (state = [], action) => {
       return state;
   }
 };
-
-// add case for TOGGLE_TODO match item of action id
-// look through array.  Find the one on the state variable.
-// Set equal to opposite value.
-// Also updated completedAt.  Set it to a timestamp.
-// Otherwise clear it.
-
-
-// handleToggle: function (id) {
-//   var updatedTodos = this.state.todos.map((todo) => {
-//     if (todo.id === id) {
-//       todo.completed = !todo.completed;
-//       todo.completedAt = todo.completed ? moment().unix() : undefined;
-//     }
-//     return todo;
-//   });
-//   this.setState({todos: updatedTodos});
-// },
