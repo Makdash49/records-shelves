@@ -23,14 +23,48 @@ firebaseRef.set({
   }
 });
 
-firebaseRef.child('user').on('value', (snapshot) => {
-  console.log('Update value', snapshot.val());
+// var notesRef = firebaseRef.child('notes');
+//
+// notesRef.on('child_added', (snapshot) =>{
+//   console.log('child_added', snapshot.key, snapshot.val());
+// });
+//
+// notesRef.on('child_changed', (snapshot) =>{
+//   console.log('child_changed', snapshot.key, snapshot.val());
+// });
+//
+// notesRef.on('child_removed', (snapshot) =>{
+//   console.log('child_removed', snapshot.key, snapshot.val());
+// });
+//
+// var newNoteRef = notesRef.push({
+//   text: 'Walk the dog!'
+// });
+//
+// console.log('Todo id', newNoteRef.key);
+
+
+// Create a new variable that store refernce to todos array.
+// Child added to listen for new todos added.
+// Print key and value to screen
+//
+// Add 2 todos array with push.  Adding text property.
+// Leave off all other properties.
+//
+// After pushing 2 new todos.  Refresh in Chrome browser.
+// Make sure callback fired twice. Once for each todo item.
+
+
+var myArray = firebaseRef.child('items');
+
+myArray.on('child_added', (snapshot) => {
+  console.log('child_added', snapshot.key, snapshot.val());
 });
 
-firebaseRef.child('user').update({
-  name: 'Smithee'
+myArray.push({
+  text: 'headphones'
 });
 
-firebaseRef.child('app').update({
-  name: 'Totally Cool App'
+myArray.push({
+  text: 'stereo'
 });
