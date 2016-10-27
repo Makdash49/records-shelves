@@ -24,33 +24,11 @@ firebaseRef.set({
 });
 
 // firebaseRef.update({
-//   isRunning: false,
-//   'app/name': 'Todo Application'
+//   'app/name': 'Todo Application',
+//   'user/name': 'Jen'
 // });
 
-// firebaseRef.child('app').update({
-//   name: 'Todo Application'
-// }).then(() => {
-//   console.log('Update worked!');
-// }, (e) => {
-//   console.log('Update failed!');
-// });
 
-// one call to update, update app name and user name.
-// Use multipath updates.
+firebaseRef.child('app').update({name: 'Todo Application'});
 
-firebaseRef.update({
-  'app/name': 'Todo Application',
-  'user/name': 'Bubba'
-});
-
-
-firebaseRef.child('app').update({
-  name: 'Super Todo Application'
-});
-
-firebaseRef.child('user').update({
-  name: 'Elvis'
-});
-
-// Use child to update app name and User name.
+firebaseRef.child('user').update({name: 'Mike'});
