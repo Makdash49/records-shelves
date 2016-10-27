@@ -23,18 +23,9 @@ firebaseRef.set({
   }
 });
 
-// firebaseRef.child('app/name').remove();
 
-firebaseRef.child('app').update({
-  version: '2.0',
-  name: null
+firebaseRef.update({
+  isRunning: null
 });
 
-// remove is running setting to null
-// age by remove on user age.
-
-firebaseRef.child('isRunning').remove();
-
-firebaseRef.child('user').update({
-  age: null
-});
+firebaseRef.child('user/age').remove();
