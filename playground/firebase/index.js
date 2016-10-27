@@ -23,9 +23,8 @@ firebaseRef.set({
   }
 });
 
-
-firebaseRef.update({
-  isRunning: null
+firebaseRef.child('app').once('value').then((snapshot) => {
+  console.log('Got entire database', snapshot.key, snapshot.val());
+}, (e) => {
+  console.log('Unable to fetch value', e);
 });
-
-firebaseRef.child('user/age').remove();
