@@ -23,12 +23,18 @@ firebaseRef.set({
   }
 });
 
-// firebaseRef.update({
-//   'app/name': 'Todo Application',
-//   'user/name': 'Jen'
-// });
+// firebaseRef.child('app/name').remove();
 
+firebaseRef.child('app').update({
+  version: '2.0',
+  name: null
+});
 
-firebaseRef.child('app').update({name: 'Todo Application'});
+// remove is running setting to null
+// age by remove on user age.
 
-firebaseRef.child('user').update({name: 'Mike'});
+firebaseRef.child('isRunning').remove();
+
+firebaseRef.child('user').update({
+  age: null
+});
