@@ -23,18 +23,14 @@ firebaseRef.set({
   }
 });
 
-// firebaseRef.child('app').once('value').then((snapshot) => {
-//   console.log('Got entire database', snapshot.key, snapshot.val());
-// }, (e) => {
-//   console.log('Unable to fetch value', e);
-// });
+firebaseRef.child('user').on('value', (snapshot) => {
+  console.log('Update value', snapshot.val());
+});
 
-var logData = (snapshot) => {
-  console.log('Got value', snapshot.val());
-};
+firebaseRef.child('user').update({
+  name: 'Smithee'
+});
 
-firebaseRef.on('value', logData);
-
-firebaseRef.off()
-
-firebaseRef.update({isRunning: false});
+firebaseRef.child('app').update({
+  name: 'Totally Cool App'
+});
