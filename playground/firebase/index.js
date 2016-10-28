@@ -55,16 +55,16 @@ firebaseRef.set({
 // Make sure callback fired twice. Once for each todo item.
 
 
-var myArray = firebaseRef.child('items');
+var todosRef = firebaseRef.child('todos');
 
-myArray.on('child_added', (snapshot) => {
-  console.log('child_added', snapshot.key, snapshot.val());
+todosRef.on('child_added', (snapshot) => {
+  console.log('New todo added', snapshot.key, snapshot.val());
 });
 
-myArray.push({
-  text: 'headphones'
+todosRef.push({
+  text: 'Todo 1'
 });
 
-myArray.push({
-  text: 'stereo'
+todosRef.push({
+  text: 'Todo 2'
 });
