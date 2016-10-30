@@ -2,6 +2,8 @@ import moment from 'moment';
 
 import firebase, {firebaseRef} from 'app/firebase/'
 
+var db = firebase.database();
+
 export var setSearchText = (searchText) => {
   return {
     type: 'SET_SEARCH_TEXT',
@@ -47,6 +49,37 @@ export var addTodos = (todos) => {
     todos
   };
 };
+
+export var startAddTodos = () => {
+  var ref = db.ref("todos");
+  ref.on("value", function(snapshot) {
+    // console.log(Object.keys(snapshot.val())[0]);
+    var array = Object.keys(snapshot.val());
+    console.log(array);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+};
+
+// Get a database reference to our posts
+// var db = firebase.database();
+// var ref = db.ref("todos");
+//
+// // Attach an asynchronous callback to read the data at our posts reference
+// ref.on("value", function(snapshot) {
+//   console.log(snapshot.val());
+// }, function (errorObject) {
+//   console.log("The read failed: " + errorObject.code);
+// });
+
+// fill this out. quirk. How data comes back from firebase.
+// We get back object, with random id, text, and so on.
+// Our application expects an array of objects, with ID property.
+// Get Id from key to the value.
+//
+// Object.keys(todo) returns an array.
+
+
 
 export var updateTodo = (id, updates) => {
   return {
