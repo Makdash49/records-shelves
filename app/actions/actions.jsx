@@ -51,31 +51,34 @@ export var addTodos = (todos) => {
 };
 
 export var startAddTodos = () => {
-  var ref = db.ref("todos");
-  ref.on("value", function(snapshot) {
-    var array = Object.keys(snapshot.val());
-    console.log(array);
+  return (dispatch, getState) => {
+    var ref = db.ref("todos");
+    var todosObject = {};
+    var keysArray = [];
+    var newObjectsArray = []
 
-    for (i = 0; i < array.length; i++) {
+    ref.on("value", function(snapshot) {
+      todosObject = snapshot.val();
+      keysArray = Object.keys(snapshot.val());
 
+      for (var i = 0; i < keysArray.length; i++) {
+        var key = keysArray[i];
+        var oneTodo = todosObject[key];
 
+        var updatedTodo = {
+          ...oneTodo,
+          id: keysArray[i]
+        };
+        newObjectsArray.push(updatedTodo);
+      };
+      console.log(newObjectsArray)
+      return dispatch(addTodos(newObjectsArray));
+      }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      });
     };
+  };
 
-  }, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
-  });
-};
-
-// Get a database reference to our posts
-// var db = firebase.database();
-// var ref = db.ref("todos");
-//
-// // Attach an asynchronous callback to read the data at our posts reference
-// ref.on("value", function(snapshot) {
-//   console.log(snapshot.val());
-// }, function (errorObject) {
-//   console.log("The read failed: " + errorObject.code);
-// });
 
 // fill this out. quirk. How data comes back from firebase.
 // We get back object, with random id, text, and so on.
