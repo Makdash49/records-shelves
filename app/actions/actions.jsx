@@ -2,8 +2,6 @@ import moment from 'moment';
 
 import firebase, {firebaseRef} from 'app/firebase/'
 
-var db = firebase.database();
-
 export var setSearchText = (searchText) => {
   return {
     type: 'SET_SEARCH_TEXT',
@@ -52,43 +50,22 @@ export var addTodos = (todos) => {
 
 export var startAddTodos = () => {
   return (dispatch, getState) => {
-    console.log('STARTADDTODOS!!!!!!!!');
-    var ref = db.ref("todos");
-    var todosObject = {};
-    var keysArray = [];
+    var todosRef = firebaseRef.child('todos');
 
-    ref.on("value", function(snapshot) {
-      var newObjectsArray = []
-      todosObject = snapshot.val();
-      keysArray = Object.keys(snapshot.val());
+    return todosRef.once('value').then((snapshot) => {
+      var todos = snapshot.val() || {};
+      var parsedTodos = [];
 
-      for (var i = 0; i < keysArray.length; i++) {
-        var key = keysArray[i];
-        console.log(key);
-        var oneTodo = todosObject[key];
-
-        var updatedTodo = {
-          ...oneTodo,
-          id: keysArray[i]
-        };
-        newObjectsArray.push(updatedTodo);
-      };
-      console.log('newObjectsArray', newObjectsArray)
-      return dispatch(addTodos(newObjectsArray));
-      }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
+      Object.keys(todos).forEach((todoId) => {
+        parsedTodos.push({
+          id: todoId,
+          ...todos[todoId]
+        });
       });
-    };
+      dispatch(addTodos(parsedTodos));
+    });
   };
-
-
-// fill this out. quirk. How data comes back from firebase.
-// We get back object, with random id, text, and so on.
-// Our application expects an array of objects, with ID property.
-// Get Id from key to the value.
-//
-// Object.keys(todo) returns an array.
-
+};
 
 
 export var updateTodo = (id, updates) => {
