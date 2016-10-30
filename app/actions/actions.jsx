@@ -53,9 +53,14 @@ export var addTodos = (todos) => {
 export var startAddTodos = () => {
   var ref = db.ref("todos");
   ref.on("value", function(snapshot) {
-    // console.log(Object.keys(snapshot.val())[0]);
     var array = Object.keys(snapshot.val());
     console.log(array);
+
+    for (i = 0; i < array.length; i++) {
+
+
+    };
+
   }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
   });
