@@ -52,17 +52,19 @@ export var addTodos = (todos) => {
 
 export var startAddTodos = () => {
   return (dispatch, getState) => {
+    console.log('STARTADDTODOS!!!!!!!!');
     var ref = db.ref("todos");
     var todosObject = {};
     var keysArray = [];
-    var newObjectsArray = []
 
     ref.on("value", function(snapshot) {
+      var newObjectsArray = []
       todosObject = snapshot.val();
       keysArray = Object.keys(snapshot.val());
 
       for (var i = 0; i < keysArray.length; i++) {
         var key = keysArray[i];
+        console.log(key);
         var oneTodo = todosObject[key];
 
         var updatedTodo = {
@@ -71,7 +73,7 @@ export var startAddTodos = () => {
         };
         newObjectsArray.push(updatedTodo);
       };
-      console.log(newObjectsArray)
+      console.log('newObjectsArray', newObjectsArray)
       return dispatch(addTodos(newObjectsArray));
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
