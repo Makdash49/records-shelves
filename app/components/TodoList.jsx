@@ -11,19 +11,8 @@ export var TodoList = React.createClass({
 
     var renderTodos = () => {
       console.log('TODOS!!!', todos);
-
-
-      todos.forEach(function(todo){
-        if (!todo.completed) {
-          allCompleted = false
-        };
-      });
-
       console.log('allCompleted????????', allCompleted)
       console.log('showCompleted!!!!!!!!!!!!!', showCompleted)
-
-
-
       if (allCompleted && !showCompleted) {
         return (
           <p className="container__message">Nothing To Do</p>
@@ -35,20 +24,23 @@ export var TodoList = React.createClass({
         );
       });
     };
-
     console.log('&&&&&&&&&&&&&', 'allCompleted')
     var renderMessage = () => {
+      todos.forEach(function(todo){
+        if (!todo.completed) {
+          allCompleted = false
+        };
+      });
       if (allCompleted && showCompleted) {
         return (
           <p className="container__message">Nothing To Do</p>
         );
       };
     };
-
     return (
       <div>
-        {renderTodos()}
         {renderMessage()}
+        {renderTodos()}
       </div>
     )
   }
