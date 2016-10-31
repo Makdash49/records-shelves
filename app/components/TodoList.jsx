@@ -7,7 +7,22 @@ export var TodoList = React.createClass({
   render: function () {
     var {todos, showCompleted, searchText} = this.props;
     var renderTodos = () => {
-      if (todos.length === 0) {
+      console.log('TODOS!!!', todos);
+
+      var allCompleted = true;
+
+      todos.forEach(function(todo){
+        if (!todo.completed) {
+          allCompleted = false
+        };
+      });
+
+      console.log('allCompleted????????', allCompleted)
+      console.log('showCompleted!!!!!!!!!!!!!', showCompleted)
+
+
+
+      if (allCompleted && !showCompleted) {
         return (
           <p className="container__message">Nothing To Do</p>
         );
