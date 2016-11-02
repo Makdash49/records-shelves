@@ -43,6 +43,8 @@ export var todosReducer = (state = [], action) => {
         ...state,
         ...action.todos
       ];
+    case 'LOGOUT':
+      return []
     default:
       return state;
   };
@@ -56,7 +58,18 @@ export var authReducer = (state = {}, action) => {
      };
     case 'LOGOUT':
       return {};
-      default:
-        return state;
+    default:
+      return state;
   };
 };
+
+
+// When log out, wipes auth object.
+// Todos array, is still in redux store.
+// Handler for logout wipes all data.
+// Update reducer on logout to wipe data.
+// Make new test.  Start with data.
+// Trigger log out action.  Verify it got wiped out.
+// All in reducers.
+//
+// Add handler log todos reducer.  Return empty array.
