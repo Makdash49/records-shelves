@@ -48,11 +48,12 @@ export var todosReducer = (state = [], action) => {
   };
 };
 
-// not sure if I should use curl braces or square brackets
-export var authReducer = (state = [], action) => {
+export var authReducer = (state = {}, action) => {
   switch (action.type) {
     case 'LOGIN':
-     return {uid: action.uid}
+     return {
+       uid: action.uid
+     };
     case 'LOGOUT':
       return {};
       default:
