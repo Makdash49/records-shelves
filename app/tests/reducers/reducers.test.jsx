@@ -114,22 +114,22 @@ describe('Reducers', () => {
       expect(res).toEqual({})
     });
 
-    it('should wipe todos on LOGOUT', () => {
-      const todosData = [{
-        id: '123',
-        text: 'Something',
-        completed: true,
-        createdAt: 123,
-        completedAt: 125
+    it('should wipe todos on logout', () => {
+      var todos = [{
+        id: '111',
+        text: 'anything',
+        completed: false,
+        createdAt: undefined,
+        completedAt: 33000
       }];
 
       const action = {
         type: 'LOGOUT'
       };
 
-      const res = reducers.todosReducer(df(todosData), df(action))
+      const res = reducers.todosReducer(df(todos), df(action))
 
-      expect(res).toEqual([]);
+      expect(res.length).toEqual(0);
     });
   });
 });
