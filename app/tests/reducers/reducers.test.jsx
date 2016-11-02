@@ -88,26 +88,25 @@ describe('Reducers', () => {
     });
   });
   describe('authReducer', () => {
-    it('should login with an auth id', () => {
+    it('should login with a uid id', () => {
       var action = {
         type: 'LOGIN',
-        auth: 12345
+        uid: 12345
       };
 
       var res = reducers.authReducer(df(''), df(action));
-
-      expect(res).toEqual(action.auth);
+      expect(res.uid).toEqual(action.uid);
     });
 
-    it('should logout leaving an empty object for the auth id', () => {
+    it('should logout leaving an empty object for the uid id', () => {
       var action = {
         type: 'LOGOUT',
-        auth: {}
+        uid: {}
       };
 
       var res = reducers.authReducer(df(''), df(action));
 
-      expect(res).toEqual(action.auth)
+      expect(res).toEqual(action.uid)
     });
   });
 

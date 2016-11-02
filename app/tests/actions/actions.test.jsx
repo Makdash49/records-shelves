@@ -87,9 +87,9 @@ describe('Actions', () => {
   it('should generate login action', () => {
     var action = {
       type: 'LOGIN',
-      auth: 12345
+      uid: 12345
     };
-    var res = actions.login(action.auth);
+    var res = actions.login(action.uid);
 
     expect(res).toEqual(action);
   });
@@ -97,7 +97,7 @@ describe('Actions', () => {
   it('should generate logout action', () => {
     var action = {
       type: 'LOGOUT',
-      auth: {}
+      uid: {}
     };
 
     var res = actions.logout()

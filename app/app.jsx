@@ -13,12 +13,10 @@ firebase.auth().onAuthStateChanged((user) => {
     // Andrews code on 1 line below
     store.dispatch(actions.login(user.uid));
     hashHistory.push('/todos');
-    console.log('AFTER LOGIN', store.getState());
   } else {
     // Andrews code on 1 line below
     store.dispatch(actions.logout());
     hashHistory.push('/');
-    console.log('AFTER LOGOUT', store.getState());
   }
 });
 
