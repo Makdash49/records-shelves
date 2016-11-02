@@ -87,4 +87,28 @@ describe('Reducers', () => {
       expect(res[0]).toEqual(todos[0]);
     });
   });
+  describe('authReducer', () => {
+    it('should login with an auth id', () => {
+      var action = {
+        type: 'LOGIN',
+        auth: 12345
+      };
+
+      var res = reducers.authReducer(df(''), df(action));
+
+      expect(res).toEqual(action.auth);
+    });
+
+    it('should logout leaving an empty object for the auth id', () => {
+      var action = {
+        type: 'LOGOUT',
+        auth: {}
+      };
+
+      var res = reducers.authReducer(df(''), df(action));
+
+      expect(res).toEqual(action.auth)
+    });
+  });
+
 });

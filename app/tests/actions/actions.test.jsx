@@ -40,7 +40,7 @@ describe('Actions', () => {
     expect(res).toEqual(action);
   });
 
-  it('should create todo nd dispatch ADD_TODO', (done) => {
+  it('should create todo and dispatch ADD_TODO', (done) => {
     const store = createMockStore({});
     const todoText = 'My todo item';
 
@@ -83,6 +83,39 @@ describe('Actions', () => {
 
     expect(res).toEqual(action);
   });
+
+  it('should generate login action', () => {
+    var action = {
+      type: 'LOGIN',
+      auth: 12345
+    };
+    var res = actions.login(action.auth);
+
+    expect(res).toEqual(action);
+  });
+
+  it('should generate logout action', () => {
+    var action = {
+      type: 'LOGOUT',
+      auth: {}
+    };
+
+    var res = actions.logout()
+
+    expect(res).toEqual(action)
+  });
+
+
+
+
+
+
+
+
+
+
+
+
 
   describe('Tests with firebase todos', () => {
     var testTodoRef;

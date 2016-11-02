@@ -52,7 +52,7 @@ export var todosReducer = (state = [], action) => {
 export var authReducer = (state = [], action) => {
   switch (action.type) {
     case 'LOGIN':
-     return action.uid
+     return action.auth
     case 'LOGOUT':
       return {};
       default:
