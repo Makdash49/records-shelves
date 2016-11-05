@@ -4,7 +4,7 @@ import * as actions from 'actions'
 
 
 export class TodoSearch extends React.Component {
-  render() {
+  render () {
     var {dispatch, showCompleted, searchText} = this.props;
 
     return (

@@ -5,11 +5,6 @@ import * as actions from 'actions';
 
 export class AddTodo extends React.Component {
 
-  constructor (props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
   handleSubmit (e) {
     e.preventDefault();
     var {dispatch} = this.props
@@ -27,14 +22,13 @@ export class AddTodo extends React.Component {
   render () {
     return (
       <div className="container__footer">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="text" ref="todoText" placeholder="What do you need to do?"/>
           <button className="button expanded">Add Todo</button>
         </form>
       </div>
     );
   }
-
 };
 
 export default connect()(AddTodo);

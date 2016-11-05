@@ -7,12 +7,6 @@ import TodoSearch from 'TodoSearch';
 import * as actions from 'actions';
 
 export class TodoApp extends React.Component {
-
-  constructor (props) {
-    super(props);
-    this.onLogout = this.onLogout.bind(this);
-  }
-
   onLogout(e) {
     var {dispatch} = this.props;
 
@@ -20,12 +14,11 @@ export class TodoApp extends React.Component {
 
     dispatch(actions.startLogout());
   }
-
   render() {
     return (
       <div>
         <div className="page-actions">
-          <a href="#" onClick={this.onLogout}>Logout</a>
+          <a href="#" onClick={this.onLogout.bind(this)}>Logout</a>
         </div>
         <h1 className="page-title"> Todo App</h1>
 
