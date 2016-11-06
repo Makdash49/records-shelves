@@ -45,6 +45,13 @@ export var todosReducer = (state = [], action) => {
       ];
     case 'LOGOUT':
       return [];
+    case 'DELETE_TODO':
+      for (var i = 0; i < state.length; i++) {
+        if (state[i].id === action.id) {
+          state.splice(i, 1);
+        };
+      };
+      return [...state];
     default:
       return state;
   };

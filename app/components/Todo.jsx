@@ -4,6 +4,14 @@ import moment from 'moment';
 import * as actions from 'actions';
 
 export class Todo extends React.Component {
+
+  handleClick (e) {
+    e.preventDefault();
+    var {dispatch, id} = this.props;
+    dispatch(actions.startDeleteTodo(id));
+  }
+
+
   render() {
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
     var todoClassName = completed ? 'todo todo-completed' : 'todo';
@@ -33,7 +41,7 @@ export class Todo extends React.Component {
           </div>
         </div>
         <div className="deleteBox">
-          <button className="button float-right" onClick={this.onLogin}>Delete</button>
+          <button className="button float-right" onClick={this.handleClick.bind(this)}>Delete</button>
         </div>
       </div>
     )

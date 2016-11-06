@@ -22,6 +22,13 @@ export var addTodo = (todo) => {
   };
 };
 
+export var deleteTodo = (id) => {
+  return {
+    type: 'DELETE_TODO',
+    id
+  };
+};
+
 export var startAddTodo = (text) => {
   return (dispatch, getState) => {
     var todo = {
@@ -38,6 +45,19 @@ export var startAddTodo = (text) => {
         ...todo,
         id: todoRef.key
       }))
+    });
+  };
+};
+
+export var startDeleteTodo = (id) => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+
+    // var todoRef = firebaseRef.child(`users/${uid}/todos`).child(id).remove();
+    var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`).remove();
+
+    return todoRef.then(() => {
+      dispatch(deleteTodo(id));
     });
   };
 };

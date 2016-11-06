@@ -68,3 +68,5 @@ todosRef.push({
 todosRef.push({
   text: 'Todo 2'
 });
+
+// ref.child(key).remove();
