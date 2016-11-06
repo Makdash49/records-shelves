@@ -1,4 +1,6 @@
 .todo {
+  float: left;
+  width: 82%;
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -27,4 +29,10 @@
     color: $light-color;
     text-decoration: line-through;
   }
+}
+
+.deleteBox {
+  padding: 5px;
+  float: right;
+  width: 18%;
 }
