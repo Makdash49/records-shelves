@@ -15,6 +15,8 @@ export var showCompletedReducer = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_SHOW_COMPLETED':
       return !state;
+    case 'SET_SHOW_COMPLETED':
+        return action.boolean;
     default:
       return state;
   };

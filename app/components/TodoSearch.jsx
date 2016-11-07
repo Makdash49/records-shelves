@@ -18,7 +18,8 @@ export class TodoSearch extends React.Component {
         <div>
           <label>
             <input type="checkbox" ref="showCompleted" checked={showCompleted} onChange={() => {
-                dispatch(actions.toggleShowCompleted());
+                // dispatch(actions.toggleShowCompleted());
+                dispatch(actions.startToggleShowCompleted());
               }}/>
             Show completed todos
           </label>

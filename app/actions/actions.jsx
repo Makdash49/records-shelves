@@ -15,6 +15,21 @@ export var toggleShowCompleted = () => {
   };
 };
 
+export var startToggleShowCompleted = () => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    var newState = getState().showCompleted;
+    var toggleRef = firebaseRef.child(`users/${uid}/showCompleted`).set(!newState);
+  };
+};
+
+export var setShowCompleted = (boolean) => {
+  return {
+    type: 'SET_SHOW_COMPLETED',
+    boolean
+  };
+};
+
 export var addTodo = (todo) => {
   return {
     type: 'ADD_TODO',

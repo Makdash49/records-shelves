@@ -15,9 +15,17 @@ firebase.auth().onAuthStateChanged((user) => {
     store.dispatch(actions.startAddTodos());
     hashHistory.push('/todos');
     var notesRef = firebaseRef.child(`users/${user.uid}/todos`)
+    var toggleRef = firebaseRef.child(`users/${user.uid}/showCompleted`)
 
     var todo;
     var id;
+
+    toggleRef.on('value', (snapshot) =>{
+      // console.log('value', snapshot.key, snapshot.val());
+      var boolean = snapshot.val();
+      store.dispatch(actions.setShowCompleted(boolean));
+    });
+
     notesRef.on('child_added', (snapshot) =>{
       // console.log('child_added', snapshot.key, snapshot.val());
       todo = snapshot.val();
@@ -34,7 +42,8 @@ firebase.auth().onAuthStateChanged((user) => {
 
     notesRef.on('child_removed', (snapshot) =>{
       // console.log('child_removed', snapshot.key, snapshot.val());
-      store.dispatch(actions.deleteTodo(snapshot.key));
+      id = snapshot.key
+      store.dispatch(actions.deleteTodo(id));
     });
 
   } else {
