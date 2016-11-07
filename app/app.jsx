@@ -15,23 +15,27 @@ firebase.auth().onAuthStateChanged((user) => {
     store.dispatch(actions.startAddTodos());
     hashHistory.push('/todos');
     var notesRef = firebaseRef.child(`users/${user.uid}/todos`)
+    var todo;
+    var id;
 
     notesRef.on('child_added', (snapshot) =>{
       console.log('child_added', snapshot.key, snapshot.val());
-      var todo = snapshot.val();
-      var id = snapshot.key;
+      todo = snapshot.val();
+      id = snapshot.key;
       store.dispatch(actions.addTodo({...todo, id}));
     });
 
     notesRef.on('child_changed', (snapshot) =>{
       console.log('child_changed', snapshot.key, snapshot.val());
-      // store.dispatch(actions.startAddTodos());
+      id = snapshot.key;
+      todo = snapshot.val();
+      store.dispatch(actions.updateTodo(id, todo));
 
     });
 
     notesRef.on('child_removed', (snapshot) =>{
       console.log('child_removed', snapshot.key, snapshot.val());
-      // store.dispatch(actions.startAddTodos());
+      store.dispatch(actions.deleteTodo(snapshot.key));
 
     });
   } else {
