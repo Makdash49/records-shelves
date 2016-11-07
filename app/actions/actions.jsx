@@ -89,6 +89,13 @@ export var startAddTodos = () => {
   };
 };
 
+export var autoAdd = () => {
+  return {
+    type: 'AUTO_ADD',
+    todo
+  };
+};
+
 
 export var updateTodo = (id, updates) => {
   return {
