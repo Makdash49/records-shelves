@@ -11,6 +11,12 @@ export class Todo extends React.Component {
     dispatch(actions.startDeleteTodo(id));
   }
 
+  handleEdit (e) {
+    e.preventDefault();
+    var {dispatch, id} = this.props;
+    dispatch(actions.startDeleteTodo(id));
+  }
+
 
   render() {
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
@@ -41,7 +47,8 @@ export class Todo extends React.Component {
           </div>
         </div>
         <div className="deleteBox">
-          <button className="button float-right" onClick={this.handleClick.bind(this)}>Delete</button>
+          <button className="my-red-button float-right" onClick={this.handleClick.bind(this)}>D</button>
+          <button className="my-green-button float-right" onClick={this.handleEdit.bind(this)}>E</button>
         </div>
       </div>
     )

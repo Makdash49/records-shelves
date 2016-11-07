@@ -1,11 +1,13 @@
 .todo {
   float: left;
-  width: 82%;
+  width: 70%;
   align-items: center;
   cursor: pointer;
   display: flex;
   padding: 1rem;
   transition: background .3s ease;
+  border: 1px solid $light-grey-border;
+  border-radius: 5px;
 
   p, input {
     margin: 0;
@@ -32,7 +34,26 @@
 }
 
 .deleteBox {
-  padding: 5px;
+  padding: 1px;
   float: right;
-  width: 18%;
+  width: 30%;
 }
+
+
+.my-red-button {
+  @include button;
+  background-color: red;
+  width: 30%;
+  &:hover {
+    background: black;
+  }
+ }
+
+ .my-green-button {
+   @include button;
+   background-color: green;
+   width: 30%;
+   &:hover {
+     background: black;
+   }
+ }
