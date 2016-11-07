@@ -9,6 +9,14 @@ export var setSearchText = (searchText) => {
   };
 };
 
+export var startSetSearchText = (searchText = '') => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    // var newState = getState().showCompleted;
+    var toggleRef = firebaseRef.child(`users/${uid}/searchText`).set(searchText);
+  };
+};
+
 export var toggleShowCompleted = () => {
   return {
     type: 'TOGGLE_SHOW_COMPLETED'

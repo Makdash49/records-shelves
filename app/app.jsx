@@ -14,11 +14,18 @@ firebase.auth().onAuthStateChanged((user) => {
     store.dispatch(actions.login(user.uid));
     store.dispatch(actions.startAddTodos());
     hashHistory.push('/todos');
-    var notesRef = firebaseRef.child(`users/${user.uid}/todos`)
-    var toggleRef = firebaseRef.child(`users/${user.uid}/showCompleted`)
+    var notesRef = firebaseRef.child(`users/${user.uid}/todos`);
+    var toggleRef = firebaseRef.child(`users/${user.uid}/showCompleted`);
+    var searchRef = firebaseRef.child(`users/${user.uid}/searchText`);
 
     var todo;
     var id;
+
+    searchRef.on('value', (snapshot) =>{
+      // console.log('value', snapshot.key, snapshot.val());
+      var searchText = snapshot.val();
+      store.dispatch(actions.setSearchText(searchText));
+    });
 
     toggleRef.on('value', (snapshot) =>{
       // console.log('value', snapshot.key, snapshot.val());

@@ -12,7 +12,7 @@ export class TodoSearch extends React.Component {
         <div>
           <input type="search" ref="searchText" placeholder="Search todos" value={searchText} onChange={() => {
                 var searchText = this.refs.searchText.value;
-                dispatch(actions.setSearchText(searchText));
+                dispatch(actions.startSetSearchText(searchText));
             }}/>
         </div>
         <div>
