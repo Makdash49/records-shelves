@@ -170,6 +170,20 @@ export var startToggleEdit = (id, edit) => {
   };
 };
 
+export var startAddEdit = (id, text) => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+    var updates = {
+      edit: false,
+      text
+    };
+    return todoRef.update(updates).then(() => {
+      // dispatch(updateTodo(id, updates));
+    });
+  };
+};
+
 export var login = (uid) => {
   return {
     type: 'LOGIN',

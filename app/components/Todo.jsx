@@ -13,13 +13,13 @@ export class Todo extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    var {dispatch} = this.props
+    var {dispatch, id} = this.props
 
     var todoText = this.refs.todoText.value;
 
     if (todoText.length > 0) {
       this.refs.todoText.value = '';
-      dispatch(actions.startAddTodo(todoText));
+      dispatch(actions.startAddEdit(id, todoText));
     } else {
       this.refs.todoText.focus();
     }
