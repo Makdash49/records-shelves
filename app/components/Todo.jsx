@@ -11,6 +11,20 @@ export class Todo extends React.Component {
     dispatch(actions.startDeleteTodo(id));
   }
 
+  handleSubmit (e) {
+    e.preventDefault();
+    var {dispatch} = this.props
+
+    var todoText = this.refs.todoText.value;
+
+    if (todoText.length > 0) {
+      this.refs.todoText.value = '';
+      dispatch(actions.startAddTodo(todoText));
+    } else {
+      this.refs.todoText.focus();
+    }
+  }
+
   handleEdit (e) {
     e.preventDefault();
     var {dispatch, id, edit} = this.props;
@@ -39,14 +53,16 @@ export class Todo extends React.Component {
       if (edit) {
         return (
           <div>
-            <div className={todoClassName} onClick={() =>{
-                dispatch(actions.startToggleTodo(id, !completed));
-              }}>
+            <div className={todoClassName}>
               <div>
                 <input type="checkbox" checked={completed}/>
               </div>
               <div>
-                <p>Edit this: {text}</p>
+
+                <form onSubmit={this.handleSubmit.bind(this)}>
+                  <input type="text" ref="todoText" defaultValue={text}/>
+                </form>
+
                 <p className="todo__subtext">{renderDate()}</p>
               </div>
             </div>
