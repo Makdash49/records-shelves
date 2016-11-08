@@ -31,9 +31,24 @@ export var startToggleShowCompleted = () => {
   };
 };
 
+// export var startToggleEdit = () => {
+//   return (dispatch, getState) => {
+//     var uid = getState().auth.uid;
+//     var newState = getState().edit;
+//     var toggleRef = firebaseRef.child(`users/${uid}/showCompleted`).set(!newState);
+//   };
+// };
+
 export var setShowCompleted = (boolean) => {
   return {
     type: 'SET_SHOW_COMPLETED',
+    boolean
+  };
+};
+
+export var setEdit = (boolean) => {
+  return {
+    type: 'SET_EDIT',
     boolean
   };
 };
@@ -58,7 +73,8 @@ export var startAddTodo = (text) => {
       text,
       completed: false,
       createdAt: moment().unix(),
-      completedAt: null
+      completedAt: null,
+      edit: false
     };
     var uid = getState().auth.uid;
     var todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo);
@@ -134,6 +150,19 @@ export var startToggleTodo = (id, completed) => {
     var updates = {
       completed,
       completedAt: completed ? moment().unix() : null
+    };
+    return todoRef.update(updates).then(() => {
+      // dispatch(updateTodo(id, updates));
+    });
+  };
+};
+
+export var startToggleEdit = (id, edit) => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+    var updates = {
+      edit
     };
     return todoRef.update(updates).then(() => {
       // dispatch(updateTodo(id, updates));

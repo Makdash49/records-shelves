@@ -17,6 +17,7 @@ firebase.auth().onAuthStateChanged((user) => {
     var notesRef = firebaseRef.child(`users/${user.uid}/todos`);
     var toggleRef = firebaseRef.child(`users/${user.uid}/showCompleted`);
     var searchRef = firebaseRef.child(`users/${user.uid}/searchText`);
+    var editRef = firebaseRef.child(`users/${user.uid}/edit`);
 
     var todo;
     var id;
@@ -32,6 +33,12 @@ firebase.auth().onAuthStateChanged((user) => {
       var boolean = snapshot.val();
       store.dispatch(actions.setShowCompleted(boolean));
     });
+
+    // editRef.on('value', (snapshot) =>{
+    //   // console.log('value', snapshot.key, snapshot.val());
+    //   var boolean = snapshot.val();
+    //   store.dispatch(actions.setEdit(boolean));
+    // });
 
     notesRef.on('child_added', (snapshot) =>{
       // console.log('child_added', snapshot.key, snapshot.val());
