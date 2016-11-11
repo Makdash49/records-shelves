@@ -7,13 +7,13 @@ var Navigation = () => {
       <div className="top-bar-left">
         <ul className="menu">
           <li className="menu-text">
-            React Timer App
+            The Todo Amazon App
           </li>
           <li>
-            <IndexLink to="/" activeClassName="active-link">Timer</IndexLink>
+            <IndexLink to="/" activeClassName="active-link">Todo</IndexLink>
           </li>
           <li>
-            <Link to="countdown" activeClassName="active-link">Countdown</Link>
+            <Link to="amazon" activeClassName="active-link">Amazon</Link>
           </li>
         </ul>
       </div>

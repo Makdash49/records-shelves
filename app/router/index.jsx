@@ -6,6 +6,7 @@ import Login from 'Login';
 import firebase from 'app/firebase/';
 
 var Main = require('Main');
+import Amazon from 'Amazon';
 
 
 
@@ -27,6 +28,7 @@ export default (
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
       <Route path="todos" component={TodoApp} onEnter={requireLogin}/>
+      <Route path="amazon" component={Amazon} onEnter={requireLogin}/>
       <IndexRoute component={Login} onEnter={redirectIfLoggedIn}/>
     </Route>
   </Router>
