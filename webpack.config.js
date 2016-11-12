@@ -12,10 +12,9 @@ try {
 
 module.exports = {
   node: {
-  console: 'empty',
-  fs: 'empty',
-  net: 'empty',
-  tls: 'empty'
+  fs: "empty",
+  tls: "empty",
+  net: "empty"
   },
   entry: [
     'script!jquery/dist/jquery.min.js',
