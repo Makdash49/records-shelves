@@ -9,7 +9,7 @@ var store = require('configureStore').configure();
 import firebase, {firebaseRef, githubProvider} from 'app/firebase/'
 import router from 'app/router/';
 
-// var amazon = require('amazon-product-api');
+var amazon = require('amazon-product-api');
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
