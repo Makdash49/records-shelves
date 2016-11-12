@@ -11,6 +11,12 @@ try {
 }
 
 module.exports = {
+  node: {
+  console: 'empty',
+  fs: 'empty',
+  net: 'empty',
+  tls: 'empty'
+  },
   entry: [
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/foundation.min.js',
@@ -58,7 +64,7 @@ module.exports = {
       reducers: 'app/reducers/reducers.jsx',
       configureStore: 'app/store/configureStore.jsx'
     },
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.es6.js']
   },
   module: {
     loaders: [
@@ -67,7 +73,7 @@ module.exports = {
         query: {
           presets: ['react', 'es2015', 'stage-0']
         },
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/
       }
     ]
