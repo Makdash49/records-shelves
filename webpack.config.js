@@ -64,7 +64,7 @@ module.exports = {
       reducers: 'app/reducers/reducers.jsx',
       configureStore: 'app/store/configureStore.jsx'
     },
-    extensions: ['', '.js', '.jsx', '.es6.js']
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
@@ -73,8 +73,8 @@ module.exports = {
         query: {
           presets: ['react', 'es2015', 'stage-0']
         },
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/
+      test: /\.jsx?$/,
+      exclude: /(node_modules|bower_components)/
       }
     ]
   },
