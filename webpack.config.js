@@ -42,6 +42,8 @@ module.exports = {
         DATABASE_URL: JSON.stringify(process.env.DATABASE_URL),
         STORAGE_BUCKET: JSON.stringify(process.env.STORAGE_BUCKET),
         MESSAGING_SENDER_ID: JSON.stringify(process.env.MESSAGING_SENDER_ID),
+        AWS_ID: JSON.stringify(process.env.AWS_ID),
+        AWS_SECRET: JSON.stringify(process.env.AWS_SECRET)
       }
     })
   ],

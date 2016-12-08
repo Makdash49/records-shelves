@@ -3,6 +3,9 @@ var express = require('express');
 var envFile = require('node-env-file');
 envFile('./config/development.env');
 
+// I wonder if I need to include the environment variables in the webpack.config
+// for the sake of Heroku?
+
 var amazon = require('amazon-product-api');
 var amazonData;
 var client = amazon.createClient({
