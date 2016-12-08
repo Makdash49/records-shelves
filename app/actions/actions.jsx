@@ -88,6 +88,27 @@ export var startAddTodo = (text) => {
   };
 };
 
+export var startAddAmazon = (text) => {
+  return (dispatch, getState) => {
+    var todo = {
+      text,
+      completed: false,
+      createdAt: moment().unix(),
+      completedAt: null,
+      edit: false
+    };
+    var uid = getState().auth.uid;
+    var todoRef = firebaseRef.child(`users/${uid}/amazons`).push(todo);
+
+    return todoRef.then(() => {
+      // dispatch(addTodo({
+      //   ...todo,
+      //   id: todoRef.key
+      // }))
+    });
+  };
+};
+
 export var startDeleteTodo = (id) => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
