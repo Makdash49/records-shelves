@@ -88,9 +88,16 @@ export var startAddTodo = (text) => {
   };
 };
 
-export var startAddAmazon = (text) => {
+export var addProduct = (product) => {
+  return {
+    type: 'ADD_PRODUCT',
+    product
+  };
+};
+
+export var startAddProduct = (text) => {
   return (dispatch, getState) => {
-    var todo = {
+    var product = {
       text,
       completed: false,
       createdAt: moment().unix(),
@@ -98,13 +105,13 @@ export var startAddAmazon = (text) => {
       edit: false
     };
     var uid = getState().auth.uid;
-    var todoRef = firebaseRef.child(`users/${uid}/amazons`).push(todo);
+    var todoRef = firebaseRef.child(`users/${uid}/products`).push(product);
 
     return todoRef.then(() => {
-      // dispatch(addTodo({
-      //   ...todo,
-      //   id: todoRef.key
-      // }))
+      dispatch(addProduct({
+        ...product,
+        id: todoRef.key
+      }))
     });
   };
 };

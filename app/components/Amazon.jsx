@@ -21,7 +21,7 @@ export class Amazon extends React.Component {
 
     if (todoText.length > 0) {
       this.refs.todoText.value = '';
-      dispatch(actions.startAddAmazon(todoText));
+      dispatch(actions.startAddProduct(todoText));
     } else {
       this.refs.todoText.focus();
     }
