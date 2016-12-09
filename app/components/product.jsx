@@ -5,6 +5,7 @@ import * as actions from 'actions';
 
 export class Product extends React.Component {
 
+
   render() {
     var {text} = this.props;
 
