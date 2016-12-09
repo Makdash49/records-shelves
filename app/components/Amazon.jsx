@@ -1,10 +1,13 @@
 import React from 'react';
 import * as Redux from 'react-redux';
 
+import {connect} from 'react-redux';
+
 
 import * as actions from 'actions';
 
 export class Amazon extends React.Component {
+
   onLogout(e) {
     var {dispatch} = this.props;
 
@@ -30,15 +33,19 @@ export class Amazon extends React.Component {
 
 
   render() {
+    var {todos} = this.props;
+
+    console.log("I'M IN THE AMAZON COMPONENT!!!!", todos)
+
     return (
       <div>
         <div className="page-actions">
           <a href="#" onClick={this.onLogout.bind(this)}>Logout</a>
         </div>
-        <h1 className="page-title">Amazon!!!!</h1>
+        <h1 className="page-title">Amazon!!!</h1>
 
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" ref="todoText" placeholder="What do you need to do?"/>
+          <input type="text" ref="todoText" placeholder="What would you like to buy?"/>
           <button className="button expanded">Add Todo</button>
         </form>
 

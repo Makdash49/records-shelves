@@ -105,12 +105,12 @@ export var startAddProduct = (text) => {
       edit: false
     };
     var uid = getState().auth.uid;
-    var todoRef = firebaseRef.child(`users/${uid}/products`).push(product);
+    var productRef = firebaseRef.child(`users/${uid}/products`).push(product);
 
-    return todoRef.then(() => {
+    return productRef.then(() => {
       dispatch(addProduct({
         ...product,
-        id: todoRef.key
+        id: productRef.key
       }))
     });
   };

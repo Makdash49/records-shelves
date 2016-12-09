@@ -10,7 +10,6 @@ export var searchTextReducer = (state = '', action) => {
   };
 };
 
-
 export var showCompletedReducer = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_SHOW_COMPLETED':
@@ -28,6 +27,43 @@ export var todosReducer = (state = [], action) => {
       return [
         ...state,
         action.todo
+      ];
+    case 'UPDATE_TODO':
+      return state.map((todo) => {
+        if (todo.id === action.id) {
+          return {
+            ...todo,
+            ...action.updates
+          };
+        } else {
+          return todo;
+        }
+      });
+    case 'ADD_TODOS':
+      return [
+        ...state,
+        ...action.todos
+      ];
+    case 'LOGOUT':
+      return [];
+    case 'DELETE_TODO':
+      for (var i = 0; i < state.length; i++) {
+        if (state[i].id === action.id) {
+          state.splice(i, 1);
+        };
+      };
+      return [...state];
+    default:
+      return state;
+  };
+};
+
+export var productsReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_PRODUCT':
+      return [
+        ...state,
+        action.product
       ];
     case 'UPDATE_TODO':
       return state.map((todo) => {
