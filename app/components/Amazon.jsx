@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Item from 'Item';
+import Product from 'Product';
 
 // var Product = require('./Product')
 import * as actions from 'actions';
@@ -41,7 +41,7 @@ export class Amazon extends React.Component {
     var renderProducts = () => {
       return products.map((product) => {
         return (
-          <Item key={product.id} {...product}/>
+          <Product key={product.id} {...product}/>
         );
       });
     }
