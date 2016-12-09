@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 
-export class Product extends React.Component {
+export class Item extends React.Component {
 
   render() {
     var {text} = this.props;
@@ -24,7 +24,7 @@ export class Product extends React.Component {
   }
 };
 
-export default connect()(Product);
+export default connect()(Item);
 
 // export default connect(
 //   (state) => {
