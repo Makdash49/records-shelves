@@ -44,7 +44,6 @@
     "webpack": "^1.12.13"
   },
   "devDependencies": {
-    "amazon-product-api": "^0.4.2",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.2",
     "karma-mocha": "^0.2.2",

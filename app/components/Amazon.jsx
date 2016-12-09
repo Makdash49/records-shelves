@@ -1,11 +1,12 @@
 import React from 'react';
-// import * as Redux from 'react-redux';
+import {connect} from 'react-redux';
 import Product from 'Product';
 
-import {connect} from 'react-redux';
-
-
+// var Product = require('./Product')
 import * as actions from 'actions';
+
+
+
 
 export class Amazon extends React.Component {
 
