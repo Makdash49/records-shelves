@@ -1,29 +1,29 @@
 var express = require('express');
 var path = require('path');
-var envFile = require('node-env-file');
-
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
-try {
-  envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'));
-} catch (e) {
-
-}
-
-var amazon = require('amazon-product-api');
-var client = amazon.createClient({
-  awsId: process.env.AWS_ID,
-  awsSecret: process.env.AWS_SECRET,
-  awsTag: "Todo App"
-});
-
-client.itemSearch({
-  keywords: 'Quiet Please ear plugs'
-}).then(function(results){
-  console.log(JSON.stringify(results[0]["ItemAttributes"][0]["Title"][0]));
-}).catch(function(err){
-  console.log(err);
-});
+// var envFile = require('node-env-file');
+//
+// process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+//
+// try {
+//   envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'));
+// } catch (e) {
+//
+// }
+//
+// var amazon = require('amazon-product-api');
+// var client = amazon.createClient({
+//   awsId: process.env.AWS_ID,
+//   awsSecret: process.env.AWS_SECRET,
+//   awsTag: "Todo App"
+// });
+//
+// client.itemSearch({
+//   keywords: 'Quiet Please ear plugs'
+// }).then(function(results){
+//   console.log(JSON.stringify(results[0]["ItemAttributes"][0]["Title"][0]));
+// }).catch(function(err){
+//   console.log(err);
+// });
 
 
 //Create our app
