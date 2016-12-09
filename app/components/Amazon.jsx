@@ -1,5 +1,6 @@
 import React from 'react';
 // import * as Redux from 'react-redux';
+import Product from 'Product';
 
 import {connect} from 'react-redux';
 
@@ -36,6 +37,15 @@ export class Amazon extends React.Component {
     var {products} = this.props;
     console.log("AMAZON COMPONENT:", products)
 
+    var renderProducts = () => {
+      return products.map((product) => {
+        return (
+          <Product key={product.id} {...product}/>
+        );
+      });
+    }
+
+
     return (
       <div>
         <div className="page-actions">
@@ -45,8 +55,9 @@ export class Amazon extends React.Component {
 
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="text" ref="todoText" placeholder="What would you like to buy?"/>
-          <button className="button expanded">Add Todo</button>
+          <button className="button expanded">Add Product</button>
         </form>
+
 
         <div className="row">
           <div className="column small-centered small-11 medium-6 large-5">
@@ -54,6 +65,7 @@ export class Amazon extends React.Component {
             </div>
           </div>
         </div>
+        {renderProducts()}
       </div>
     )
   }
