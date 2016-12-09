@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Redux from 'react-redux';
+// import * as Redux from 'react-redux';
 
 import {connect} from 'react-redux';
 
@@ -33,9 +33,8 @@ export class Amazon extends React.Component {
 
 
   render() {
-    var {todos} = this.props;
-
-    console.log("I'M IN THE AMAZON COMPONENT!!!!", todos)
+    var {products} = this.props;
+    console.log("AMAZON COMPONENT:", products)
 
     return (
       <div>
@@ -60,4 +59,10 @@ export class Amazon extends React.Component {
   }
 };
 
-export default Redux.connect()(Amazon);
+// export default Redux.connect()(Amazon);
+
+export default connect(
+  (state) => {
+    return state;
+  }
+)(Amazon);

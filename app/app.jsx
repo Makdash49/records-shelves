@@ -13,11 +13,14 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login(user.uid));
     store.dispatch(actions.startAddTodos());
+    store.dispatch(actions.startAddProducts());
+
     hashHistory.push('/todos');
     var notesRef = firebaseRef.child(`users/${user.uid}/todos`);
     var toggleRef = firebaseRef.child(`users/${user.uid}/showCompleted`);
     var searchRef = firebaseRef.child(`users/${user.uid}/searchText`);
     var editRef = firebaseRef.child(`users/${user.uid}/edit`);
+    // var productRef = firebaseRef.child(`users/${user.uid}/products`);
 
     var todo;
     var id;

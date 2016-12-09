@@ -76,10 +76,10 @@ export var productsReducer = (state = [], action) => {
           return todo;
         }
       });
-    case 'ADD_TODOS':
+    case 'ADD_PRODUCTS':
       return [
         ...state,
-        ...action.todos
+        ...action.products
       ];
     case 'LOGOUT':
       return [];

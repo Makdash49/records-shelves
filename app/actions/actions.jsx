@@ -155,6 +155,34 @@ export var startAddTodos = () => {
   };
 };
 
+
+export var addProducts = (products) => {
+  return {
+    type: 'ADD_PRODUCTS',
+    products
+  };
+};
+
+export var startAddProducts = () => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    var productsRef = firebaseRef.child(`users/${uid}/products`);
+
+    return productsRef.once('value').then((snapshot) => {
+      var products = snapshot.val() || {};
+      var parsedProducts = [];
+
+      Object.keys(products).forEach((productId) => {
+        parsedProducts.push({
+          id: productId,
+          ...products[productId]
+        });
+      });
+      dispatch(addProducts(parsedProducts));
+    });
+  };
+};
+
 export var autoAdd = () => {
   return {
     type: 'AUTO_ADD',
