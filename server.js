@@ -1,4 +1,7 @@
+const http = require('http');
 var express = require('express');
+const socketIO = require('socket.io');
+
 var path = require('path');
 var envFile = require('node-env-file');
 
@@ -28,8 +31,10 @@ client.itemSearch({
 
 //Create our app
 
-var app = express();
 const PORT = process.env.PORT || 3000;
+var app = express();
+var server = http.createServer(app);
+var io = socketIO(server);
 
 app.use(function (req, res, next) {
   if (req.headers['x-forwarded-proto'] === 'https') {
@@ -41,6 +46,34 @@ app.use(function (req, res, next) {
 
 app.use(express.static('public'));
 
-app.listen(PORT, function () {
+io.on('connection', (socket) =>  {
+  console.log('New user connected');
+});
+
+server.listen(PORT, function () {
   console.log('Express server is up on port ' + PORT);
 });
+
+
+
+
+
+
+
+
+
+// const http = require('http');
+// const express = require('express');
+// const socketIO = require('socket.io');
+// const port = process.env.PORT || 3000;
+// var app = express();
+// var server = http.createServer(app);
+// var io = socketIO(server);
+//
+// io.on('connection', (socket) =>  {
+//   console.log('New user connected');
+// };
+//
+// server.listen(port, function () {
+//   console.log(`Server is up on port ${port}`);
+// });
