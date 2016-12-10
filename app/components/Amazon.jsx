@@ -1,17 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Product from 'Product';
+// var store = require('configureStore').configure();
+
 
 // var Product = require('./Product')
 import * as actions from 'actions';
 var socket = io();
-
+//
 socket.on('receive', function (item) {
   console.log(item);
 });
 
-
-
+console.log('THIS!!!!!', this);
 
 export class Amazon extends React.Component {
 
@@ -32,9 +33,11 @@ export class Amazon extends React.Component {
     if (todoText.length > 0) {
       this.refs.todoText.value = '';
 
-      socket.emit('search', todoText);
+      socket.emit('search', todoText, function (item) {
+        dispatch(actions.startAddProduct(item));
+      });
 
-      dispatch(actions.startAddProduct(todoText));
+      // dispatch(actions.startAddProduct(todoText));
     } else {
       this.refs.todoText.focus();
     }
@@ -53,7 +56,6 @@ export class Amazon extends React.Component {
         );
       });
     }
-
 
     return (
       <div>

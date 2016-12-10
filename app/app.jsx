@@ -9,15 +9,12 @@ var store = require('configureStore').configure();
 import firebase, {firebaseRef, githubProvider} from 'app/firebase/'
 import router from 'app/router/';
 
+
 // var socket = io();
-// //
-// socket.on('connect', function () {
-//
+
+// socket.on('receive', function () {
+//   console.log("WAAAAAHHHHHHOOOOOOOOOO");
 // });
-
-
-
-
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {

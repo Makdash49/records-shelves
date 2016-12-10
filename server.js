@@ -49,14 +49,14 @@ app.use(express.static('public'));
 io.on('connection', (socket) =>  {
   console.log('New user connected');
 
-  socket.on('search', (term) => {
+  socket.on('search', (term, callback) => {
     console.log(term);
     client.itemSearch({
       keywords: term
     }).then(function(results){
       var item = JSON.stringify(results[0]["ItemAttributes"][0]["Title"][0]);
       console.log(item);
-      socket.emit('receive', item);
+      callback(item);
     }).catch(function(err){
       console.log(err);
     });
