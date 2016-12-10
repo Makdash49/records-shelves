@@ -54,8 +54,8 @@ io.on('connection', (socket) =>  {
     client.itemSearch({
       keywords: term
     }).then(function(results){
-      var item = JSON.stringify(results[0]["ItemAttributes"][0]["Title"][0]);
-      console.log(item);
+      var item = results[0]["ItemAttributes"][0]["Title"][0];
+      console.log('Item:', item);
       callback(item);
     }).catch(function(err){
       console.log(err);
