@@ -20,13 +20,13 @@ var client = amazon.createClient({
   awsTag: "Todo App"
 });
 
-client.itemSearch({
-  keywords: 'Quiet Please ear plugs'
-}).then(function(results){
-  console.log(JSON.stringify(results[0]["ItemAttributes"][0]["Title"][0]));
-}).catch(function(err){
-  console.log(err);
-});
+// client.itemSearch({
+//   keywords: 'Quiet Please ear plugs'
+// }).then(function(results){
+//   console.log(JSON.stringify(results[0]["ItemAttributes"][0]["Title"][0]));
+// }).catch(function(err){
+//   console.log(err);
+// });
 
 
 //Create our app
@@ -48,7 +48,20 @@ app.use(express.static('public'));
 
 io.on('connection', (socket) =>  {
   console.log('New user connected');
+
+  socket.on('search', (term) => {
+    console.log(term);
+    client.itemSearch({
+      keywords: term
+    }).then(function(results){
+      console.log(JSON.stringify(results[0]["ItemAttributes"][0]["Title"][0]));
+    }).catch(function(err){
+      console.log(err);
+    });
+  });
 });
+
+
 
 server.listen(PORT, function () {
   console.log('Express server is up on port ' + PORT);
