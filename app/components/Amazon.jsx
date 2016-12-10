@@ -4,6 +4,7 @@ import Product from 'Product';
 
 // var Product = require('./Product')
 import * as actions from 'actions';
+var socket = io();
 
 
 

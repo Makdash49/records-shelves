@@ -9,6 +9,16 @@ var store = require('configureStore').configure();
 import firebase, {firebaseRef, githubProvider} from 'app/firebase/'
 import router from 'app/router/';
 
+// var socket = io();
+// //
+// socket.on('connect', function () {
+//
+// });
+
+
+
+
+
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login(user.uid));
