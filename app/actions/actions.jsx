@@ -2,6 +2,8 @@ import moment from 'moment';
 
 import firebase, {firebaseRef, githubProvider} from 'app/firebase/'
 
+var socket = io();
+
 export var setSearchText = (searchText) => {
   return {
     type: 'SET_SEARCH_TEXT',
@@ -97,21 +99,23 @@ export var addProduct = (product) => {
 
 export var startAddProduct = (text) => {
   return (dispatch, getState) => {
-    var product = {
-      text,
-      completed: false,
-      createdAt: moment().unix(),
-      completedAt: null,
-      edit: false
-    };
-    var uid = getState().auth.uid;
-    var productRef = firebaseRef.child(`users/${uid}/products`).push(product);
+    socket.emit('search', text, function (text) {
+      var product = {
+        text,
+        completed: false,
+        createdAt: moment().unix(),
+        completedAt: null,
+        edit: false
+      };
+      var uid = getState().auth.uid;
+      var productRef = firebaseRef.child(`users/${uid}/products`).push(product);
 
-    return productRef.then(() => {
-      dispatch(addProduct({
-        ...product,
-        id: productRef.key
-      }))
+      return productRef.then(() => {
+        dispatch(addProduct({
+          ...product,
+          id: productRef.key
+        }));
+      });
     });
   };
 };
