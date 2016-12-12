@@ -5,6 +5,8 @@ import Product from 'Product';
 import * as actions from 'actions';
 var socket = io();
 
+
+
 export class Amazon extends React.Component {
 
   onLogout(e) {

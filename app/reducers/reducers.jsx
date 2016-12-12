@@ -62,8 +62,8 @@ export var productsReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_PRODUCT':
       return [
-        ...state,
-        action.product
+        action.product,
+        ...state
       ];
     case 'UPDATE_TODO':
       return state.map((todo) => {
@@ -79,7 +79,7 @@ export var productsReducer = (state = [], action) => {
     case 'ADD_PRODUCTS':
       return [
         ...state,
-        ...action.products
+        ...action.products.reverse()
       ];
     case 'LOGOUT':
       return [];
