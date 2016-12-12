@@ -11,8 +11,8 @@ export class Product extends React.Component {
       return (
         <div>
           <div className="productImage">
-            <p>{text}</p>
             <img src={image} alt={text}/>
+            <p>{text}</p>
           </div>
         </div>
       );
