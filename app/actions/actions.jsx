@@ -99,9 +99,10 @@ export var addProduct = (product) => {
 
 export var startAddProduct = (text) => {
   return (dispatch, getState) => {
-    socket.emit('search', text, function (text) {
+    socket.emit('search', text, function (text, image) {
       var product = {
         text,
+        image,
         completed: false,
         createdAt: moment().unix(),
         completedAt: null,

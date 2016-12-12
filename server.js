@@ -20,17 +20,6 @@ var client = amazon.createClient({
   awsTag: "Todo App"
 });
 
-// client.itemSearch({
-//   keywords: 'Quiet Please ear plugs'
-// }).then(function(results){
-//   console.log(JSON.stringify(results[0]["ItemAttributes"][0]["Title"][0]));
-// }).catch(function(err){
-//   console.log(err);
-// });
-
-
-//Create our app
-
 const PORT = process.env.PORT || 3000;
 var app = express();
 var server = http.createServer(app);
@@ -52,11 +41,13 @@ io.on('connection', (socket) =>  {
   socket.on('search', (term, callback) => {
     console.log(term);
     client.itemSearch({
-      keywords: term
+      keywords: term,
+      responseGroup: 'ItemAttributes,Images'
     }).then(function(results){
       var item = results[0]["ItemAttributes"][0]["Title"][0];
+      var image = results[0]["MediumImage"][0]["URL"][0];
       console.log('Item:', item);
-      callback(item);
+      callback(item, image);
     }).catch(function(err){
       console.log(err);
     });

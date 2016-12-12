@@ -5,12 +5,13 @@ import {connect} from 'react-redux';
 export class Product extends React.Component {
 
   render() {
-    var {text} = this.props;
+    var {text, image} = this.props;
 
     var myComponent = () => {
       return (
         <div>
           <p>{text}</p>
+          <p>{image}</p>
         </div>
       );
     };
