@@ -10,8 +10,10 @@ export class Product extends React.Component {
     var myComponent = () => {
       return (
         <div>
-          <p>{text}</p>
-          <p>{image}</p>
+          <div className="productImage">
+            <p>{text}</p>
+            <img src={image} alt={text}/>
+          </div>
         </div>
       );
     };
