@@ -7,7 +7,7 @@ var Navigation = () => {
       <div className="top-bar-left">
         <ul className="menu">
           <li className="menu-text">
-            The Todo Amazon App
+            The Product Vote App
           </li>
           <li>
             <IndexLink to="/" activeClassName="active-link">Amazon</IndexLink>
