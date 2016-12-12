@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged((user) => {
     store.dispatch(actions.startAddTodos());
     store.dispatch(actions.startAddProducts());
 
-    hashHistory.push('/todos');
+    hashHistory.push('/amazon');
     var notesRef = firebaseRef.child(`users/${user.uid}/todos`);
     var toggleRef = firebaseRef.child(`users/${user.uid}/showCompleted`);
     var searchRef = firebaseRef.child(`users/${user.uid}/searchText`);

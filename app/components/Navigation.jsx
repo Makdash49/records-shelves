@@ -10,10 +10,10 @@ var Navigation = () => {
             The Todo Amazon App
           </li>
           <li>
-            <IndexLink to="/" activeClassName="active-link">Todo</IndexLink>
+            <IndexLink to="/" activeClassName="active-link">Amazon</IndexLink>
           </li>
           <li>
-            <Link to="amazon" activeClassName="active-link">Amazon</Link>
+            <Link to="todos" activeClassName="active-link">Todos</Link>
           </li>
         </ul>
       </div>
