@@ -22,6 +22,8 @@ export class Product extends React.Component {
     var {text, image, counter, total} = this.props;
     console.log('Counter:', counter);
 
+    var percentage = Math.round(counter / total * 100);
+
     var myComponent = () => {
       return (
         <div>
@@ -31,7 +33,7 @@ export class Product extends React.Component {
             <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
             <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
             <p>{counter}</p>
-            <h4>{counter/total * 100}%</h4>
+            <h4>{percentage}%</h4>
           </div>
         </div>
       );
