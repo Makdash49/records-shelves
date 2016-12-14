@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Product from 'Product';
+import ProductAPI from 'ProductAPI'
+
 
 import * as actions from 'actions';
 var socket = io();
@@ -39,7 +41,8 @@ export class Amazon extends React.Component {
     console.log("AMAZON COMPONENT:", products)
 
     var renderProducts = () => {
-      return products.map((product) => {
+      var filteredProducts = ProductAPI.filterProducts(products);
+      return filteredProducts.map((product) => {
         return (
           <Product key={product.id} {...product}/>
         );
