@@ -38,13 +38,22 @@ export class Amazon extends React.Component {
 
   render() {
     var {products} = this.props;
-    console.log("AMAZON COMPONENT:", products)
+    // console.log("AMAZON COMPONENT:", products)
+
+    var total = 0;
+
+    products.forEach((product) => {
+      total = total + product.counter;
+    });
+
+    console.log('TOTAL:', total );
+
 
     var renderProducts = () => {
       var filteredProducts = ProductAPI.filterProducts(products);
       return filteredProducts.map((product) => {
         return (
-          <Product key={product.id} {...product}/>
+          <Product key={product.id} {...product} total={total}/>
         );
       });
     }
@@ -68,6 +77,7 @@ export class Amazon extends React.Component {
             </div>
           </div>
         </div>
+        <h1>TOTAL VOTES: {total}</h1>
         {renderProducts()}
       </div>
     )

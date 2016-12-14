@@ -19,7 +19,7 @@ export class Product extends React.Component {
 
 
   render() {
-    var {text, image, counter} = this.props;
+    var {text, image, counter, total} = this.props;
     console.log('Counter:', counter);
 
     var myComponent = () => {
@@ -31,6 +31,7 @@ export class Product extends React.Component {
             <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
             <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
             <p>{counter}</p>
+            <h4>{counter/total * 100}%</h4>
           </div>
         </div>
       );

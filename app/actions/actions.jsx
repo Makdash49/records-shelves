@@ -303,6 +303,7 @@ export var startIncrementProduct = (id, counter) => {
 
 export var startDeincrementProduct = (id, counter) => {
   return (dispatch, getState) => {
+    console.log('GET STATE', getState());
     var uid = getState().auth.uid;
     var productRef = firebaseRef.child(`users/${uid}/products/${id}`);
     var updates = {
