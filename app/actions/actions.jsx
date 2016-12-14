@@ -91,6 +91,7 @@ export var startAddTodo = (text) => {
 };
 
 export var addProduct = (product) => {
+  console.log("WE MADE IT HERE!!!!!");
   return {
     type: 'ADD_PRODUCT',
     product
@@ -113,10 +114,10 @@ export var startAddProduct = (text) => {
       var productRef = firebaseRef.child(`products`).push(product);
 
       return productRef.then(() => {
-        dispatch(addProduct({
-          ...product,
-          id: productRef.key
-        }));
+        // dispatch(addProduct({
+        //   ...product,
+        //   id: productRef.key
+        // }));
       });
     });
   };

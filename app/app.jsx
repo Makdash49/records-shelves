@@ -27,10 +27,12 @@ firebase.auth().onAuthStateChanged((user) => {
     var toggleRef = firebaseRef.child(`users/${user.uid}/showCompleted`);
     var searchRef = firebaseRef.child(`users/${user.uid}/searchText`);
     var editRef = firebaseRef.child(`users/${user.uid}/edit`);
+    var productsRef = firebaseRef.child(`products`);
     // var productRef = firebaseRef.child(`users/${user.uid}/products`);
 
     var todo;
     var id;
+    var product;
 
     searchRef.on('value', (snapshot) =>{
       // console.log('value', snapshot.key, snapshot.val());
@@ -55,6 +57,21 @@ firebase.auth().onAuthStateChanged((user) => {
       todo = snapshot.val();
       id = snapshot.key;
       store.dispatch(actions.addTodo({...todo, id}));
+    });
+
+    // editRef.on('value', (snapshot) =>{
+    //   // console.log('value', snapshot.key, snapshot.val());
+    //   var boolean = snapshot.val();
+    //   store.dispatch(actions.setEdit(boolean));
+    // });
+
+// **********************************************************************
+    productsRef.on('child_added', (snapshot) =>{
+      console.log('child_added', snapshot.key, snapshot.val());
+      product = snapshot.val();
+      console.log('PRODUCT****************************', product);
+      id = snapshot.key;
+      store.dispatch(actions.addProduct({...product, id}));
     });
 
     notesRef.on('child_changed', (snapshot) =>{

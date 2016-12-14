@@ -38,6 +38,7 @@ export class Amazon extends React.Component {
 
   render() {
     var {products} = this.props;
+    console.log('PRODUCTS!!!!!!!', products);
     // console.log("AMAZON COMPONENT:", products)
 
     var total = 0;
