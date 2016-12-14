@@ -76,11 +76,11 @@ export var productsReducer = (state = [], action) => {
           return product;
         }
       });
-    // case 'ADD_PRODUCTS':
-    //   return [
-    //     ...state,
-    //     ...action.products.reverse()
-    //   ];
+    case 'ADD_PRODUCTS':
+      return [
+        ...state,
+        ...action.products.reverse()
+      ];
     // case 'LOGOUT':
     //   return [];
     // case 'DELETE_TODO':

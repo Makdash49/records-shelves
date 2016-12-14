@@ -290,10 +290,9 @@ export var updateProduct = (id, updates) => {
 export var startIncrementProduct = (id, counter) => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
-    var productRef = firebaseRef.child(`users/${uid}/product/${id}`);
-    var addOnes = counter + 1;
+    var productRef = firebaseRef.child(`users/${uid}/products/${id}`);
     var updates = {
-      counter: addOnes
+      counter: counter + 1
     };
     return productRef.update(updates).then(() => {
       dispatch(updateProduct(id, updates));
