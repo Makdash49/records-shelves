@@ -73,13 +73,19 @@ export class Amazon extends React.Component {
 
 
         <div className="row">
-          <div className="column small-centered small-11 medium-6 large-5">
-            <div className="container">
+            <div className="productContainer">
+              <h1>TOTAL VOTES: {total}</h1>
+              {renderProducts()}
             </div>
-          </div>
+            <div className="productContainer">
+              <h1>TOTAL VOTES: {total}</h1>
+              {renderProducts()}
+            </div>
+            <div className="productContainer">
+              <h1>TOTAL VOTES: {total}</h1>
+              {renderProducts()}
+            </div>
         </div>
-        <h1>TOTAL VOTES: {total}</h1>
-        {renderProducts()}
       </div>
     )
   }
