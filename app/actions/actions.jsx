@@ -103,6 +103,7 @@ export var startAddProduct = (text) => {
       var product = {
         text,
         image,
+        counter: 0,
         completed: false,
         createdAt: moment().unix(),
         completedAt: null,
@@ -272,6 +273,30 @@ export var startLogout = () => {
   return (dispatch, getState) => {
     return firebase.auth().signOut().then(() => {
       console.log('Logged out!');
+    });
+  };
+};
+
+
+export var updateProduct = (id, updates) => {
+  return {
+    type: 'UPDATE_PRODUCT',
+    id,
+    updates
+  };
+};
+
+
+export var startIncrementProduct = (id, counter) => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    var productRef = firebaseRef.child(`users/${uid}/product/${id}`);
+    var addOne = counter + 1;
+    var updates = {
+      counter: addOne
+    };
+    return productRef.update(updates).then(() => {
+      dispatch(updateProduct(id, updates));
     });
   };
 };

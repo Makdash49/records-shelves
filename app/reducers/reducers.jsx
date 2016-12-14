@@ -65,30 +65,30 @@ export var productsReducer = (state = [], action) => {
         action.product,
         ...state
       ];
-    case 'UPDATE_TODO':
-      return state.map((todo) => {
-        if (todo.id === action.id) {
+    case 'UPDATE_PRODUCT':
+      return state.map((product) => {
+        if (product.id === action.id) {
           return {
-            ...todo,
+            ...product,
             ...action.updates
           };
         } else {
-          return todo;
+          return product;
         }
       });
-    case 'ADD_PRODUCTS':
-      return [
-        ...state,
-        ...action.products.reverse()
-      ];
-    case 'LOGOUT':
-      return [];
-    case 'DELETE_TODO':
-      for (var i = 0; i < state.length; i++) {
-        if (state[i].id === action.id) {
-          state.splice(i, 1);
-        };
-      };
+    // case 'ADD_PRODUCTS':
+    //   return [
+    //     ...state,
+    //     ...action.products.reverse()
+    //   ];
+    // case 'LOGOUT':
+    //   return [];
+    // case 'DELETE_TODO':
+    //   for (var i = 0; i < state.length; i++) {
+    //     if (state[i].id === action.id) {
+    //       state.splice(i, 1);
+    //     };
+    //   };
       return [...state];
     default:
       return state;
