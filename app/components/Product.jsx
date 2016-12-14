@@ -4,6 +4,11 @@ import {connect} from 'react-redux';
 
 export class Product extends React.Component {
 
+  handleClick (e) {
+    e.preventDefault();
+    console.log("I'm pressing the + button");
+  }
+
   render() {
     var {text, image} = this.props;
 
@@ -13,6 +18,7 @@ export class Product extends React.Component {
           <div className="productImage">
             <img src={image} alt={text}/>
             <p>{text}</p>
+            <button className="plusBox" onClick={this.handleClick.bind(this)}>+</button>
           </div>
         </div>
       );
