@@ -4,10 +4,16 @@ import * as actions from 'actions';
 
 export class Product extends React.Component {
 
-  handleClick (e) {
+  handlePlus (e) {
     e.preventDefault();
     var {dispatch, id, counter} = this.props;
     dispatch(actions.startIncrementProduct(id, counter));
+    }
+
+  handleMinus (e) {
+    e.preventDefault();
+    var {dispatch, id, counter} = this.props;
+    dispatch(actions.startDeincrementProduct(id, counter));
     }
 
 
@@ -22,7 +28,8 @@ export class Product extends React.Component {
           <div className="productImage">
             <img src={image} alt={text}/>
             <p>{text}</p>
-            <button className="plusBox" onClick={this.handleClick.bind(this)}>+</button>
+            <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
+            <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
             <p>{counter}</p>
           </div>
         </div>

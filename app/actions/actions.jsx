@@ -299,3 +299,17 @@ export var startIncrementProduct = (id, counter) => {
     });
   };
 };
+
+
+export var startDeincrementProduct = (id, counter) => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    var productRef = firebaseRef.child(`users/${uid}/products/${id}`);
+    var updates = {
+      counter: counter - 1
+    };
+    return productRef.update(updates).then(() => {
+      dispatch(updateProduct(id, updates));
+    });
+  };
+};
