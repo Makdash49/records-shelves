@@ -110,7 +110,7 @@ export var startAddProduct = (text) => {
         edit: false
       };
       var uid = getState().auth.uid;
-      var productRef = firebaseRef.child(`users/${uid}/products`).push(product);
+      var productRef = firebaseRef.child(`products`).push(product);
 
       return productRef.then(() => {
         dispatch(addProduct({
@@ -172,7 +172,7 @@ export var addProducts = (products) => {
 export var startAddProducts = () => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
-    var productsRef = firebaseRef.child(`users/${uid}/products`);
+    var productsRef = firebaseRef.child(`products`);
 
     return productsRef.once('value').then((snapshot) => {
       var products = snapshot.val() || {};
@@ -255,7 +255,7 @@ export var login = (uid) => {
 
 export var startLogin = () => {
   return (dispatch, getState) => {
-    firebase.auth().signInWithPopup(githubProvider).then((result) => {
+    firebase.auth().signInAnonymously().then((result) => {
       console.log('Auth worked!', result);
     }, (error) => {
       console.log('Unable to auth', error);
@@ -290,7 +290,7 @@ export var updateProduct = (id, updates) => {
 export var startIncrementProduct = (id, counter) => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
-    var productRef = firebaseRef.child(`users/${uid}/products/${id}`);
+    var productRef = firebaseRef.child(`products/${id}`);
     var updates = {
       counter: counter + 1
     };
@@ -305,7 +305,7 @@ export var startDeincrementProduct = (id, counter) => {
   return (dispatch, getState) => {
     console.log('GET STATE', getState());
     var uid = getState().auth.uid;
-    var productRef = firebaseRef.child(`users/${uid}/products/${id}`);
+    var productRef = firebaseRef.child(`products/${id}`);
     var updates = {
       counter: counter - 1
     };
