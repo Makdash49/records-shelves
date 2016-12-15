@@ -66,26 +66,26 @@ export class Amazon extends React.Component {
         </div>
         <h1 className="page-title">Product Vote</h1>
 
+        <div className="row">
+            <div className="productContainer">
+              <h5>TOTAL VOTES: {total}</h5>
+              {renderProducts()}
+            </div>
+            <div className="productContainer">
+              <h5>TOTAL VOTES: {total}</h5>
+              {renderProducts()}
+            </div>
+            <div className="productContainer">
+              <h5>TOTAL VOTES: {total}</h5>
+              {renderProducts()}
+            </div>
+        </div>
+
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="text" ref="todoText" placeholder="What would you like to buy?"/>
           <button className="button expanded">Add Product</button>
         </form>
 
-
-        <div className="row">
-            <div className="productContainer">
-              <h1>TOTAL VOTES: {total}</h1>
-              {renderProducts()}
-            </div>
-            <div className="productContainer">
-              <h1>TOTAL VOTES: {total}</h1>
-              {renderProducts()}
-            </div>
-            <div className="productContainer">
-              <h1>TOTAL VOTES: {total}</h1>
-              {renderProducts()}
-            </div>
-        </div>
       </div>
     )
   }
