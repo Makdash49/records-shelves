@@ -39,8 +39,8 @@ export class Amazon extends React.Component {
 
   render() {
     var {products} = this.props;
-    console.log('PRODUCTS!!!!!!!', products);
-    // console.log("AMAZON COMPONENT:", products)
+    // console.log('PRODUCTS!!!!!!!', products);
+    // // console.log("AMAZON COMPONENT:", products)
 
     var userOneTotal = 0;
     var userTwoTotal = 0;
@@ -48,7 +48,7 @@ export class Amazon extends React.Component {
       userOneTotal = userOneTotal + product.counterUserOne;
       userTwoTotal = userTwoTotal + product.counterUserTwo;
     });
-    console.log('TOTAL:', userOneTotal);
+    // console.log('TOTAL:', userOneTotal);
 
 
     var renderProductsUserOne = () => {
