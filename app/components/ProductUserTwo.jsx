@@ -19,10 +19,10 @@ export class ProductUserTwo extends React.Component {
 
 
   render() {
-    var {text, image, counterUserTwo, total} = this.props;
+    var {text, image, counterUserTwo, userTwoTotal} = this.props;
     console.log('CounterUserTwo:', counterUserTwo);
 
-    var percentage = Math.round(counterUserTwo / total * 100);
+    var percentage = Math.round(counterUserTwo / userTwoTotal * 100);
 
     var myComponent = () => {
       return (

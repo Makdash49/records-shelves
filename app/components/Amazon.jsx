@@ -42,20 +42,20 @@ export class Amazon extends React.Component {
     console.log('PRODUCTS!!!!!!!', products);
     // console.log("AMAZON COMPONENT:", products)
 
-    var total = 0;
-
+    var userOneTotal = 0;
+    var userTwoTotal = 0;
     products.forEach((product) => {
-      total = total + product.counterUserOne + product.counterUserTwo;
+      userOneTotal = userOneTotal + product.counterUserOne;
+      userTwoTotal = userTwoTotal + product.counterUserTwo;
     });
-
-    console.log('TOTAL:', total );
+    console.log('TOTAL:', userOneTotal);
 
 
     var renderProductsUserOne = () => {
       var filteredProducts = ProductAPI.filterProducts(products);
       return filteredProducts.map((product) => {
         return (
-          <ProductUserOne key={product.id} {...product} total={total}/>
+          <ProductUserOne key={product.id} {...product} userOneTotal={userOneTotal}/>
         );
       });
     }
@@ -65,7 +65,7 @@ export class Amazon extends React.Component {
       var filteredProducts = ProductAPI.filterProducts(products);
       return filteredProducts.map((product) => {
         return (
-          <ProductUserTwo key={product.id} {...product} total={total}/>
+          <ProductUserTwo key={product.id} {...product} userTwoTotal={userTwoTotal}/>
         );
       });
     }
@@ -79,15 +79,12 @@ export class Amazon extends React.Component {
 
         <div className="row">
             <div className="productContainer">
-              <h5>TOTAL VOTES: {total}</h5>
+              <h5>TOTAL VOTES: {userOneTotal}</h5>
               {renderProductsUserOne()}
             </div>
             <div className="productContainer">
-              <h5>TOTAL VOTES: {total}</h5>
+              <h5>TOTAL VOTES: {userTwoTotal}</h5>
               {renderProductsUserTwo()}
-            </div>
-            <div className="productContainer">
-              <h5>TOTAL VOTES: {total}</h5>
             </div>
         </div>
 
