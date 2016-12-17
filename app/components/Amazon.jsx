@@ -52,7 +52,7 @@ export class Amazon extends React.Component {
 
 
     var renderProductsUserOne = () => {
-      var filteredProducts = ProductAPI.filterProducts(products);
+      var filteredProducts = ProductAPI.userOneFilterProducts(products);
       return filteredProducts.map((product) => {
         return (
           <ProductUserOne key={product.id} {...product} userOneTotal={userOneTotal}/>
@@ -62,7 +62,7 @@ export class Amazon extends React.Component {
 
 
     var renderProductsUserTwo = () => {
-      var filteredProducts = ProductAPI.filterProducts(products);
+      var filteredProducts = ProductAPI.userTwofilterProducts(products);
       return filteredProducts.map((product) => {
         return (
           <ProductUserTwo key={product.id} {...product} userTwoTotal={userTwoTotal}/>

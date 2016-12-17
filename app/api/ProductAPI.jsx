@@ -1,11 +1,24 @@
 var $ = require('jquery');
 
 module.exports = {
-  filterProducts: function (products) {
+  userOneFilterProducts: function (products) {
     var filteredProducts = products;
 
     filteredProducts.sort((a, b) => {
-      if(a.counter >= b.counter) {
+      if(a.counterUserOne >= b.counterUserOne) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
+
+    return filteredProducts;
+  },
+  userTwofilterProducts: function (products) {
+    var filteredProducts = products;
+
+    filteredProducts.sort((a, b) => {
+      if(a.counterUserTwo >= b.counterUserTwo) {
         return -1;
       } else {
         return 1;
