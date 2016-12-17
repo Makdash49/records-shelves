@@ -2,27 +2,27 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from 'actions';
 
-export class Product extends React.Component {
+export class ProductUserTwo extends React.Component {
 
   handlePlus (e) {
     e.preventDefault();
-    var {dispatch, id, counter} = this.props;
-    dispatch(actions.startIncrementProduct(id, counter));
+    var {dispatch, id, counterUserTwo} = this.props;
+    dispatch(actions.startIncrementProductUserTwo(id, counterUserTwo));
     }
 
   handleMinus (e) {
     e.preventDefault();
-    var {dispatch, id, counter} = this.props;
-    dispatch(actions.startDeincrementProduct(id, counter));
+    var {dispatch, id, counterUserTwo} = this.props;
+    dispatch(actions.startDeincrementProduct(id, counterUserTwo));
     }
 
 
 
   render() {
-    var {text, image, counter, total} = this.props;
-    console.log('Counter:', counter);
+    var {text, image, counterUserTwo, total} = this.props;
+    console.log('CounterUserTwo:', counterUserTwo);
 
-    var percentage = Math.round(counter / total * 100);
+    var percentage = Math.round(counterUserTwo / total * 100);
 
     var myComponent = () => {
       return (
@@ -32,7 +32,7 @@ export class Product extends React.Component {
             <p>{text}</p>
             <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
             <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
-            <p>{counter}</p>
+            <p>{counterUserTwo}</p>
             <h4>{percentage}%</h4>
           </div>
         </div>
@@ -48,7 +48,7 @@ export class Product extends React.Component {
   }
 };
 
-export default connect()(Product);
+export default connect()(ProductUserTwo);
 
 // export default connect(
 //   (state) => {

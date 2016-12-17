@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Product from 'Product';
+import ProductUserOne from 'ProductUserOne';
+import ProductUserTwo from 'ProductUserTwo';
 import ProductAPI from 'ProductAPI'
 
 
@@ -44,17 +45,27 @@ export class Amazon extends React.Component {
     var total = 0;
 
     products.forEach((product) => {
-      total = total + product.counter;
+      total = total + product.counterUserOne + product.counterUserTwo;
     });
 
     console.log('TOTAL:', total );
 
 
-    var renderProducts = () => {
+    var renderProductsUserOne = () => {
       var filteredProducts = ProductAPI.filterProducts(products);
       return filteredProducts.map((product) => {
         return (
-          <Product key={product.id} {...product} total={total}/>
+          <ProductUserOne key={product.id} {...product} total={total}/>
+        );
+      });
+    }
+
+
+    var renderProductsUserTwo = () => {
+      var filteredProducts = ProductAPI.filterProducts(products);
+      return filteredProducts.map((product) => {
+        return (
+          <ProductUserTwo key={product.id} {...product} total={total}/>
         );
       });
     }
@@ -69,15 +80,14 @@ export class Amazon extends React.Component {
         <div className="row">
             <div className="productContainer">
               <h5>TOTAL VOTES: {total}</h5>
-              {renderProducts()}
+              {renderProductsUserOne()}
             </div>
             <div className="productContainer">
               <h5>TOTAL VOTES: {total}</h5>
-              {renderProducts()}
+              {renderProductsUserTwo()}
             </div>
             <div className="productContainer">
               <h5>TOTAL VOTES: {total}</h5>
-              {renderProducts()}
             </div>
         </div>
 

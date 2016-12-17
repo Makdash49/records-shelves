@@ -104,7 +104,8 @@ export var startAddProduct = (text) => {
       var product = {
         text,
         image,
-        counter: 0,
+        counterUserOne: 0,
+        counterUserTwo: 0,
         completed: false,
         createdAt: moment().unix(),
         completedAt: null,
@@ -288,12 +289,25 @@ export var updateProduct = (id, updates) => {
 };
 
 
-export var startIncrementProduct = (id, counter) => {
+export var startIncrementProductUserOne = (id, counterUserOne) => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
     var productRef = firebaseRef.child(`products/${id}`);
     var updates = {
-      counter: counter + 1
+      counterUserOne: counterUserOne + 1
+    };
+    return productRef.update(updates).then(() => {
+      dispatch(updateProduct(id, updates));
+    });
+  };
+};
+
+export var startIncrementProductUserTwo = (id, counterUserTwo) => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    var productRef = firebaseRef.child(`products/${id}`);
+    var updates = {
+      counterUserTwo: counterUserTwo + 1
     };
     return productRef.update(updates).then(() => {
       dispatch(updateProduct(id, updates));
