@@ -316,16 +316,43 @@ export var startIncrementProductUserTwo = (id, counterUserTwo) => {
 };
 
 
-export var startDeincrementProduct = (id, counter) => {
+export var startDeincrementProductUserOne = (id, counterUserOne) => {
   return (dispatch, getState) => {
-    console.log('GET STATE', getState());
     var uid = getState().auth.uid;
     var productRef = firebaseRef.child(`products/${id}`);
     var updates = {
-      counter: counter - 1
+      counterUserOne: counterUserOne - 1
     };
     return productRef.update(updates).then(() => {
       dispatch(updateProduct(id, updates));
     });
   };
 };
+
+export var startDeincrementProductUserTwo = (id, counterUserTwo) => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    var productRef = firebaseRef.child(`products/${id}`);
+    var updates = {
+      counterUserTwo: counterUserTwo - 1
+    };
+    return productRef.update(updates).then(() => {
+      dispatch(updateProduct(id, updates));
+    });
+  };
+};
+
+
+// export var startDeincrementProduct = (id, counter) => {
+//   return (dispatch, getState) => {
+//     console.log('GET STATE', getState());
+//     var uid = getState().auth.uid;
+//     var productRef = firebaseRef.child(`products/${id}`);
+//     var updates = {
+//       counter: counter - 1
+//     };
+//     return productRef.update(updates).then(() => {
+//       dispatch(updateProduct(id, updates));
+//     });
+//   };
+// };

@@ -13,7 +13,7 @@ export class ProductUserTwo extends React.Component {
   handleMinus (e) {
     e.preventDefault();
     var {dispatch, id, counterUserTwo} = this.props;
-    dispatch(actions.startDeincrementProduct(id, counterUserTwo));
+    dispatch(actions.startDeincrementProductUserTwo(id, counterUserTwo));
     }
 
 
