@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ProductUserOne from 'ProductUserOne';
 import ProductUserTwo from 'ProductUserTwo';
+import ProductFinalTotal from 'ProductFinalTotal';
 import ProductAPI from 'ProductAPI'
 
 
@@ -39,8 +40,8 @@ export class Amazon extends React.Component {
 
   render() {
     var {products} = this.props;
-    // console.log('PRODUCTS!!!!!!!', products);
-    // // console.log("AMAZON COMPONENT:", products)
+    // // console.log('PRODUCTS!!!!!!!', products);
+    // // // console.log("AMAZON COMPONENT:", products)
 
     var userOneTotal = 0;
     var userTwoTotal = 0;
@@ -48,7 +49,9 @@ export class Amazon extends React.Component {
       userOneTotal = userOneTotal + product.counterUserOne;
       userTwoTotal = userTwoTotal + product.counterUserTwo;
     });
-    // console.log('TOTAL:', userOneTotal);
+
+    var finalTotals = userOneTotal + userTwoTotal;
+    // // console.log('TOTAL:', userOneTotal);
 
 
     var renderProductsUserOne = () => {
@@ -60,12 +63,20 @@ export class Amazon extends React.Component {
       });
     }
 
-
     var renderProductsUserTwo = () => {
       var filteredProducts = ProductAPI.userTwofilterProducts(products);
       return filteredProducts.map((product) => {
         return (
           <ProductUserTwo key={product.id} {...product} userTwoTotal={userTwoTotal}/>
+        );
+      });
+    }
+
+    var renderProductsUsersTotals = () => {
+      var filteredProducts = ProductAPI.totalFilterProducts(products);
+      return filteredProducts.map((product) => {
+        return (
+          <ProductTotal key={product.id} {...product} finalTotals={finalTotals}/>
         );
       });
     }

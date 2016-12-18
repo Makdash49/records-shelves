@@ -36,20 +36,20 @@ app.use(function (req, res, next) {
 app.use(express.static('public'));
 
 io.on('connection', (socket) =>  {
-  // console.log('New user connected');
+  // // console.log('New user connected');
 
   socket.on('search', (term, callback) => {
-    // console.log(term);
+    // // console.log(term);
     client.itemSearch({
       keywords: term,
       responseGroup: 'ItemAttributes,Images'
     }).then(function(results){
       var item = results[0]["ItemAttributes"][0]["Title"][0];
       var image = results[0]["MediumImage"][0]["URL"][0];
-      // console.log('Item:', item);
+      // // console.log('Item:', item);
       callback(item, image);
     }).catch(function(err){
-      // console.log(err);
+      // // console.log(err);
     });
   });
 });
@@ -57,7 +57,7 @@ io.on('connection', (socket) =>  {
 
 
 server.listen(PORT, function () {
-  // console.log('Express server is up on port ' + PORT);
+  // // console.log('Express server is up on port ' + PORT);
 });
 
 
@@ -77,9 +77,9 @@ server.listen(PORT, function () {
 // var io = socketIO(server);
 //
 // io.on('connection', (socket) =>  {
-//   // console.log('New user connected');
+//   // // console.log('New user connected');
 // };
 //
 // server.listen(port, function () {
-//   // console.log(`Server is up on port ${port}`);
+//   // // console.log(`Server is up on port ${port}`);
 // });

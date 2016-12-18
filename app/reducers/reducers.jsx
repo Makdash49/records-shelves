@@ -66,9 +66,9 @@ export var productsReducer = (state = [], action) => {
         action.product
       ];
     case 'UPDATE_PRODUCT':
-      console.log("IN UPATE_PRODUCT");
-      console.log('action', action);
-      // console.log('state', state);
+      // console.log("IN UPATE_PRODUCT");
+      // console.log('action', action);
+      // // console.log('state', state);
       return state.map((product) => {
         if (product.id === action.id) {
           return {

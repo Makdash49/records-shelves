@@ -34,10 +34,10 @@ class Baby extends Person {
 
 
 var me = new Baby('Andrew', 25);
-// console.log(me.getGreeting());
+// // console.log(me.getGreeting());
 
 var anonymous = new Baby('Mike', 4)
-// console.log(anonymous.getGreeting());
+// // console.log(anonymous.getGreeting());
 
 
 // baby class.  Override get greating.  Waahhhhhhh.

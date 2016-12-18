@@ -4,25 +4,25 @@ import * as actions from 'actions';
 
 export class ProductUserTwo extends React.Component {
 
-  handlePlus (e) {
-    e.preventDefault();
-    var {dispatch, id, counterUserTwo} = this.props;
-    dispatch(actions.startIncrementProductUserTwo(id, counterUserTwo));
-    }
-
-  handleMinus (e) {
-    e.preventDefault();
-    var {dispatch, id, counterUserTwo} = this.props;
-    dispatch(actions.startDeincrementProductUserTwo(id, counterUserTwo));
-    }
+  // handlePlus (e) {
+  //   e.preventDefault();
+  //   var {dispatch, id, counterUserTwo} = this.props;
+  //   dispatch(actions.startIncrementProductUserTwo(id, counterUserTwo));
+  //   }
+  //
+  // handleMinus (e) {
+  //   e.preventDefault();
+  //   var {dispatch, id, counterUserTwo} = this.props;
+  //   dispatch(actions.startDeincrementProductUserTwo(id, counterUserTwo));
+  //   }
 
 
 
   render() {
-    var {text, image, counterUserTwo, userTwoTotal} = this.props;
+    var {text, image, counterTotals, finalTotals} = this.props;
     // // console.log('CounterUserTwo:', counterUserTwo);
 
-    var percentage = Math.round(counterUserTwo / userTwoTotal * 100);
+    var percentage = Math.round(counterTotals / finalTotals * 200);
 
     var myComponent = () => {
       return (
@@ -30,8 +30,6 @@ export class ProductUserTwo extends React.Component {
           <div className="productImage">
             <img src={image} alt={text}/>
             <p>{text}</p>
-            <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
-            <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
             <p>{counterUserTwo}</p>
             <h4>{percentage}%</h4>
           </div>

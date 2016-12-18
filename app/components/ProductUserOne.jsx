@@ -6,7 +6,8 @@ export class ProductUserOne extends React.Component {
 
   handlePlus (e) {
     e.preventDefault();
-    var {dispatch, id, counterUserOne} = this.props;
+    var {dispatch, id, counterUserOne, userOneTotal} = this.props;
+    // var percentage = Math.round((counterUserOne + 1) / (userOneTotal + 1) * 100);
     dispatch(actions.startIncrementProductUserOne(id, counterUserOne));
     }
 
@@ -20,7 +21,7 @@ export class ProductUserOne extends React.Component {
 
   render() {
     var {text, image, counterUserOne, userOneTotal} = this.props;
-    // console.log('CounterUserOne:', counterUserOne);
+    // // console.log('CounterUserOne:', counterUserOne);
 
     var percentage = Math.round(counterUserOne / userOneTotal * 100);
 

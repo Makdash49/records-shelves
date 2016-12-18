@@ -26,5 +26,19 @@ module.exports = {
     });
 
     return filteredProducts;
-  }
+  },
+  totalFilterProducts: function (products) {
+    var filteredProducts = products;
+
+    filteredProducts.sort((a, b) => {
+      if(a.counterTotals >= b.counterTotals) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
+
+    return filteredProducts;
+  },
+
 };
