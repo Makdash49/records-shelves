@@ -23,8 +23,13 @@ export class ProductFinalTotal extends React.Component {
     // // console.log('CounterUserTwo:', counterUserTwo);
 
     var percentageUserOne = Math.round(counterUserOne / userOneTotal * 100);
+    isNaN(percentageUserOne) ? percentageUserOne = 0 : percentageUserOne = percentageUserOne;
+
     var percentageUserTwo = Math.round(counterUserTwo / userTwoTotal * 100);
+    isNaN(percentageUserTwo) ? percentageUserTwo = 0 : percentageUserTwo = percentageUserTwo;
+
     var finalPercentage = percentageUserOne + percentageUserTwo;
+
 
     var myComponent = () => {
       return (
