@@ -27,11 +27,20 @@ module.exports = {
 
     return filteredProducts;
   },
-  totalFilterProducts: function (products) {
+  totalFilterProducts: function (products, userOneTotal, userTwoTotal) {
     var filteredProducts = products;
 
     filteredProducts.sort((a, b) => {
-      if(a.counterTotals >= b.counterTotals) {
+      var percentageUserOne = Math.round(a.counterUserOne / userOneTotal * 100);
+      var percentageUserTwo = Math.round(a.counterUserTwo / userTwoTotal * 100);
+      var aFinalPercentage = percentageUserOne + percentageUserTwo;
+
+      var percentageUserOne = Math.round(b.counterUserOne / userOneTotal * 100);
+      var percentageUserTwo = Math.round(b.counterUserTwo / userTwoTotal * 100);
+      var bFinalPercentage = percentageUserOne + percentageUserTwo;
+
+
+      if(aFinalPercentage >= bFinalPercentage) {
         return -1;
       } else {
         return 1;

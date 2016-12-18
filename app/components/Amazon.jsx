@@ -73,7 +73,7 @@ export class Amazon extends React.Component {
     }
 
     var renderProductsUsersTotals = () => {
-      var filteredProducts = ProductAPI.totalFilterProducts(products);
+      var filteredProducts = ProductAPI.totalFilterProducts(products, userOneTotal, userTwoTotal);
       return filteredProducts.map((product) => {
         return (
           <ProductFinalTotal key={product.id} {...product} userOneTotal={userOneTotal} userTwoTotal={userTwoTotal}/>
