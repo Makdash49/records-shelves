@@ -50,7 +50,7 @@ export class Amazon extends React.Component {
       userTwoTotal = userTwoTotal + product.counterUserTwo;
     });
 
-    var finalTotals = userOneTotal + userTwoTotal;
+    // var finalTotals = userOneTotal + userTwoTotal;
     // // console.log('TOTAL:', userOneTotal);
 
 
@@ -76,7 +76,7 @@ export class Amazon extends React.Component {
       var filteredProducts = ProductAPI.totalFilterProducts(products);
       return filteredProducts.map((product) => {
         return (
-          <ProductTotal key={product.id} {...product} finalTotals={finalTotals}/>
+          <ProductFinalTotal key={product.id} {...product} userOneTotal={userOneTotal} userTwoTotal={userTwoTotal}/>
         );
       });
     }
@@ -96,6 +96,10 @@ export class Amazon extends React.Component {
             <div className="productContainer">
               <h5>TOTAL VOTES: {userTwoTotal}</h5>
               {renderProductsUserTwo()}
+            </div>
+            <div className="productContainer">
+              <h5>TOTAL VOTES: {userTwoTotal}</h5>
+              {renderProductsUsersTotals()}
             </div>
         </div>
 

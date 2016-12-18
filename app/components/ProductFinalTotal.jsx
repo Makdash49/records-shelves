@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from 'actions';
 
-export class ProductUserTwo extends React.Component {
+export class ProductFinalTotal extends React.Component {
 
   // handlePlus (e) {
   //   e.preventDefault();
@@ -19,10 +19,12 @@ export class ProductUserTwo extends React.Component {
 
 
   render() {
-    var {text, image, counterTotals, finalTotals} = this.props;
+    var {text, image, counterUserOne, userOneTotal, counterUserTwo, userTwoTotal} = this.props;
     // // console.log('CounterUserTwo:', counterUserTwo);
 
-    var percentage = Math.round(counterTotals / finalTotals * 200);
+    var percentageUserOne = Math.round(counterUserOne / userOneTotal * 100);
+    var percentageUserTwo = Math.round(counterUserTwo / userTwoTotal * 100);
+    var finalPercentage = percentageUserOne + percentageUserTwo;
 
     var myComponent = () => {
       return (
@@ -31,7 +33,7 @@ export class ProductUserTwo extends React.Component {
             <img src={image} alt={text}/>
             <p>{text}</p>
             <p>{counterUserTwo}</p>
-            <h4>{percentage}%</h4>
+            <h4>{finalPercentage}%</h4>
           </div>
         </div>
       );
@@ -46,7 +48,7 @@ export class ProductUserTwo extends React.Component {
   }
 };
 
-export default connect()(ProductUserTwo);
+export default connect()(ProductFinalTotal);
 
 // export default connect(
 //   (state) => {
