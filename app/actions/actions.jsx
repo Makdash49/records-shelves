@@ -258,6 +258,8 @@ export var login = (uid) => {
 export var startLogin = () => {
   return (dispatch, getState) => {
     firebase.auth().signInAnonymously().then((result) => {
+      console.log('UID', result.uid);
+      var productRef = firebaseRef.child(`userIDs`).push(result.uid);
       // // console.log('Auth worked!', result);
     }, (error) => {
       // // console.log('Unable to auth', error);

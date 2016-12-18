@@ -12,7 +12,7 @@ export class Login extends React.Component {
 
   onLogin() {
     var {dispatch} = this.props;
-
+    this.refs.btn.setAttribute("disabled", "disabled");
     dispatch(actions.startLogin());
   }
 
@@ -28,7 +28,7 @@ export class Login extends React.Component {
               <p>
                 Login with GitHub account below.
               </p>
-              <button className="button" onClick={this.onLogin}>Login with GitHub</button>
+              <button className="button" ref="btn" onClick={this.onLogin}>Login with GitHub</button>
             </div>
           </div>
         </div>

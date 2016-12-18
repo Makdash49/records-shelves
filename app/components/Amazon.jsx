@@ -98,7 +98,7 @@ export class Amazon extends React.Component {
               {renderProductsUserTwo()}
             </div>
             <div className="productContainer">
-              <h5>TOTAL VOTES: {userTwoTotal}</h5>
+              <h5>TOTAL PERCENTAGES OUT OF 200%</h5>
               {renderProductsUsersTotals()}
             </div>
         </div>
