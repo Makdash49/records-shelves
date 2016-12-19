@@ -20,26 +20,41 @@ export class ProductUserOne extends React.Component {
 
 
   render() {
-    var {text, image, counterUserOne, userOneTotal} = this.props;
+    var {text, image, counterUserOne, userOneTotal, userNumber} = this.props;
     // // console.log('CounterUserOne:', counterUserOne);
     // // console.log('userOneTotal', userOneTotal);
 
     var percentage = Math.round(counterUserOne / userOneTotal * 100);
     isNaN(percentage) ? percentage = 0 : percentage = percentage;
 
+    console.log('userNUMBER', userNumber);
+
     var myComponent = () => {
-      return (
-        <div>
-          <div className="productImage">
-            <img src={image} alt={text}/>
-            <p>{text}</p>
-            <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
-            <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
-            <p>{counterUserOne}</p>
-            <h4>{percentage}%</h4>
+      if (userNumber === "ONE") {
+        return (
+          <div>
+            <div className="productImage">
+              <img src={image} alt={text}/>
+              <p>{text}</p>
+              <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
+              <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
+              <p>{counterUserOne}</p>
+              <h4>{percentage}%</h4>
+            </div>
           </div>
-        </div>
-      );
+        )
+      } else {
+        return (
+          <div>
+            <div className="productImage">
+              <img src={image} alt={text}/>
+              <p>{text}</p>
+              <p>{counterUserOne}</p>
+              <h4>{percentage}%</h4>
+            </div>
+          </div>
+        )
+      }
     };
 
 

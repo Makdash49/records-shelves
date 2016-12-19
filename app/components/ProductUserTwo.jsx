@@ -19,7 +19,7 @@ export class ProductUserTwo extends React.Component {
 
 
   render() {
-    var {text, image, counterUserTwo, userTwoTotal} = this.props;
+    var {text, image, counterUserTwo, userTwoTotal, userNumber} = this.props;
     // // // // console.log('CounterUserTwo:', counterUserTwo);
 
     var percentage = Math.round(counterUserTwo / userTwoTotal * 100);
@@ -27,18 +27,31 @@ export class ProductUserTwo extends React.Component {
 
 
     var myComponent = () => {
-      return (
-        <div>
-          <div className="productImage">
-            <img src={image} alt={text}/>
-            <p>{text}</p>
-            <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
-            <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
-            <p>{counterUserTwo}</p>
-            <h4>{percentage}%</h4>
+      if (userNumber === "TWO") {
+        return (
+          <div>
+            <div className="productImage">
+              <img src={image} alt={text}/>
+              <p>{text}</p>
+              <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
+              <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
+              <p>{counterUserTwo}</p>
+              <h4>{percentage}%</h4>
+            </div>
           </div>
-        </div>
-      );
+        )
+      } else {
+        return (
+          <div>
+            <div className="productImage">
+              <img src={image} alt={text}/>
+              <p>{text}</p>
+              <p>{counterUserTwo}</p>
+              <h4>{percentage}%</h4>
+            </div>
+          </div>
+        )
+      }
     };
 
 
