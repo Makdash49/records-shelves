@@ -46,7 +46,7 @@ export class Amazon extends React.Component {
 
     if (lastUser) {
       console.log('LASTUSER', lastUser);
-      if (userIDs[userIDs.length - 1].uid === this.props.auth.uid) {
+      if (userIDs[userIDs.length - 1].uid === this.props.auth.uid && userIDs.length > 1) {
         console.log("You are the latest user to log in so you will be user TWO!!");
         userNumber = "TWO"
       } else {
