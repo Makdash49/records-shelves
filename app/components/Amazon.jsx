@@ -45,28 +45,28 @@ export class Amazon extends React.Component {
     var userNumber;
 
     if (lastUser) {
-      console.log('LASTUSER', lastUser);
+      // console.log('LASTUSER', lastUser);
       if (userIDs[userIDs.length - 1].uid === this.props.auth.uid && userIDs.length > 1) {
-        console.log("You are the latest user to log in so you will be user TWO!!");
+        // console.log("You are the latest user to log in so you will be user TWO!!");
         userNumber = "TWO"
       } else {
-        console.log('Someone logged in after you so you are user ONE!!!!');
+        // console.log('Someone logged in after you so you are user ONE!!!!');
         userNumber = "ONE"
       };
     };
 
-    console.log(userNumber);
-    console.log('CURRENT AUTH.UID', this.props.auth.uid);
+    // console.log(userNumber);
+    // console.log('CURRENT AUTH.UID', this.props.auth.uid);
 
 
 
 
-    // console.log('Sorted USERIDS!', userIDs);
-    // console.log('this.props.auth.uid', this.props.auth.uid);
+    // // console.log('Sorted USERIDS!', userIDs);
+    // // console.log('this.props.auth.uid', this.props.auth.uid);
 
     var {products} = this.props;
-    // // // // console.log('PRODUCTS!!!!!!!', products);
-    // // // // // console.log("AMAZON COMPONENT:", products)
+    // // // // // console.log('PRODUCTS!!!!!!!', products);
+    // // // // // // console.log("AMAZON COMPONENT:", products)
 
     var userOneTotal = 0;
     var userTwoTotal = 0;
@@ -76,7 +76,7 @@ export class Amazon extends React.Component {
     });
 
     // var finalTotals = userOneTotal + userTwoTotal;
-    // // // // console.log('TOTAL:', userOneTotal);
+    // // // // // console.log('TOTAL:', userOneTotal);
 
 
     var renderProductsUserOne = () => {

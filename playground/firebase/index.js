@@ -26,22 +26,22 @@ firebaseRef.set({
 // var notesRef = firebaseRef.child('notes');
 //
 // notesRef.on('child_added', (snapshot) =>{
-//   // // // // console.log('child_added', snapshot.key, snapshot.val());
+//   // // // // // console.log('child_added', snapshot.key, snapshot.val());
 // });
 //
 // notesRef.on('child_changed', (snapshot) =>{
-//   // // // // console.log('child_changed', snapshot.key, snapshot.val());
+//   // // // // // console.log('child_changed', snapshot.key, snapshot.val());
 // });
 //
 // notesRef.on('child_removed', (snapshot) =>{
-//   // // // // console.log('child_removed', snapshot.key, snapshot.val());
+//   // // // // // console.log('child_removed', snapshot.key, snapshot.val());
 // });
 //
 // var newNoteRef = notesRef.push({
 //   text: 'Walk the dog!'
 // });
 //
-// // // // // console.log('Todo id', newNoteRef.key);
+// // // // // // console.log('Todo id', newNoteRef.key);
 
 
 // Create a new variable that store refernce to todos array.
@@ -58,7 +58,7 @@ firebaseRef.set({
 var todosRef = firebaseRef.child('todos');
 
 todosRef.on('child_added', (snapshot) => {
-  // // // // console.log('New todo added', snapshot.key, snapshot.val());
+  // // // // // console.log('New todo added', snapshot.key, snapshot.val());
 });
 
 todosRef.push({

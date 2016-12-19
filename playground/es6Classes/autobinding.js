@@ -1,7 +1,7 @@
 var obj = {
   name: 'Andrew',
   printName: function () {
-    // // // // console.log(`My name is ${this.name}`);
+    // // // // // console.log(`My name is ${this.name}`);
   }
 };
 

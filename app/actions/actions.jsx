@@ -91,7 +91,7 @@ export var startAddTodo = (text) => {
 };
 
 export var addProduct = (product) => {
-  // // // // console.log("WE MADE IT HERE!!!!!");
+  // // // // // console.log("WE MADE IT HERE!!!!!");
   return {
     type: 'ADD_PRODUCT',
     product
@@ -99,7 +99,7 @@ export var addProduct = (product) => {
 };
 
 export var addUserID = (userID) => {
-  // // // // console.log("WE MADE IT HERE!!!!!");
+  // // // // // console.log("WE MADE IT HERE!!!!!");
   return {
     type: 'ADD_USER_ID',
     userID
@@ -266,16 +266,16 @@ export var login = (uid) => {
 export var startLogin = () => {
   return (dispatch, getState) => {
     firebase.auth().signInAnonymously().then((result) => {
-      // // console.log('UID', result.uid);
+      // // // console.log('UID', result.uid);
       var userID = {
         uid: result.uid,
         createdAt: moment().unix()
       };
 
       var productRef = firebaseRef.child(`userIDs`).push(userID);
-      // // // // console.log('Auth worked!', result);
+      // // // // // console.log('Auth worked!', result);
     }, (error) => {
-      // // // // console.log('Unable to auth', error);
+      // // // // // console.log('Unable to auth', error);
     });
   };
 };
@@ -289,7 +289,7 @@ export var logout = () => {
 export var startLogout = () => {
   return (dispatch, getState) => {
     return firebase.auth().signOut().then(() => {
-      // // // // console.log('Logged out!');
+      // // // // // console.log('Logged out!');
     });
   };
 };
@@ -360,7 +360,7 @@ export var startDeincrementProductUserTwo = (id, counterUserTwo) => {
 
 // export var startDeincrementProduct = (id, counter) => {
 //   return (dispatch, getState) => {
-//     // // // // console.log('GET STATE', getState());
+//     // // // // // console.log('GET STATE', getState());
 //     var uid = getState().auth.uid;
 //     var productRef = firebaseRef.child(`products/${id}`);
 //     var updates = {
