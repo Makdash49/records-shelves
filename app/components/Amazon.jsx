@@ -4,6 +4,7 @@ import ProductUserOne from 'ProductUserOne';
 import ProductUserTwo from 'ProductUserTwo';
 import ProductFinalTotal from 'ProductFinalTotal';
 import ProductAPI from 'ProductAPI'
+import UserAPI from 'UserAPI';
 
 
 import * as actions from 'actions';
@@ -39,7 +40,8 @@ export class Amazon extends React.Component {
 
 
   render() {
-    console.log('THIS.PROPS.USERIDS', this.props.userIDs);
+    var userIDs = UserAPI.filterUsers(this.props.userIDs);
+    console.log('Sorted USERIDS???', userIDs);
 
     var {products} = this.props;
     // // // console.log('PRODUCTS!!!!!!!', products);
