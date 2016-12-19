@@ -4,33 +4,61 @@ module.exports = {
   userOneFilterProducts: function (products) {
     var filteredProducts = products;
 
-    filteredProducts.sort((a, b) => {
-      if(a.counterUserOne >= b.counterUserOne) {
+    var newFilteredProducts = filteredProducts.sort((a, b) => {
+      if(a.createdAt >= b.createdAt) {
         return -1;
       } else {
         return 1;
       }
     });
 
-    return filteredProducts;
+    newFilteredProducts.sort((a, b) => {
+      if(a.counterUserOne > b.counterUserOne) {
+        return -1;
+      } else if (a.counterUserOne < b.counterUserOne) {
+        return 1;
+      } else {
+        return 0
+      }
+    });
+
+    return newFilteredProducts;
   },
   userTwofilterProducts: function (products) {
     var filteredProducts = products;
 
-    filteredProducts.sort((a, b) => {
-      if(a.counterUserTwo >= b.counterUserTwo) {
+    var newFilteredProducts = filteredProducts.sort((a, b) => {
+      if(a.createdAt >= b.createdAt) {
         return -1;
       } else {
         return 1;
       }
     });
 
-    return filteredProducts;
+    newFilteredProducts.sort((a, b) => {
+      if(a.counterUserTwo > b.counterUserTwo) {
+        return -1;
+      } else if (a.counterUserTwo < b.counterUserTwo) {
+        return 1;
+      } else {
+        return 0
+      }
+    });
+
+    return newFilteredProducts;
   },
   totalFilterProducts: function (products, userOneTotal, userTwoTotal) {
     var filteredProducts = products;
 
-    filteredProducts.sort((a, b) => {
+    var newFilteredProducts = filteredProducts.sort((a, b) => {
+      if(a.createdAt >= b.createdAt) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
+
+    newFilteredProducts.sort((a, b) => {
       var percentageUserOne = Math.round(a.counterUserOne / userOneTotal * 100);
       var percentageUserTwo = Math.round(a.counterUserTwo / userTwoTotal * 100);
       var aFinalPercentage = percentageUserOne + percentageUserTwo;
@@ -43,14 +71,16 @@ module.exports = {
       isNaN(bFinalPercentage) ? bFinalPercentage = 0 : bFinalPercentage = bFinalPercentage;
       // // console.log('bFinalPercentage'), bFinalPercentage;
 
-      if(aFinalPercentage >= bFinalPercentage) {
+      if(aFinalPercentage > bFinalPercentage) {
         return -1;
-      } else {
+      } else if (aFinalPercentage < bFinalPercentage) {
         return 1;
+      } else {
+        return 0
       }
     });
 
-    return filteredProducts;
+    return newFilteredProducts;
   },
 
 };

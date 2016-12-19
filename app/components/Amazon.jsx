@@ -115,11 +115,11 @@ export class Amazon extends React.Component {
 
         <div className="row">
             <div className="productContainer">
-              <h5>TOTAL VOTES: {userOneTotal}</h5>
+              <h5>USER ONE - TOTAL VOTES: {userOneTotal}</h5>
               {renderProductsUserOne()}
             </div>
             <div className="productContainer">
-              <h5>TOTAL VOTES: {userTwoTotal}</h5>
+              <h5>USER TWO - TOTAL VOTES: {userTwoTotal}</h5>
               {renderProductsUserTwo()}
             </div>
             <div className="productContainer">
