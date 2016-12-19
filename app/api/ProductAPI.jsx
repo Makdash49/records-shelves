@@ -5,7 +5,7 @@ module.exports = {
     var filteredProducts = products;
 
     var newFilteredProducts = filteredProducts.sort((a, b) => {
-      if(a.createdAt >= b.createdAt) {
+      if(a.createdAt <= b.createdAt) {
         return -1;
       } else {
         return 1;
@@ -28,7 +28,7 @@ module.exports = {
     var filteredProducts = products;
 
     var newFilteredProducts = filteredProducts.sort((a, b) => {
-      if(a.createdAt >= b.createdAt) {
+      if(a.createdAt <= b.createdAt) {
         return -1;
       } else {
         return 1;
@@ -51,7 +51,7 @@ module.exports = {
     var filteredProducts = products;
 
     var newFilteredProducts = filteredProducts.sort((a, b) => {
-      if(a.createdAt >= b.createdAt) {
+      if(a.createdAt <= b.createdAt) {
         return -1;
       } else {
         return 1;
