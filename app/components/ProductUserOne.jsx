@@ -21,8 +21,8 @@ export class ProductUserOne extends React.Component {
 
   render() {
     var {text, image, counterUserOne, userOneTotal} = this.props;
-    // console.log('CounterUserOne:', counterUserOne);
-    // console.log('userOneTotal', userOneTotal);
+    // // console.log('CounterUserOne:', counterUserOne);
+    // // console.log('userOneTotal', userOneTotal);
 
     var percentage = Math.round(counterUserOne / userOneTotal * 100);
     isNaN(percentage) ? percentage = 0 : percentage = percentage;
