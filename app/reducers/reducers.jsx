@@ -2,6 +2,7 @@ var uuid = require('node-uuid');
 var moment = require('moment');
 
 export var searchTextReducer = (state = '', action) => {
+  console.log('HELLO FROM THE SEARCHTEXT REDUCER!!!!');
   switch (action.type) {
     case 'SET_SEARCH_TEXT':
       return action.searchText;
@@ -66,9 +67,9 @@ export var productsReducer = (state = [], action) => {
         action.product
       ];
     case 'UPDATE_PRODUCT':
-      // console.log("IN UPATE_PRODUCT");
-      // console.log('action', action);
-      // // console.log('state', state);
+      // // console.log("IN UPATE_PRODUCT");
+      // // console.log('action', action);
+      // // // console.log('state', state);
       return state.map((product) => {
         if (product.id === action.id) {
           return {
@@ -84,15 +85,15 @@ export var productsReducer = (state = [], action) => {
         ...state,
         ...action.products
       ];
-    // case 'LOGOUT':
-    //   return [];
+    case 'LOGOUT':
+      return [];
     // case 'DELETE_TODO':
     //   for (var i = 0; i < state.length; i++) {
     //     if (state[i].id === action.id) {
     //       state.splice(i, 1);
     //     };
     //   };
-      return [...state];
+      // return [...state];
     default:
       return state;
   };
@@ -106,6 +107,22 @@ export var authReducer = (state = {}, action) => {
      };
     case 'LOGOUT':
       return {};
+    default:
+      return state;
+  };
+};
+
+export var userIDsReducer = (state = [], action) => {
+  console.log('STATE', state);
+  console.log('ACTION.USERID', action.userID);
+  switch (action.type) {
+     case 'ADD_USER_ID':
+      return [
+        ...state,
+        action.userID
+      ];
+      case 'LOGOUT':
+        return [];
     default:
       return state;
   };
