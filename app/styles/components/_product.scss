@@ -1,6 +1,10 @@
 .productImage {
   border: 1px solid #A9A9A9;
   padding: 18px;
+
+  &:hover {
+    background: #f0f0f0;
+  }
 }
 
 .productImage2 {
