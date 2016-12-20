@@ -27,7 +27,7 @@ export class ProductUserOne extends React.Component {
     var percentage = Math.round(counterUserOne / userOneTotal * 100);
     isNaN(percentage) ? percentage = 0 : percentage = percentage;
 
-    // console.log('userNUMBER', userNumber);
+    console.log('userNUMBER', userNumber);
 
     var myComponent = () => {
       if (userNumber === "ONE") {
@@ -55,10 +55,18 @@ export class ProductUserOne extends React.Component {
         return (
           <div>
             <div className="productImage">
-              <img src={image} alt={text}/>
-              <p className="product-description">{text}</p>
-              <p>{counterUserOne}</p>
-              <h4>{percentage}%</h4>
+              <div className="increments">
+                <p>{counterUserOne}</p>
+              </div>
+              <div className="photo">
+                <img className="thePhoto" src={image} alt={text}/>
+              </div>
+              <div className="percentage">
+                <h4>{percentage}%</h4>
+              </div>
+              <div>
+                <p className="product-description">{text}</p>
+              </div>
             </div>
           </div>
         )

@@ -32,15 +32,34 @@ export class ProductFinalTotal extends React.Component {
 
 
     var myComponent = () => {
+
+
+
       return (
         <div>
           <div className="productImage">
-            <img src={image} alt={text}/>
-            <p className="product-description">{text}</p>
-            <h4>{finalPercentage}%</h4>
+            <div className="increments">
+            </div>
+            <div className="photo">
+              <img className="thePhoto" src={image} alt={text}/>
+            </div>
+            <div className="percentage">
+              <h4>{finalPercentage}%</h4>
+            </div>
+            <div>
+              <p className="product-description">{text}</p>
+            </div>
           </div>
         </div>
-      );
+      )
+
+
+
+
+
+
+
+
     };
 
 

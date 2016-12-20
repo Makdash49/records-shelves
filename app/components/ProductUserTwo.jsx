@@ -31,12 +31,20 @@ export class ProductUserTwo extends React.Component {
         return (
           <div>
             <div className="productImage">
-              <img src={image} alt={text}/>
-              <p className="product-description">{text}</p>
-              <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
-              <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
-              <p>{counterUserTwo}</p>
-              <h4>{percentage}%</h4>
+              <div className="increments">
+                <p>{counterUserTwo}</p>
+                <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
+                <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
+              </div>
+              <div className="photo">
+                <img className="thePhoto" src={image} alt={text}/>
+              </div>
+              <div className="percentage">
+                <h4>{percentage}%</h4>
+              </div>
+              <div>
+                <p className="product-description">{text}</p>
+              </div>
             </div>
           </div>
         )
@@ -44,10 +52,18 @@ export class ProductUserTwo extends React.Component {
         return (
           <div>
             <div className="productImage">
-              <img src={image} alt={text}/>
-              <p className="product-description">{text}</p>
-              <p>{counterUserTwo}</p>
-              <h4>{percentage}%</h4>
+              <div className="increments">
+                <p>{counterUserTwo}</p>
+              </div>
+              <div className="photo">
+                <img className="thePhoto" src={image} alt={text}/>
+              </div>
+              <div className="percentage">
+                <h4>{percentage}%</h4>
+              </div>
+              <div>
+                <p className="product-description">{text}</p>
+              </div>
             </div>
           </div>
         )
