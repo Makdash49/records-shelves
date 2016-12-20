@@ -34,12 +34,20 @@ export class ProductUserOne extends React.Component {
         return (
           <div>
             <div className="productImage">
-              <img src={image} alt={text}/>
-              <p className="product-description">{text}</p>
-              <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
-              <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
-              <p>{counterUserOne}</p>
-              <h4>{percentage}%</h4>
+              <div className="increments">
+                <p>{counterUserOne}</p>
+                <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
+                <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
+              </div>
+              <div className="photo">
+                <img className="thePhoto" src={image} alt={text}/>
+              </div>
+              <div className="percentage">
+                <h4>{percentage}%</h4>
+              </div>
+              <div>
+                <p className="product-description">{text}</p>
+              </div>
             </div>
           </div>
         )
