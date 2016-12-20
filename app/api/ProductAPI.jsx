@@ -51,9 +51,6 @@ module.exports = {
     console.log('PRODUCTS - PRODUCTS - PRODUCST', products);
     var filteredProducts = products;
 
-    // isNaN(userOneTotal) ? userOneTotal = 0 : userOneTotal = userOneTotal;
-    // isNaN(userTwoTotal) ? userTwoTotal = 0 : userTwoTotal = userTwoTotal;
-
     var newFilteredProducts = filteredProducts.sort((a, b) => {
       if(a.createdAt <= b.createdAt) {
         return -1;
@@ -63,43 +60,21 @@ module.exports = {
     });
 
     newFilteredProducts.sort((a, b) => {
-      console.log('START a.counterUserOne');
-      console.log('a.counterUserOne', a.counterUserOne);
-      console.log('userOneTotal', userOneTotal);
-      var percentageUserOne = Math.round((a.counterUserOne / userOneTotal));
-      console.log('percentageUserOne', percentageUserOne );
-
-      var percentageUserTwo = Math.round((a.counterUserTwo / userTwoTotal));
-      console.log('percentageUserTwo', percentageUserTwo);
+      var apercentageUserOne = Math.round((a.counterUserOne / userOneTotal));
+      var apercentageUserTwo = Math.round((a.counterUserTwo / userTwoTotal));
 
 
-      isNaN(percentageUserOne) ? percentageUserOne = 0 : percentageUserOne = percentageUserOne;
-      isNaN(percentageUserTwo) ? percentageUserTwo = 0 : percentageUserTwo = percentageUserTwo;
-      var aFinalPercentage = percentageUserOne + percentageUserTwo;
-      console.log('aFinalPercentage', aFinalPercentage);
-
-      // isNaN(aFinalPercentage) ? aFinalPercentage = 0 : aFinalPercentage = aFinalPercentage;
-      console.log('aFinalPercentage', aFinalPercentage);
-      console.log('END a.counterUserOne');
-
-      console.log('START b.counterUserOne');
-      console.log('b.counterUserOne', b.counterUserOne);
-      var percentageUserOne = Math.round((b.counterUserOne / userOneTotal));
-      console.log('percentageUserOne', percentageUserOne );
+      isNaN(apercentageUserOne) ? apercentageUserOne = 0 : apercentageUserOne = apercentageUserOne;
+      isNaN(apercentageUserTwo) ? apercentageUserTwo = 0 : apercentageUserTwo = apercentageUserTwo;
+      var aFinalPercentage = apercentageUserOne + apercentageUserTwo;
 
 
-      var percentageUserTwo = Math.round((b.counterUserTwo / userTwoTotal));
-      console.log('percentageUserTwo', percentageUserTwo);
+      var bpercentageUserOne = Math.round((b.counterUserOne / userOneTotal));
+      var bpercentageUserTwo = Math.round((b.counterUserTwo / userTwoTotal));
 
-      isNaN(percentageUserOne) ? percentageUserOne = 0 : percentageUserOne = percentageUserOne;
-      isNaN(percentageUserTwo) ? percentageUserTwo = 0 : percentageUserTwo = percentageUserTwo;
-      var bFinalPercentage = percentageUserOne + percentageUserTwo;
-      console.log('bFinalPercentage', bFinalPercentage);
-
-
-      // isNaN(bFinalPercentage) ? bFinalPercentage = 0 : bFinalPercentage = bFinalPercentage;
-      console.log('isNANbFinalPercentage', bFinalPercentage);
-      console.log('FINAL END ****************');
+      isNaN(bpercentageUserOne) ? bpercentageUserOne = 0 : bpercentageUserOne = bpercentageUserOne;
+      isNaN(bpercentageUserTwo) ? bpercentageUserTwo = 0 : bpercentageUserTwo = bpercentageUserTwo;
+      var bFinalPercentage = bpercentageUserOne + bpercentageUserTwo;
 
 
       if(aFinalPercentage > bFinalPercentage) {
