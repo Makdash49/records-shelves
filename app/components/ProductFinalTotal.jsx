@@ -39,6 +39,7 @@ export class ProductFinalTotal extends React.Component {
         <div>
           <div className="productImage">
             <div className="increments">
+              <p></p>
             </div>
             <div className="photo">
               <img className="thePhoto" src={image} alt={text}/>
