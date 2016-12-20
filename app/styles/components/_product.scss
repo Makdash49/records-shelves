@@ -1,5 +1,4 @@
 .productImage {
-  float: left;
   height: 150px;
   width: 100%;
   align-items: center;
@@ -30,7 +29,7 @@
 
 .plusBox {
   border: 1px solid green;
-  width: 6%;
+  width: 30px;
   text-align: center;
   margin-left: 5%;
 }
@@ -38,7 +37,7 @@
 
 .minusBox {
   border: 1px solid red;
-  width: 6%;
+  width: 30px;
   text-align: center;
   margin-left: 5%;
 }
@@ -51,4 +50,9 @@
   padding: 0;
   margin-bottom: 2rem;
   float: left;
+}
+
+.product-description {
+  font-size: 75%;
+
 }

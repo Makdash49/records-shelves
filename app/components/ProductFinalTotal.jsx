@@ -36,7 +36,7 @@ export class ProductFinalTotal extends React.Component {
         <div>
           <div className="productImage">
             <img src={image} alt={text}/>
-            <p>{text}</p>
+            <p className="product-description">{text}</p>
             <h4>{finalPercentage}%</h4>
           </div>
         </div>

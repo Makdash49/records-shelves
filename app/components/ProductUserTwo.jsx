@@ -32,7 +32,7 @@ export class ProductUserTwo extends React.Component {
           <div>
             <div className="productImage">
               <img src={image} alt={text}/>
-              <p>{text}</p>
+              <p className="product-description">{text}</p>
               <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
               <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
               <p>{counterUserTwo}</p>
@@ -45,7 +45,7 @@ export class ProductUserTwo extends React.Component {
           <div>
             <div className="productImage">
               <img src={image} alt={text}/>
-              <p>{text}</p>
+              <p className="product-description">{text}</p>
               <p>{counterUserTwo}</p>
               <h4>{percentage}%</h4>
             </div>
