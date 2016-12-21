@@ -5,7 +5,8 @@ import ProductUserTwo from 'ProductUserTwo';
 import ProductFinalTotal from 'ProductFinalTotal';
 import ProductAPI from 'ProductAPI'
 import UserAPI from 'UserAPI';
-import FlipMove from 'react-flip-move';
+import ReactMotionFlip from "react-motion-flip"
+
 
 
 import * as actions from 'actions';
@@ -117,21 +118,21 @@ export class Amazon extends React.Component {
         <div className="row">
             <div className="productContainer">
               <h5>USER ONE - TOTAL VOTES: {userOneTotal}</h5>
-              <FlipMove>
+              <ReactMotionFlip>
                 {renderProductsUserOne()}
-              </FlipMove>
+              </ReactMotionFlip>
             </div>
             <div className="productContainer">
               <h5>USER TWO - TOTAL VOTES: {userTwoTotal}</h5>
-              <FlipMove easing="cubic-bezier(0, 0.7, 0.8, 0.1)">
+              <ReactMotionFlip>
                 {renderProductsUserTwo()}
-              </FlipMove>
+              </ReactMotionFlip>
             </div>
             <div className="productContainer">
               <h5>TOTAL PERCENTAGES OUT OF 200%</h5>
-              <FlipMove easing="cubic-bezier(0, 0.7, 0.8, 0.1)">
+              <ReactMotionFlip>
                 {renderProductsUsersTotals()}
-              </FlipMove>
+              </ReactMotionFlip>
             </div>
         </div>
 
