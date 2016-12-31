@@ -335,6 +335,9 @@ export var startDeincrementProductUserOne = (id, counterUserOne) => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
     var productRef = firebaseRef.child(`products/${id}`);
+    if (counterUserOne === 0) {
+      counterUserOne = 1
+    }
     var updates = {
       counterUserOne: counterUserOne - 1
     };
@@ -348,6 +351,9 @@ export var startDeincrementProductUserTwo = (id, counterUserTwo) => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
     var productRef = firebaseRef.child(`products/${id}`);
+    if (counterUserTwo === 0) {
+      counterUserTwo = 1
+    }
     var updates = {
       counterUserTwo: counterUserTwo - 1
     };
