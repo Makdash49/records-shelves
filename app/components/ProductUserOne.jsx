@@ -22,6 +22,11 @@ export class ProductUserOne extends React.Component {
     var {text, image, counterUserOne, userOneTotal, userNumber} = this.props;
     // // // console.log('CounterUserOne:', counterUserOne);
     // // // console.log('userOneTotal', userOneTotal);
+    var votesWord = "Votes";
+
+    if (counterUserOne === 1) {
+      votesWord = "Vote"
+    }
 
     var percentage = Math.round(counterUserOne / userOneTotal * 100);
     isNaN(percentage) ? percentage = 0 : percentage = percentage;
@@ -34,7 +39,8 @@ export class ProductUserOne extends React.Component {
           <div>
             <div className="productImage">
               <div className="increments">
-                <p>{counterUserOne}</p>
+                <h4>{counterUserOne}</h4>
+                <h6>{votesWord}</h6>
                 <button className="plusBox" onClick={this.handlePlus.bind(this)}>+</button>
                 <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
               </div>
@@ -55,7 +61,8 @@ export class ProductUserOne extends React.Component {
           <div>
             <div className="productImage">
               <div className="increments">
-                <p>{counterUserOne}</p>
+                <h4>{counterUserOne}</h4>
+                <h6>{votesWord}</h6>
               </div>
               <div className="photo">
                 <img className="thePhoto" src={image} alt={text}/>
