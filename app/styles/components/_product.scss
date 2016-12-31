@@ -116,6 +116,7 @@ img {
 .products-box {
     max-height: 40em;
     overflow: scroll;
+    border: 2px solid $light-grey-border;
   }
 
 h6{
@@ -124,4 +125,8 @@ margin: 0 0 10px 0;
 
 h4{
 margin: 0 0 0 0;
+}
+
+h5{
+  text-align: center;
 }

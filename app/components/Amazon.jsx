@@ -113,7 +113,7 @@ export class Amazon extends React.Component {
         <div className="page-actions">
           <a href="#" onClick={this.onLogout.bind(this)}>Logout</a>
         </div>
-        <h5 className="page-title">Gift Vote</h5>
+        <h5 className="page-title">GiftVote</h5>
 
           <div className="row" className="products-box">
             <div className="productContainer">
