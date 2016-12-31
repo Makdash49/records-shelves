@@ -18,7 +18,6 @@ export class ProductUserOne extends React.Component {
     }
 
 
-
   render() {
     var {text, image, counterUserOne, userOneTotal, userNumber} = this.props;
     // // // console.log('CounterUserOne:', counterUserOne);

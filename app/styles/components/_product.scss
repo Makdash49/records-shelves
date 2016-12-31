@@ -53,7 +53,7 @@
 }
 
 .productContainer {
-  width: 33%;
+  width: 33.33%;
   background: $light-grey;
   border: 1px solid $light-grey-border;
   border-radius: 5px;
@@ -112,3 +112,8 @@ img {
 .thePhoto {
   height: 100px;
 }
+
+.products-box {
+    max-height: 40em;
+    overflow: scroll;
+  }

@@ -113,9 +113,9 @@ export class Amazon extends React.Component {
         <div className="page-actions">
           <a href="#" onClick={this.onLogout.bind(this)}>Logout</a>
         </div>
-        <h1 className="page-title">Product Vote</h1>
+        <h5 className="page-title">Product Vote</h5>
 
-        <div className="row">
+          <div className="row" className="products-box">
             <div className="productContainer">
               <h5>USER ONE - TOTAL VOTES: {userOneTotal}</h5>
               <ReactMotionFlip>
@@ -134,7 +134,8 @@ export class Amazon extends React.Component {
                 {renderProductsUsersTotals()}
               </ReactMotionFlip>
             </div>
-        </div>
+          </div>
+
 
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="text" ref="todoText" placeholder="What would you like to buy?"/>
