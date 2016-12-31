@@ -7,13 +7,13 @@ var Navigation = () => {
       <div className="top-bar-left">
         <ul className="menu">
           <li className="menu-text">
-            The Product Vote App
+            GiftVote
           </li>
           <li>
-            <IndexLink to="/" activeClassName="active-link">Amazon</IndexLink>
+            <IndexLink to="/" activeClassName="active-link">Vote</IndexLink>
           </li>
           <li>
-            <Link to="todos" activeClassName="active-link">Todos</Link>
+            <Link to="todos" activeClassName="active-link">About</Link>
           </li>
         </ul>
       </div>
