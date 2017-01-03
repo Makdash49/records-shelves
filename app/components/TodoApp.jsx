@@ -17,7 +17,7 @@ export class TodoApp extends React.Component {
   render() {
     return (
       <div>
-        <p className="about-description">This is a cool app that will do some really neat things.</p>
+        <p className="about-description">This is a cool app that will do some really really neat things.</p>
       </div>
     )
   }
