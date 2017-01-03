@@ -17,7 +17,10 @@ export class TodoApp extends React.Component {
   render() {
     return (
       <div>
-        <p className="about-description">This is a cool app that will do some really really neat things.</p>
+        <div className="about-description">
+          <p>This is a cool app that will do some really really neat things.</p>
+          <p>It allows users to vote for what they want in a way that lets them express how much they like their choices in comparison to each other.</p>
+        </div>
       </div>
     )
   }

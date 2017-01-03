@@ -19,15 +19,11 @@ export class Login extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="page-title">GiftVote</h1>
 
         <div className="row">
           <div className="columns small-centered small-10 medium-6 large-4">
             <div className="callout callout-auth">
-              <h3>Welcome!</h3>
-              <p>
-                Login to GiftVote below.
-              </p>
+              <h1>GiftVote</h1>
               <button className="button" ref="btn" onClick={this.onLogin}>Click to Login</button>
             </div>
           </div>
