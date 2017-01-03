@@ -113,23 +113,29 @@ export class Amazon extends React.Component {
         <div className="page-actions">
           <a href="#" onClick={this.onLogout.bind(this)}>Logout</a>
         </div>
-        <h5 className="page-title">GiftVote</h5>
+        <h4 className="page-title">What should we buy Mom for Mother's Day?</h4>
+        <ul>
+          <li>Add products to vote on using the form at the bottom of the page.</li>
+          <li>Vote for a product multiple times to express your enthusiasm for it.</li>
+          <li>Percentages will be calculated and added revealing the most popular products.</li>
+          <li>Log in with another browser to vote as the other user and see live updates. (Using another tab in the same browser will not work.)</li>
+        </ul>
 
           <div className="row" className="products-box">
             <div className="productContainer">
-              <h5>USER ONE - TOTAL VOTES: {userOneTotal}</h5>
+              <h5>Paul - Total Votes: {userOneTotal}</h5>
               <ReactMotionFlip>
                 {renderProductsUserOne()}
               </ReactMotionFlip>
             </div>
             <div className="productContainer">
-              <h5>USER TWO - TOTAL VOTES: {userTwoTotal}</h5>
+              <h5>Kathy - Total Votes: {userTwoTotal}</h5>
               <ReactMotionFlip>
                 {renderProductsUserTwo()}
               </ReactMotionFlip>
             </div>
             <div className="productContainer">
-              <h5>TOTAL PERCENTAGES OUT OF 200%</h5>
+              <h5>Total Percentages out of 200%</h5>
               <ReactMotionFlip>
                 {renderProductsUsersTotals()}
               </ReactMotionFlip>
