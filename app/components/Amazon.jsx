@@ -117,7 +117,7 @@ export class Amazon extends React.Component {
           <h4 className="page-title">What should we buy Mom for Mother's Day?</h4>
           <ul>
             <li>Add products to vote on using the form at the bottom of the page.</li>
-            <li>Vote for a product multiple times to express your enthusiasm for it.</li>
+            <li>Increment votes for a product with + and - to express your enthusiasm for it.</li>
             <li>Percentages will be calculated and sumed revealing the most popular products.</li>
             <li>Log in with another browser to vote as the other user and see live updates. (Using another tab in the same browser will not work.)</li>
           </ul>
