@@ -117,7 +117,7 @@ img {
     max-height: 40em;
     overflow: scroll;
     border: 2px solid $light-grey-border;
-    background-color: white;
+    background-color: #F5F5F5;
   }
 
 h6{
@@ -143,4 +143,20 @@ body {
     // background-color: #cccccc;
     background-position: center top;
     background-size: 100% auto;
+}
+
+.title-instructions {
+  background-color: white;
+  padding-left: 40px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  border: 2px solid $light-grey-border;
+}
+
+form {
+  background-color: #F5F5F5;
+  padding: 10px;
 }
