@@ -43,6 +43,7 @@ export class Amazon extends React.Component {
 
   render() {
     var userIDs = UserAPI.filterUsers(this.props.userIDs);
+    console.log('userIDs', userIDs);
     var lastUser = userIDs[userIDs.length - 1]
     var userNumber;
 

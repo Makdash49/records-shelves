@@ -114,8 +114,8 @@ img {
 }
 
 .products-box {
-    max-height: 40em;
-    overflow: scroll;
+    // max-height: 40em;
+    // overflow: scroll;
     border: 2px solid $light-grey-border;
     background-color: #F5F5F5;
   }
@@ -142,10 +142,12 @@ body {
     // background-image: url("http://kingofwallpapers.com/soft-wallpapers/soft-wallpapers-012.jpg");
     // background-image: url("https://www.budsies.com/blog/wp-content/uploads/2016/05/gift-8.jpg");
     background-image: url("http://kingofwallpapers.com/soft-wallpapers/soft-wallpapers-013.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     // background-color: #cccccc;
-    background-position: center top;
-    background-size: 100% auto;
+    // background-position: center top;
+    // background-size: 100% auto;
 }
 
 
