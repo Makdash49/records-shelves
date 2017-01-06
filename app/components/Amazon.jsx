@@ -43,33 +43,28 @@ export class Amazon extends React.Component {
 
   render() {
     var userIDs = UserAPI.filterUsers(this.props.userIDs);
+    var currentUser = this.props.auth.uid;
+    var currentUserIndex;
+
     console.log('userIDs', userIDs);
+
+    for (var i = 0; i < userIDs.length; i++) {
+      if (currentUser === userIDs[i].uid) {
+        console.log('CURRENT INDEX', i);
+        currentUserIndex = i;
+      }
+    }
+
     var lastUser = userIDs[userIDs.length - 1]
     var userNumber;
 
-    if (lastUser) {
-      // console.log('LASTUSER', lastUser);
-      if (userIDs[userIDs.length - 1].uid === this.props.auth.uid && userIDs.length > 1) {
-        // console.log("You are the latest user to log in so you will be user TWO!!");
-        userNumber = "TWO"
-      } else {
-        // console.log('Someone logged in after you so you are user ONE!!!!');
-        userNumber = "ONE"
-      };
+    if (currentUserIndex % 2 === 0) {
+      userNumber = "ONE"
+    } else {
+      userNumber = "TWO"
     };
 
-    // console.log(userNumber);
-    // console.log('CURRENT AUTH.UID', this.props.auth.uid);
-
-
-
-
-    // // console.log('Sorted USERIDS!', userIDs);
-    // // console.log('this.props.auth.uid', this.props.auth.uid);
-
     var {products} = this.props;
-    // // // // // console.log('PRODUCTS!!!!!!!', products);
-    // // // // // // console.log("AMAZON COMPONENT:", products)
 
     var userOneTotal = 0;
     var userTwoTotal = 0;
@@ -77,10 +72,6 @@ export class Amazon extends React.Component {
       userOneTotal = userOneTotal + product.counterUserOne;
       userTwoTotal = userTwoTotal + product.counterUserTwo;
     });
-
-    // var finalTotals = userOneTotal + userTwoTotal;
-    // // // // // console.log('TOTAL:', userOneTotal);
-
 
     var renderProductsUserOne = () => {
       var filteredProducts = ProductAPI.userOneFilterProducts(products);
