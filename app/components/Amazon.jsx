@@ -111,7 +111,7 @@ export class Amazon extends React.Component {
             <li>Add products to vote on using the form at the bottom of the page.</li>
             <li>Increment votes for a product with + and - to express your enthusiasm for it.</li>
             <li>Percentages will be calculated and sumed revealing the most popular products.</li>
-            <li>Log in and log out to vote as the other user.  Use two browsers at the same time to see live updates. (e.g. Chrome and Safari)</li>
+            <li>Login and logout to vote as the other user.  Use two browsers at the same time to see live updates. (e.g. Chrome and Safari)</li>
           </ul>
         </div>
 
