@@ -129,7 +129,7 @@ export class Amazon extends React.Component {
               </ReactMotionFlip>
             </div>
             <div className="productContainer">
-              <h5>Total Percentages out of 200%</h5>
+              <h5>Totals out of 200%</h5>
               <ReactMotionFlip>
                 {renderProductsUsersTotals()}
               </ReactMotionFlip>
