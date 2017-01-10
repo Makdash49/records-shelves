@@ -1,7 +1,17 @@
 var React = require('react');
 var {Link, IndexLink} = require('react-router');
+import firebase from 'app/firebase/';
+
 
 var Navigation = () => {
+  var vote = "";
+  var about = "";
+
+  if (firebase.auth().currentUser) {
+    vote = "Vote";
+    about = "About";
+  }
+
   return (
     <div className ="top-bar">
       <div className="top-bar-left">
@@ -10,10 +20,10 @@ var Navigation = () => {
             GiftVote
           </li>
           <li>
-            <IndexLink to="/" activeClassName="active-link">Vote</IndexLink>
+            <IndexLink to="/" activeClassName="active-link">{vote}</IndexLink>
           </li>
           <li>
-            <Link to="todos" activeClassName="active-link">About</Link>
+            <Link to="todos" activeClassName="active-link">{about}</Link>
           </li>
         </ul>
       </div>
