@@ -1,6 +1,8 @@
 import React from 'react';
 import * as Redux from 'react-redux';
 var openWeatherMap = require('openWeatherMap');
+import {connect} from 'react-redux';
+import Page from 'Page';
 
 import * as actions from 'actions';
 
@@ -19,44 +21,51 @@ export class Login extends React.Component {
 
   componentDidMount() {
     var that = this;
-    console.log('WILL THE COMPONENT MOUNT??????');
-    for (var i = 1; i < 11; i++) {
+    for (var i = 1; i <= 10; i++) {
       openWeatherMap.getTemp(i).then(function (data) {
         var {dispatch} = that.props;
         console.log('DATA:', data );
         dispatch(actions.addPage(data.page))
+        dispatch(actions.nowLoaded())
       }, function (e) {
         console.log('ERROR: ', e);
       });
     }
-  //   setTimeout(function(){
-  //     for (var i = 11; i < 21; i++) {
-  //       openWeatherMap.getTemp(i).then(function (data) {
-  //         var {dispatch} = that.props;
-  //         console.log('DATA:', data );
-  //         dispatch(actions.addPage(data.page))
-  //       }, function (e) {
-  //         console.log('ERROR: ', e);
-  //       });
-  //     }
-  //   }, 10000);
+    // var {dispatch} = this.props;
   }
 
   render() {
+    var {pages, isLoaded} = this.props
+    // if (pages) {
+    //   console.log('Pages', pages);
+    // } else {
+    //   pages = [{name: "temp", number:101}, {name: "temp", number:102}]
+    // }
+
+    var renderShelves = () => {
+      if (isLoaded){
+        return pages.map((page) => {
+          return (
+            <Page key={page.number} {...page}/>
+          )
+        })
+      } else {
+        return "Loading........"
+      }
+
+    }
     return (
       <div>
-
-        <div className="row">
-          <div className="columns small-centered small-10 medium-6 large-4">
-            <div className="callout callout-auth">
-              <h1>GiftVote</h1>
-              <button className="button" ref="btn" onClick={this.onLogin}>Click to Login</button>
-            </div>
-          </div>
-        </div>
+        {renderShelves()}
       </div>
     );
   }
 };
 
-export default Redux.connect()(Login);
+// export default Redux.connect()(Login);
+
+export default connect(
+  (state) => {
+    return state;
+  }
+)(Login);

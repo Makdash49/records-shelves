@@ -140,6 +140,15 @@ export var pagesReducer = (state = {}, action) => {
   }
 }
 
+export var isLoadedReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'MAKE_TRUE':
+      return true;
+      default:
+        return state;
+  }
+}
+
 
 // When log out, wipes auth object.
 // Todos array, is still in redux store.

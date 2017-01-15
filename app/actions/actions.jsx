@@ -371,6 +371,12 @@ export var startDeincrementProductUserTwo = (id, counterUserTwo) => {
   };
 };
 
+export var nowLoaded = () => {
+  return {
+    type: 'MAKE_TRUE',
+  };
+};
+
 
 // export var startDeincrementProduct = (id, counter) => {
 //   return (dispatch, getState) => {
