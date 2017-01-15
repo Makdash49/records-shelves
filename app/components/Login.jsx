@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Redux from 'react-redux';
+var openWeatherMap = require('openWeatherMap');
 
 import * as actions from 'actions';
 
@@ -14,6 +15,16 @@ export class Login extends React.Component {
     var {dispatch} = this.props;
     this.refs.btn.setAttribute("disabled", "disabled");
     dispatch(actions.startLogin());
+  }
+
+  componentWillMount() {
+    console.log('WILL THE COMPONENT MOUNT??????');
+    openWeatherMap.getTemp(location).then(function (data) {
+      console.log('DATA:', data );
+    }, function (e) {
+      console.log('ERROR: ', e);
+    });
+
   }
 
   render() {
