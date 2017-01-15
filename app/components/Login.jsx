@@ -45,7 +45,7 @@ export class Login extends React.Component {
 
     var renderShelves = () => {
       if (isLoaded){
-        if (pages.length === 10) {
+        if (pages.length > 1) {
           pages.sort((a, b) => {
             if(a.number < b.number) {
               return -1;
