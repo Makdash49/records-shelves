@@ -2,7 +2,7 @@ var axios = require('axios');
 
 const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather?appid=29a7aa8f8eb907a68f812683b58cd962&units=imperial';
 
-const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/0/releases';
+const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/0/releases?page=';
 
 // 29a7aa8f8eb907a68f812683b58cd962
 // http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=29a7aa8f8eb907a68f812683b58cd962
@@ -12,7 +12,7 @@ module.exports = {
     var encodedLocation = encodeURIComponent(location);
     var requestUrl =`${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
 
-    return axios.get(DISCOGS_URL).then(function (res){
+    return axios.get(DISCOGS_URL+pageNumber).then(function (res){
       var res = res;
       var shelfArray = [];
       // console.log('RESPONSE: ', res);
