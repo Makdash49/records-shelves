@@ -58,9 +58,10 @@ module.exports = {
         // axios.get(resource_URL).then(function (resourceRes){
         //   // console.log('Hellooo');
         // });
+        var instanceID = releases[i].instance_id;
 
         // // console.log('record: ', [releases[i].basic_information.title, formatsString, artistsString, labelsArray.join(', '), year].join(', '));
-        shelfArray.push({title: titleString, formats: formatsString, artists: artistsString, labels: labelsString, year: yearString})
+        shelfArray.push({instanceID: instanceID, title: titleString, formats: formatsString, artists: artistsString, labels: labelsString, year: yearString})
 
         console.log("");
       }
