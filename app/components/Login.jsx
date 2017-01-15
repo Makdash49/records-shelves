@@ -18,13 +18,15 @@ export class Login extends React.Component {
   }
 
   componentWillMount() {
+    var that = this;
     console.log('WILL THE COMPONENT MOUNT??????');
     openWeatherMap.getTemp(location).then(function (data) {
+      var {dispatch} = that.props;
       console.log('DATA:', data );
+      dispatch(actions.addPage(data.page))
     }, function (e) {
       console.log('ERROR: ', e);
     });
-
   }
 
   render() {

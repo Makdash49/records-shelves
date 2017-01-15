@@ -62,6 +62,14 @@ export var addTodo = (todo) => {
   };
 };
 
+export var addPage = (page) => {
+  return {
+    type: 'ADD_PAGE',
+    page
+  }
+}
+
+
 export var deleteTodo = (id) => {
   return {
     type: 'DELETE_TODO',

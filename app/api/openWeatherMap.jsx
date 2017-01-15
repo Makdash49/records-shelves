@@ -75,7 +75,10 @@ module.exports = {
         return {
           temp: 50,
           name: 'Oz',
-          shelves: shelfArray
+          page: {
+            name: 1,
+            records: shelfArray
+          }
         }
       }
     }, function (res) {

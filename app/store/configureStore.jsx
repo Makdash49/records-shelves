@@ -1,7 +1,7 @@
 import * as redux from 'redux';
 import thunk from 'redux-thunk';
 
-import {searchTextReducer, showCompletedReducer, todosReducer, authReducer, productsReducer, userIDsReducer} from 'reducers';
+import {searchTextReducer, showCompletedReducer, todosReducer, authReducer, productsReducer, userIDsReducer, pagesReducer} from 'reducers';
 
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
@@ -10,7 +10,8 @@ export var configure = (initialState = {}) => {
     todos: todosReducer,
     auth: authReducer,
     products: productsReducer,
-    userIDs: userIDsReducer
+    userIDs: userIDsReducer,
+    pages: pagesReducer
   });
 
   var store = redux.createStore(reducer, initialState, redux.compose(

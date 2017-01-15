@@ -128,6 +128,18 @@ export var userIDsReducer = (state = [], action) => {
   };
 };
 
+export var pagesReducer = (state = {}, action) => {
+  switch (action.type) {
+    case 'ADD_PAGE':
+      return [
+        ...state,
+        action.page
+      ];
+    default:
+      return state;
+  }
+}
+
 
 // When log out, wipes auth object.
 // Todos array, is still in redux store.
