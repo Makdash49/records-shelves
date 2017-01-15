@@ -14,12 +14,14 @@ module.exports = {
 
     return axios.get(DISCOGS_URL).then(function (res){
       var res = res;
+      var shelfArray = [];
       // console.log('RESPONSE: ', res);
       console.log('Releases[0]: ', res.data.releases[0]);
       var releases = res.data.releases;
 
       for (var i = 0; i < releases.length; i++) {
         console.log('Title: ', releases[i].basic_information.title)
+        var titleString = releases[i].basic_information.title
 
         var formatsObjects = releases[i].basic_information.formats;
         var formatsArray = []
@@ -45,10 +47,11 @@ module.exports = {
         for (var p = 0; p < labelsObjects.length; p++) {
           labelsArray.push(labelsObjects[p].name);
         }
-        console.log('labelsString: ', labelsArray.join(', '));
+        var labelsString = labelsArray.join(', ')
+        console.log('labelsString: ', labelsString);
 
-        var year = releases[i].basic_information.year;
-        console.log('year: ', year);
+        var yearString = releases[i].basic_information.year;
+        console.log('year: ', yearString);
 
         // var resource_URL = releases[i].basic_information.resource_url;
         // console.log('resource_url: ', resource_URL);
@@ -56,8 +59,8 @@ module.exports = {
         //   console.log('Hellooo');
         // });
 
-        console.log('record: ', [releases[i].basic_information.title, formatsString, artistsString, labelsArray.join(', '), year].join(', '));
-
+        // console.log('record: ', [releases[i].basic_information.title, formatsString, artistsString, labelsArray.join(', '), year].join(', '));
+        shelfArray.push({title: titleString, formats: formatsString, artists: artistsString, labels: labelsString, year: yearString})
 
         console.log("");
       }
@@ -72,7 +75,7 @@ module.exports = {
         return {
           temp: 50,
           name: 'Oz',
-          shelves: [{name:1},{name:1},{name:1},{name:1},{name:1},{name:1},]
+          shelves: shelfArray
         }
       }
     }, function (res) {
