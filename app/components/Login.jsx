@@ -17,10 +17,10 @@ export class Login extends React.Component {
     dispatch(actions.startLogin());
   }
 
-  componentWillMount() {
+  componentDidMount() {
     var that = this;
     console.log('WILL THE COMPONENT MOUNT??????');
-    for (var i = 1; i < 3; i++) {
+    for (var i = 1; i < 11; i++) {
       openWeatherMap.getTemp(i).then(function (data) {
         var {dispatch} = that.props;
         console.log('DATA:', data );
@@ -29,6 +29,17 @@ export class Login extends React.Component {
         console.log('ERROR: ', e);
       });
     }
+  //   setTimeout(function(){
+  //     for (var i = 11; i < 21; i++) {
+  //       openWeatherMap.getTemp(i).then(function (data) {
+  //         var {dispatch} = that.props;
+  //         console.log('DATA:', data );
+  //         dispatch(actions.addPage(data.page))
+  //       }, function (e) {
+  //         console.log('ERROR: ', e);
+  //       });
+  //     }
+  //   }, 10000);
   }
 
   render() {

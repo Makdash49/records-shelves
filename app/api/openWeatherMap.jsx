@@ -12,7 +12,7 @@ module.exports = {
     var encodedLocation = encodeURIComponent(location);
     var requestUrl =`${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
 
-    return axios.get(DISCOGS_URL+pageNumber).then(function (res){
+    return axios.get(DISCOGS_URL+pageNumber+"&per_page=350").then(function (res){
       var res = res;
       var shelfArray = [];
       // console.log('RESPONSE: ', res);
@@ -76,6 +76,7 @@ module.exports = {
           temp: 50,
           name: 'Oz',
           page: {
+            number: pageNumber,
             name: pageNumber,
             records: shelfArray
           }
