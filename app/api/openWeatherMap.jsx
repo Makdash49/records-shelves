@@ -15,12 +15,12 @@ module.exports = {
     return axios.get(DISCOGS_URL+pageNumber+"&per_page=350").then(function (res){
       var res = res;
       var shelfArray = [];
-      // console.log('RESPONSE: ', res);
-      console.log('Releases[0]: ', res.data.releases[0]);
+      // // console.log('RESPONSE: ', res);
+      // console.log('Releases[0]: ', res.data.releases[0]);
       var releases = res.data.releases;
 
       for (var i = 0; i < releases.length; i++) {
-        console.log('Title: ', releases[i].basic_information.title)
+        // console.log('Title: ', releases[i].basic_information.title)
         var titleString = releases[i].basic_information.title
 
         var formatsObjects = releases[i].basic_information.formats;
@@ -29,7 +29,7 @@ module.exports = {
           formatsArray.push(formatsObjects[m].name);
         }
         var formatsString = formatsArray.join(', ');
-        console.log('formatsString: ', formatsString);
+        // console.log('formatsString: ', formatsString);
 
 
         var artistsObjects = releases[i].basic_information.artists;
@@ -39,7 +39,7 @@ module.exports = {
           artistsArray.push(artistsObjects[x].name);
         }
         var artistsString = artistsArray.join(', ');
-        console.log('artistsString: ', artistsString);
+        // console.log('artistsString: ', artistsString);
 
 
         var labelsObjects = releases[i].basic_information.labels;
@@ -48,21 +48,21 @@ module.exports = {
           labelsArray.push(labelsObjects[p].name);
         }
         var labelsString = labelsArray.join(', ')
-        console.log('labelsString: ', labelsString);
+        // console.log('labelsString: ', labelsString);
 
         var yearString = releases[i].basic_information.year;
-        console.log('year: ', yearString);
+        // console.log('year: ', yearString);
 
         // var resource_URL = releases[i].basic_information.resource_url;
-        // console.log('resource_url: ', resource_URL);
+        // // console.log('resource_url: ', resource_URL);
         // axios.get(resource_URL).then(function (resourceRes){
-        //   console.log('Hellooo');
+        //   // console.log('Hellooo');
         // });
 
-        // console.log('record: ', [releases[i].basic_information.title, formatsString, artistsString, labelsArray.join(', '), year].join(', '));
+        // // console.log('record: ', [releases[i].basic_information.title, formatsString, artistsString, labelsArray.join(', '), year].join(', '));
         shelfArray.push({title: titleString, formats: formatsString, artists: artistsString, labels: labelsString, year: yearString})
 
-        console.log("");
+        // console.log("");
       }
 
 

@@ -6,8 +6,8 @@ import TodoAPI from 'TodoAPI'
 export class TodoList extends React.Component {
   render () {
     var {todos, showCompleted, searchText, products} = this.props;
-    // // // // // console.log('TODO LIST', this.props);
-    
+    // // // // // // console.log('TODO LIST', this.props);
+
     var renderTodos = () => {
       var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
 

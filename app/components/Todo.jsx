@@ -11,6 +11,10 @@ export class Todo extends React.Component {
     dispatch(actions.startDeleteTodo(id));
   }
 
+  componentWillMount() {
+    console.log('THIS.PROPS', this.props);
+  }
+
   handleSubmit (e) {
     e.preventDefault();
     var {dispatch, id} = this.props

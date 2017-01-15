@@ -2,19 +2,19 @@
 //   return a + b
 // }
 //
-// // // // // // console.log(add(3, 1));
+// // // // // // // console.log(add(3, 1));
 //
 //
 // var toAdd = [9, 5];
 //
-// // // // // // console.log(add(...toAdd));
+// // // // // // // console.log(add(...toAdd));
 
 
 // var groupA = ["Bob", "Anne"];
 // var groupB = ["Vikram"];
 // var final = [...groupB, 3, ...groupA];
 //
-// // // // // // console.log(final)
+// // // // // // // console.log(final)
 
 
 var person = ['Andrew', 25];
@@ -22,7 +22,7 @@ var personTwo = ['Jen', 29];
 // Hi Andrew, you are 25.
 
 var nameAge = function (name, age) {
-  // // // // // console.log("Hi " + name + ", you are " + age)
+  // // // // // // console.log("Hi " + name + ", you are " + age)
 };
 
 nameAge(...person);
@@ -36,9 +36,9 @@ var final = [...names, 'Mark'];
 
 
 for (var i = 0; i < final.length; i++) {
-  // // // // // console.log("Hi " + final[i])
+  // // // // // // console.log("Hi " + final[i])
 };
 
 final.forEach(function (name) {
-  // // // // // console.log("Yoooo " + name)
+  // // // // // // console.log("Yoooo " + name)
 });
