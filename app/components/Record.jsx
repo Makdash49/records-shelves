@@ -10,7 +10,9 @@ export class Record extends React.Component {
 
     return (
       <div>
-        {title}, {formats}, {artists}, {labels}, {year}
+        <div className="record">
+          {title}, {formats}, {artists}, {labels}, {year}
+        </div>
       </div>
     )
   }
