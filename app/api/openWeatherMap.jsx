@@ -8,7 +8,7 @@ const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/
 // http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=29a7aa8f8eb907a68f812683b58cd962
 
 module.exports = {
-  getTemp: function (location){
+  getTemp: function (pageNumber){
     var encodedLocation = encodeURIComponent(location);
     var requestUrl =`${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
 
@@ -76,7 +76,7 @@ module.exports = {
           temp: 50,
           name: 'Oz',
           page: {
-            name: 1,
+            name: pageNumber,
             records: shelfArray
           }
         }
