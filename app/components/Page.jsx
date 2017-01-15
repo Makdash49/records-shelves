@@ -103,7 +103,7 @@ export class Page extends React.Component {
 
     return (
       <div>
-        {number}
+        Shelf {number}
       </div>
     )
   }

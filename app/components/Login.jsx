@@ -3,6 +3,7 @@ import * as Redux from 'react-redux';
 var openWeatherMap = require('openWeatherMap');
 import {connect} from 'react-redux';
 import Page from 'Page';
+var $ = require('jquery');
 
 import * as actions from 'actions';
 
@@ -44,11 +45,28 @@ export class Login extends React.Component {
 
     var renderShelves = () => {
       if (isLoaded){
-        return pages.map((page) => {
-          return (
-            <Page key={page.number} {...page}/>
-          )
-        })
+        if (pages.length === 10) {
+          pages.sort((a, b) => {
+            if(a.number < b.number) {
+              return -1;
+            } else if (a.number > b.number) {
+              return 1;
+            } else {
+              return 0
+            }
+          });
+          return pages.map((page) => {
+            return (
+              <Page key={page.number} {...page}/>
+            )
+          });
+        } else {
+          return pages.map((page) => {
+            return (
+              <Page key={page.number} {...page}/>
+            )
+          })
+        }
       } else {
         return "Loading........"
       }
