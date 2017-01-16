@@ -1,10 +1,13 @@
-var React = require('react');
-var Navigation = require('Navigation');
+import React, { PropTypes } from 'react';
+import { DragSource } from 'react-dnd';
+
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
+
 
 var Main = (props) => {
   return (
     <div>
-      <Navigation/>
       <div className="row">
           {props.children}
       </div>
@@ -13,4 +16,11 @@ var Main = (props) => {
 };
 
 
-module.exports = Main;
+// module.exports = Main;
+
+Login = DragDropContext(HTML5Backend)(Login);
+export default connect(
+  (state) => {
+    return state;
+  }
+)(Main);
