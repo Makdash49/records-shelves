@@ -22,17 +22,43 @@ export class Login extends React.Component {
 
   componentDidMount() {
     var that = this;
-    for (var i = 1; i <= 10; i++) {
-      openWeatherMap.getTemp(i).then(function (data) {
+
+    var x = 1;
+
+    setInterval(function() {
+
+    if (x <= 10) {
+      openWeatherMap.getTemp(x).then(function (data) {
         var {dispatch} = that.props;
         // console.log('DATA:', data );
         dispatch(actions.addPage(data.page))
         dispatch(actions.nowLoaded())
       }, function (e) {
-        // console.log('ERROR: ', e);
-      });
-    }
-    // var {dispatch} = this.props;
+          // console.log('ERROR: ', e);
+        });
+      }
+      else return;
+      x++;
+    }, 250);
+
+
+
+
+
+    // for (var i = 1; i <= 10; i++) {
+    //   openWeatherMap.getTemp(i).then(function (data) {
+    //     var {dispatch} = that.props;
+    //     // console.log('DATA:', data );
+    //     dispatch(actions.addPage(data.page))
+    //     dispatch(actions.nowLoaded())
+    //   }, function (e) {
+    //     // console.log('ERROR: ', e);
+    //   });
+    // }
+
+
+
+    var {dispatch} = this.props;
   }
 
   render() {
