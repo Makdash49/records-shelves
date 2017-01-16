@@ -69,6 +69,22 @@ export var addPage = (page) => {
   }
 }
 
+export var addRecordToPage = (record) => {
+  return {
+    type: 'ADD_PAGE',
+    page
+  }
+}
+
+export var startAddRecordToPage = (record, pageNum) => {
+  return (dispatch, getState) => {
+    console.log('IN ACTIONS');
+    console.log('RECORD', record);
+    console.log('PAGENUM', pageNum);
+    console.log(getState());
+  };
+};
+
 
 export var deleteTodo = (id) => {
   return {

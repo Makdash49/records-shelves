@@ -5,6 +5,7 @@ import moment from 'moment';
 import * as actions from 'actions';
 
 import {DragSource} from 'react-dnd';
+// var store = require('configureStore').configure();
 
 
 var ItemTypes =  {
@@ -19,7 +20,7 @@ const recordSource = {
       formats: props.formats,
       artists: props.artists,
       labels: props.labels,
-      year: props.year
+      year: props.year,
     };
   },
   endDrag(props, monitor, component) {
@@ -32,8 +33,8 @@ const recordSource = {
     const dropResult = monitor.getDropResult();
     console.log('ITEM', item);
     console.log('DROPRESULT', dropResult);
-    // CardActions.moveCardToList(item.id, dropResult.listId);
-
+    console.log('PROPS', props);
+    props.dispatch(actions.startAddRecordToPage(item, dropResult))
   }
 };
 
@@ -74,13 +75,13 @@ const propTypes = {
   year: PropTypes.number.isRequired,
   // Injected by React DnD:
   isDragging: PropTypes.bool.isRequired,
-  connectDragSource: PropTypes.func.isRequired
+  connectDragSource: PropTypes.func.isRequired,
 };
 
 
 export class Record extends React.Component {
   render() {
-    var {instanceID, title, formats, artists, labels, year, isDragging, connectDragSource} = this.props;
+    var {instanceID, title, formats, artists, labels, year, isDragging, connectDragSource, dispatch} = this.props;
 
     return connectDragSource (
       <div style={{ opacity: isDragging ? 0.5 : 1 }}>
@@ -94,9 +95,7 @@ export class Record extends React.Component {
 
 Record.propTypes = propTypes;
 
-export default DragSource(ItemTypes.RECORD, recordSource, collect)(Record);
+// export default DragSource(ItemTypes.RECORD, recordSource, collect)(Record);
 
-
-// export default DragSource(ItemTypes.RECORD, recordSource, connect => ({
-//   connectDragSource: connect.dragSource()
-// }))(Record)
+Record = DragSource(ItemTypes.RECORD, recordSource, collect)(Record);
+export default connect()(Record)

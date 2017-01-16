@@ -135,6 +135,17 @@ export var pagesReducer = (state = {}, action) => {
         ...state,
         action.page
       ];
+      case 'UPDATE_PAGE':
+        return state.map((product) => {
+          if (page.number === action.number) {
+            return {
+              ...page,
+              ...action.updates
+            };
+          } else {
+            return product;
+          }
+        });
     default:
       return state;
   }
