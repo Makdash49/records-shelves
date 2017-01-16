@@ -1,9 +1,16 @@
-import React from 'react';
+// import React from 'react';
 import * as Redux from 'react-redux';
 var openWeatherMap = require('openWeatherMap');
 import {connect} from 'react-redux';
 import Page from 'Page';
 var $ = require('jquery');
+
+
+import React, { PropTypes } from 'react';
+import { DragSource } from 'react-dnd';
+
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
 
 import * as actions from 'actions';
 
@@ -90,7 +97,7 @@ export class Login extends React.Component {
 };
 
 // export default Redux.connect()(Login);
-
+Login = 
 export default connect(
   (state) => {
     return state;
