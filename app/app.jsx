@@ -9,6 +9,10 @@ var store = require('configureStore').configure();
 import firebase, {firebaseRef, githubProvider} from 'app/firebase/'
 import router from 'app/router/';
 
+import {DragDropContext} from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
+
 
 // var socket = io();
 
