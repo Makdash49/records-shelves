@@ -21,6 +21,7 @@ function collect(connect, monitor) {
 const pageTarget = {
   drop(props) {
     console.log('SOMETHING JUST HAPPENED!!!!!!');;
+    console.log('PROPS', props);
   }
 };
 

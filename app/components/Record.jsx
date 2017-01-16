@@ -21,6 +21,19 @@ const recordSource = {
       labels: props.labels,
       year: props.year
     };
+  },
+  endDrag(props, monitor, component) {
+    if (!monitor.didDrop()) {
+      return;
+    }
+
+    // When dropped on a compatible target, do something
+    const item = monitor.getItem();
+    const dropResult = monitor.getDropResult();
+    console.log('ITEM', item);
+    console.log('DROPRESULT', dropResult);
+    // CardActions.moveCardToList(item.id, dropResult.listId);
+
   }
 };
 
@@ -32,16 +45,16 @@ const recordSource = {
 //     return item;
 //   },
 //
-//   endDrag(props, monitor, component) {
-//     if (!monitor.didDrop()) {
-//       return;
-//     }
-//
-//     // When dropped on a compatible target, do something
-//     const item = monitor.getItem();
-//     const dropResult = monitor.getDropResult();
-//     CardActions.moveCardToList(item.id, dropResult.listId);
-//   }
+  // endDrag(props, monitor, component) {
+  //   if (!monitor.didDrop()) {
+  //     return;
+  //   }
+  //
+  //   // When dropped on a compatible target, do something
+  //   const item = monitor.getItem();
+  //   const dropResult = monitor.getDropResult();
+  //   CardActions.moveCardToList(item.id, dropResult.listId);
+  // }
 // };
 
 
