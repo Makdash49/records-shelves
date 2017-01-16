@@ -16,11 +16,7 @@ var Main = (props) => {
 };
 
 
-// module.exports = Main;
+module.exports = DragDropContext(HTML5Backend)(Main);
 
-Login = DragDropContext(HTML5Backend)(Login);
-export default connect(
-  (state) => {
-    return state;
-  }
-)(Main);
+
+// export default DragDropContext(HTML5Backend)(Main);
