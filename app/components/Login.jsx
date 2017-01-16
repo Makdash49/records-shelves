@@ -39,24 +39,7 @@ export class Login extends React.Component {
       }
       else return;
       x++;
-    }, 250);
-
-
-
-
-
-    // for (var i = 1; i <= 10; i++) {
-    //   openWeatherMap.getTemp(i).then(function (data) {
-    //     var {dispatch} = that.props;
-    //     // console.log('DATA:', data );
-    //     dispatch(actions.addPage(data.page))
-    //     dispatch(actions.nowLoaded())
-    //   }, function (e) {
-    //     // console.log('ERROR: ', e);
-    //   });
-    // }
-
-
+    }, 1500);
 
     var {dispatch} = this.props;
   }
