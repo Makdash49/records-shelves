@@ -46,7 +46,7 @@ export class Login extends React.Component {
       }
       else return;
       x++;
-    }, 1500);
+    }, 2000);
 
     var {dispatch} = this.props;
   }
