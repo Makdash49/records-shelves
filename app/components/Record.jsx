@@ -5,23 +5,11 @@ import moment from 'moment';
 import * as actions from 'actions';
 
 import {DragSource} from 'react-dnd';
-// import { ItemTypes } from 'Constants';
 
 
 var ItemTypes =  {
   RECORD: 'record'
 };
-
-// var cardSource = {
-//   beginDrag: function (props) {
-//     return {
-//       text: props.text
-//     };
-//   }
-// }
-
-// instanceID, title, formats, artists, labels, year
-
 
 const recordSource = {
   beginDrag(props) {
@@ -35,6 +23,26 @@ const recordSource = {
     };
   }
 };
+
+
+// const cardSource = {
+//   beginDrag(props) {
+//     // Return the data describing the dragged item
+//     const item = { id: props.id };
+//     return item;
+//   },
+//
+//   endDrag(props, monitor, component) {
+//     if (!monitor.didDrop()) {
+//       return;
+//     }
+//
+//     // When dropped on a compatible target, do something
+//     const item = monitor.getItem();
+//     const dropResult = monitor.getDropResult();
+//     CardActions.moveCardToList(item.id, dropResult.listId);
+//   }
+// };
 
 
 function collect(connect, monitor) {
@@ -60,7 +68,6 @@ const propTypes = {
 export class Record extends React.Component {
   render() {
     var {instanceID, title, formats, artists, labels, year, isDragging, connectDragSource} = this.props;
-    // const { isDragging, connectDragSource } = this.props;
 
     return connectDragSource (
       <div style={{ opacity: isDragging ? 0.5 : 1 }}>
@@ -75,14 +82,6 @@ export class Record extends React.Component {
 Record.propTypes = propTypes;
 
 export default DragSource(ItemTypes.RECORD, recordSource, collect)(Record);
-
-// Record.propTypes = {
-//   text: PropTypes.string.isRequired,
-//
-//   // Injected by React DnD:
-//   isDragging: PropTypes.bool.isRequired,
-//   connectDragSource: PropTypes.func.isRequired
-// };
 
 
 // export default DragSource(ItemTypes.RECORD, recordSource, connect => ({

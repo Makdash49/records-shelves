@@ -3,6 +3,26 @@ import {connect} from 'react-redux';
 import moment from 'moment';
 import * as actions from 'actions';
 import Record from 'Record';
+import { DropTarget } from 'react-dnd';
+
+var ItemTypes =  {
+  RECORD: 'record'
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver(),
+    canDrop: monitor.canDrop()
+
+  };
+}
+
+const pageTarget = {
+  drop(props) {
+    console.log('SOMETHING JUST HAPPENED!!!!!!');;
+  }
+};
 
 export class Page extends React.Component {
 
@@ -39,7 +59,7 @@ export class Page extends React.Component {
 
 
   render() {
-    var {number, records} = this.props;
+    var {number, records, connectDropTarget} = this.props;
 
     // console.log('RECORDS!!!!!!!!!!!!!!!!', records);
 
@@ -54,7 +74,7 @@ export class Page extends React.Component {
 
 
 
-    return (
+    return connectDropTarget(
       <div>
         <div className="shelf">
           Shelf {number}
@@ -65,4 +85,7 @@ export class Page extends React.Component {
   }
 };
 
+Page = DropTarget(ItemTypes.RECORD, pageTarget, collect)(Page)
 export default connect()(Page)
+// export default DropTarget(ItemTypes.RECORD, pageTarget, collect)(Page);
+// export default DropTarget(ItemTypes.KNIGHT, squareTarget, collect)(BoardSquare);
