@@ -18,7 +18,6 @@ var ItemTypes =  {
 const recordSource = {
   beginDrag(props) {
     return {
-      text: props.text
     };
   }
 };
@@ -43,7 +42,6 @@ function collect(connect, monitor) {
 export class Record extends React.Component {
 
   static propTypes = {
-    text: PropTypes.string.isRequired,
 
     // Injected by React DnD:
     isDragging: PropTypes.bool.isRequired,
@@ -52,7 +50,7 @@ export class Record extends React.Component {
 
   render() {
     var {instanceID, title, formats, artists, labels, year} = this.props;
-    const { isDragging, connectDragSource, text } = this.props;
+    const { isDragging, connectDragSource } = this.props;
 
     return connectDragSource (
       <div style={{ opacity: isDragging ? 0.5 : 1 }}>
