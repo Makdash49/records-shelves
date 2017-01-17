@@ -54,6 +54,16 @@ export class Page extends React.Component {
     }
   }
 
+  handleDeleteShelf (e) {
+    e.preventDefault();
+    var {dispatch, number} = this.props
+    console.log('HANDLEDELETESHELF!!!!!!');
+
+    dispatch(actions.deleteShelf(number));
+  }
+
+
+
   componentWillMount() {
     console.log('THIS.PROPS', this.props);
   }
@@ -108,6 +118,7 @@ export class Page extends React.Component {
                 <input type="text" ref="shelfText" defaultValue={name}/>
               </form>
             <button className="title-edit" onClick={this.toggleEditable.bind(this)}>E</button>
+            <button className="title-edit" onClick={this.handleDeleteShelf.bind(this)}>D</button>
             {renderRecords()}
           </div>
         )
@@ -116,6 +127,7 @@ export class Page extends React.Component {
           <div className="shelf">
             {name}
             <button className="title-edit" onClick={this.toggleEditable.bind(this)}>E</button>
+            <button className="title-edit" onClick={this.handleDeleteShelf.bind(this)}>D</button>
             {renderRecords()}
           </div>
         )

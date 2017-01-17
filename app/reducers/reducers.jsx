@@ -186,6 +186,14 @@ export var pagesReducer = (state = {}, action) => {
           return page;
         }
       });
+
+    case 'DELETE_SHELF':
+      for (var i = 0; i < state.length; i++) {
+        if (state[i].number === action.number) {
+          state.splice(i, 1);
+        };
+      };
+      return [...state];
     default:
       return state;
   }

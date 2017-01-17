@@ -161,6 +161,14 @@ export var changeShelfTitle = (num, name) => {
 };
 
 
+export var deleteShelf = (number) => {
+  return {
+    type: 'DELETE_SHELF',
+    number
+  };
+};
+
+
 export var deleteTodo = (id) => {
   return {
     type: 'DELETE_TODO',
