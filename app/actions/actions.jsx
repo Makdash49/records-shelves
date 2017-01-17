@@ -332,6 +332,25 @@ export var startToggleEdit = (id, edit) => {
   };
 };
 
+
+export var toggleShelfEditable = (num, editable) => {
+  return {
+    type: 'UPDATE_EDITABLE',
+    num,
+    editable
+  }
+}
+
+// export var startToggleShelfEdit = (num, editable) => {
+//   return (dispatch, getState) => {
+//     var updates = {
+//       editable
+//     };
+//     dispatch(updateShelfEditable(id, updates));
+//     };
+//   };
+// };
+
 export var startAddEdit = (id, text) => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;

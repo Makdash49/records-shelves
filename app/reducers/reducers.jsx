@@ -135,26 +135,46 @@ export var pagesReducer = (state = {}, action) => {
         ...state,
         action.page
       ];
-      case 'UPDATE_PAGE':
-      console.log('ACTION.PAGE', action.page);
-      console.log('ACTION.NUM', action.num);
-        // for (var i = 0; i < state.length; i++) {
-        //   if (state[i].number === action.num ) {
-        //     state[i] = action.page;
-        //     break;
-        //   }
-        // }
-        // console.log('STATE', state);
-        // return state;
-        return state.map((page) => {
-          if (page.number === action.num) {
-            return {
-              ...action.page
-            };
-          } else {
-            return page;
-          }
-        });
+    case 'UPDATE_PAGE':
+    console.log('ACTION.PAGE', action.page);
+    console.log('ACTION.NUM', action.num);
+      // for (var i = 0; i < state.length; i++) {
+      //   if (state[i].number === action.num ) {
+      //     state[i] = action.page;
+      //     break;
+      //   }
+      // }
+      // console.log('STATE', state);
+      // return state;
+      return state.map((page) => {
+        if (page.number === action.num) {
+          return {
+            ...action.page
+          };
+        } else {
+          return page;
+        }
+      });
+    case 'UPDATE_EDITABLE':
+    console.log('ACTION.NUM', action.num);
+      // for (var i = 0; i < state.length; i++) {
+      //   if (state[i].number === action.num ) {
+      //     state[i] = action.page;
+      //     break;
+      //   }
+      // }
+      // console.log('STATE', state);
+      // return state;
+      return state.map((page) => {
+        if (page.number === action.num) {
+          return {
+            ...page,
+            editable: action.editable
+          };
+        } else {
+          return page;
+        }
+      });
     default:
       return state;
   }

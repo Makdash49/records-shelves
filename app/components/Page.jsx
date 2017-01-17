@@ -31,6 +31,13 @@ const pageTarget = {
 
 export class Page extends React.Component {
 
+  toggleEditable (e) {
+    e.preventDefault();
+    var {dispatch, number, editable} = this.props;
+    editable = !editable
+    dispatch(actions.toggleShelfEditable(number, editable));
+  }
+
   componentWillMount() {
     console.log('THIS.PROPS', this.props);
   }
@@ -83,6 +90,7 @@ export class Page extends React.Component {
       <div>
         <div className="shelf">
           {name}
+          <button className="my-green-button float-right" onClick={this.toggleEditable.bind(this)}>E</button>
           {renderRecords()}
         </div>
       </div>

@@ -75,6 +75,7 @@ module.exports = {
       } else {
         return {
           page: {
+            editable: false,
             number: pageNumber,
             name: 'Shelf ' + pageNumber,
             records: shelfArray
