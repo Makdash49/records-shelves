@@ -74,11 +74,9 @@ module.exports = {
         throw new Error(res.data.message);
       } else {
         return {
-          temp: 50,
-          name: 'Oz',
           page: {
             number: pageNumber,
-            name: pageNumber,
+            name: 'Shelf ' + pageNumber,
             records: shelfArray
           }
         }

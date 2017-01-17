@@ -64,7 +64,7 @@ export class Page extends React.Component {
 
 
   render() {
-    var {number, records, connectDropTarget} = this.props;
+    var {number, name, records, connectDropTarget} = this.props;
 
     // console.log('RECORDS!!!!!!!!!!!!!!!!', records);
 
@@ -82,7 +82,7 @@ export class Page extends React.Component {
     return connectDropTarget(
       <div>
         <div className="shelf">
-          Shelf {number}
+          {name}
           {renderRecords()}
         </div>
       </div>
