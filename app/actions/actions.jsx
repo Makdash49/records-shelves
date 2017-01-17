@@ -69,10 +69,11 @@ export var addPage = (page) => {
   }
 }
 
-export var addRecordToPage = (updatedPage) => {
+export var updatePage = (page, num) => {
   return {
-    type: 'UDATE_PAGE',
-    page
+    type: 'UPDATE_PAGE',
+    page,
+    num
   }
 }
 
@@ -83,19 +84,19 @@ export var startAddRecordToPage = (record, pageNum) => {
     console.log('PAGENUM', pageNum);
     var pages = getState().pages;
     for (var i = 0; i < pages.length; i++) {
-      // console.log('PAGENUM', pageNum);
-      // console.log('PAGES[I].NUMBER', pages[i].number);
       if (pageNum.number === pages[i].number) {
         console.log('THIS IS THE PAGE', pages[i]);
-        var matchingPage = pages[i]
+        var matchingPage = pages[i];
+        break;
       }
-      var updatedPage = {
-        number: pages[i].number,
-        name: pages[i].name,
-        records: pages[i].records.concat(record)
-      }
-      console.log('updatedPage', updatedPage);
     }
+    var updatedPage = {
+      number: pages[i].number,
+      name: pages[i].name,
+      records: pages[i].records.concat(record)
+    }
+    console.log('updatedPage', updatedPage);
+    dispatch(updatePage(updatedPage, pageNum.number))
   };
 };
 

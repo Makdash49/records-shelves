@@ -136,14 +136,13 @@ export var pagesReducer = (state = {}, action) => {
         action.page
       ];
       case 'UPDATE_PAGE':
-        return state.map((product) => {
-          if (page.number === action.number) {
+        return state.map((page) => {
+          if (page.number === action.num) {
             return {
-              ...page,
-              ...action.updates
+              ...action.page
             };
           } else {
-            return product;
+            return page;
           }
         });
     default:
