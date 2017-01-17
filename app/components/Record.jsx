@@ -96,8 +96,8 @@ export class Record extends React.Component {
     return connectDragSource (
       <div style={{ opacity: isDragging ? 0.5 : 1 }}>
         <div className="record">
-          {title}, {formats}, {artists}, {labels}, {year}
-          <button className="my-red-button float-right" onClick={this.handleClick.bind(this)}>D</button>
+          <div className="record-text">{title}, {formats}, {artists}, {labels}, {year}</div>
+          <div className="record-red-button" onClick={this.handleClick.bind(this)}>x</div>
         </div>
       </div>
     );
