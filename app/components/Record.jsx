@@ -35,7 +35,7 @@ const recordSource = {
     console.log('DROPRESULT', dropResult.number);
     console.log('props.pageNum', props.pageNum);
     if (dropResult.number != props.pageNum) {
-      props.dispatch(actions.startRemoveRecordFromPage(item, props.pageNum))
+      props.dispatch(actions.startRemoveRecordFromPage(item.instanceID, props.pageNum))
       props.dispatch(actions.startAddRecordToPage(item, dropResult))
     }
   }
@@ -83,6 +83,13 @@ const propTypes = {
 
 
 export class Record extends React.Component {
+  handleClick (e) {
+    e.preventDefault();
+    var {dispatch, id, pageNum, instanceID} = this.props;
+    // dispatch(actions.startDeleteTodo(id));
+    dispatch(actions.startRemoveRecordFromPage(instanceID, pageNum))
+
+  }
   render() {
     var {instanceID, title, formats, artists, labels, year, isDragging, connectDragSource, dispatch} = this.props;
 
@@ -90,6 +97,7 @@ export class Record extends React.Component {
       <div style={{ opacity: isDragging ? 0.5 : 1 }}>
         <div className="record">
           {title}, {formats}, {artists}, {labels}, {year}
+          <button className="my-red-button float-right" onClick={this.handleClick.bind(this)}>D</button>
         </div>
       </div>
     );

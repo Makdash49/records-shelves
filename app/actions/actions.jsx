@@ -77,10 +77,10 @@ export var updatePage = (page, num) => {
   }
 }
 
-export var startRemoveRecordFromPage = (record, pageNum) => {
+export var startRemoveRecordFromPage = (recordID, pageNum) => {
   return (dispatch, getState) => {
     console.log('IN ACTIONS');
-    console.log('RECORD', record);
+    console.log('RECORDID', recordID);
     console.log('PAGENUM', pageNum);
     var pages = getState().pages;
     for (var i = 0; i < pages.length; i++) {
@@ -95,15 +95,15 @@ export var startRemoveRecordFromPage = (record, pageNum) => {
     for (var x = 0; x < records.length; x++) {
       // console.log('RECORD', record);
       // console.log('RECORDS[X]', records[x]);
-      if (record.instanceID === records[x].instanceID) {
+      if (recordID === records[x].instanceID) {
         var index = x;
         break;
       }
     }
     console.log('INDEX@@@@@@@@@@@@', index);
-    var b1 = records.slice(0,index);
-    var b2 = records.slice(index + 1);
-    var fewerRecords = b1.concat(b2)
+    var r1 = records.slice(0,index);
+    var r2 = records.slice(index + 1);
+    var fewerRecords = r1.concat(r2)
     console.log('SLICEDRECORDS', fewerRecords);
     console.log('RECORDS', records);
     var updatedPage = {
