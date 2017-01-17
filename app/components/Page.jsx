@@ -72,7 +72,7 @@ export class Page extends React.Component {
       return records.map((record) => {
         // console.log('INSTANCEID!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', record.instanceID);
         return (
-          <Record key={record.instanceID} {...record}/>
+          <Record key={record.instanceID} pageNum={number} {...record}/>
         )
       })
     }

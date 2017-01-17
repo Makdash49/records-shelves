@@ -77,6 +77,42 @@ export var updatePage = (page, num) => {
   }
 }
 
+export var startRemoveRecordFromPage = (record, pageNum) => {
+  return (dispatch, getState) => {
+    // console.log('IN ACTIONS');
+    // console.log('RECORD', record);
+    // console.log('PAGENUM', pageNum);
+    var pages = getState().pages;
+    for (var i = 0; i < pages.length; i++) {
+      if (pageNum === pages[i].number) {
+        // console.log('THIS IS THE PAGE***************', pages[i]);
+        var matchingPage = pages[i];
+        break;
+      }
+    }
+    // console.log('RECORD', record);
+    var records = matchingPage.records;
+    for (var x = 0; x < records.length; x++) {
+      // console.log('RECORD', record);
+      // console.log('RECORDS[X]', records[x]);
+      if (record.instanceID === records[x].instanceID) {
+        var index = x;
+        console.log('INDEX@@@@@@@@@@@@', index);
+        records.splice(index, 1)
+        console.log('SPLICEDRECORDS', records);
+      }
+
+    }
+    // var updatedPage = {
+    //   number: pages[i].number,
+    //   name: pages[i].name,
+    //   records: pages[i].records.concat(record)
+    // }
+    // console.log('updatedPage', updatedPage);
+    // dispatch(updatePage(updatedPage, pageNum.number))
+  };
+};
+
 export var startAddRecordToPage = (record, pageNum) => {
   return (dispatch, getState) => {
     console.log('IN ACTIONS');

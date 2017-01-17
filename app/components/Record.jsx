@@ -33,8 +33,9 @@ const recordSource = {
     const dropResult = monitor.getDropResult();
     // console.log('ITEM', item);
     // console.log('DROPRESULT', dropResult);
-    // console.log('PROPS', props);
-    props.dispatch(actions.startAddRecordToPage(item, dropResult))
+    console.log('PROPS!!!!!!!', props);
+    props.dispatch(actions.startRemoveRecordFromPage(item, props.pageNum))
+    // props.dispatch(actions.startAddRecordToPage(item, dropResult))
   }
 };
 
