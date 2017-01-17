@@ -21,6 +21,20 @@ export class Login extends React.Component {
     this.onLogin = this.onLogin.bind(this);
   }
 
+
+
+  handleAddShelf (e) {
+    e.preventDefault();
+    var {dispatch} = this.props;
+    var newPage = {
+      editable: false,
+      number: 12,
+      name: "New Page",
+      records: []
+    }
+    dispatch(actions.addPage(newPage));
+  }
+
   onLogin() {
     var {dispatch} = this.props;
     this.refs.btn.setAttribute("disabled", "disabled");
@@ -84,12 +98,17 @@ export class Login extends React.Component {
           })
         }
       } else {
-        return "Loading........"
+        return (
+          <p>Loading........</p>
+        )
       }
 
     }
     return (
       <div>
+        <p></p>
+        <button className="add-page" onClick={this.handleAddShelf.bind(this)}>Add a New Shelf!</button>
+
         {renderShelves()}
       </div>
     );
