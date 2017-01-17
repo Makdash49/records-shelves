@@ -10,7 +10,7 @@ var $ = require('jquery');
 
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
-
+import moment from 'moment';
 
 import * as actions from 'actions';
 
@@ -28,8 +28,8 @@ export class Login extends React.Component {
     var {dispatch} = this.props;
     var newPage = {
       editable: false,
-      number: 12,
-      name: "New Page",
+      number: moment().unix(),
+      name: "New Shelf",
       records: []
     }
     dispatch(actions.addPage(newPage));
