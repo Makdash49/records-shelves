@@ -71,7 +71,7 @@ export class Page extends React.Component {
 
 
   render() {
-    var {number, name, records, connectDropTarget} = this.props;
+    var {number, name, records, editable, connectDropTarget} = this.props;
 
     // console.log('RECORDS!!!!!!!!!!!!!!!!', records);
 
@@ -84,15 +84,30 @@ export class Page extends React.Component {
       })
     }
 
+    var editComponent = () => {
+      if (editable) {
+        return (
+          <div className="shelf">
+            EDITABLE
+            <button className="my-green-button float-right" onClick={this.toggleEditable.bind(this)}>E</button>
+            {renderRecords()}
+          </div>
+        )
+      } else {
+        return (
+          <div className="shelf">
+            {name}
+            <button className="my-green-button float-right" onClick={this.toggleEditable.bind(this)}>E</button>
+            {renderRecords()}
+          </div>
+        )
+      }
+    }
 
 
     return connectDropTarget(
       <div>
-        <div className="shelf">
-          {name}
-          <button className="my-green-button float-right" onClick={this.toggleEditable.bind(this)}>E</button>
-          {renderRecords()}
-        </div>
+        {editComponent()}
       </div>
     )
   }
