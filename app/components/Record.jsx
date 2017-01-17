@@ -35,7 +35,7 @@ const recordSource = {
     // console.log('DROPRESULT', dropResult);
     console.log('PROPS!!!!!!!', props);
     props.dispatch(actions.startRemoveRecordFromPage(item, props.pageNum))
-    // props.dispatch(actions.startAddRecordToPage(item, dropResult))
+    props.dispatch(actions.startAddRecordToPage(item, dropResult))
   }
 };
 

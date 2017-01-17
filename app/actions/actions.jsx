@@ -79,9 +79,9 @@ export var updatePage = (page, num) => {
 
 export var startRemoveRecordFromPage = (record, pageNum) => {
   return (dispatch, getState) => {
-    // console.log('IN ACTIONS');
-    // console.log('RECORD', record);
-    // console.log('PAGENUM', pageNum);
+    console.log('IN ACTIONS');
+    console.log('RECORD', record);
+    console.log('PAGENUM', pageNum);
     var pages = getState().pages;
     for (var i = 0; i < pages.length; i++) {
       if (pageNum === pages[i].number) {
@@ -97,12 +97,27 @@ export var startRemoveRecordFromPage = (record, pageNum) => {
       // console.log('RECORDS[X]', records[x]);
       if (record.instanceID === records[x].instanceID) {
         var index = x;
-        console.log('INDEX@@@@@@@@@@@@', index);
-        records.splice(index, 1)
-        console.log('SPLICEDRECORDS', records);
+        break;
       }
-
     }
+    console.log('INDEX@@@@@@@@@@@@', index);
+    var b1 = records.slice(0,index);
+    var b2 = records.slice(index + 1);
+    var fewerRecords = b1.concat(b2)
+    console.log('SLICEDRECORDS', fewerRecords);
+    console.log('RECORDS', records);
+    var updatedPage = {
+      number: pageNum,
+      name: matchingPage.name,
+      records: fewerRecords
+    }
+    console.log('PAGENUM', pageNum);
+    console.log('matchingPage.name', matchingPage.name);
+    console.log('UPDATED_PAGE', updatedPage);
+    dispatch(updatePage(updatedPage, pageNum));
+
+
+
     // var updatedPage = {
     //   number: pages[i].number,
     //   name: pages[i].name,
@@ -115,13 +130,13 @@ export var startRemoveRecordFromPage = (record, pageNum) => {
 
 export var startAddRecordToPage = (record, pageNum) => {
   return (dispatch, getState) => {
-    console.log('IN ACTIONS');
-    console.log('RECORD', record);
-    console.log('PAGENUM', pageNum);
+    // console.log('IN ACTIONS');
+    // console.log('RECORD', record);
+    // console.log('PAGENUM', pageNum);
     var pages = getState().pages;
     for (var i = 0; i < pages.length; i++) {
       if (pageNum.number === pages[i].number) {
-        console.log('THIS IS THE PAGE', pages[i]);
+        // console.log('THIS IS THE PAGE', pages[i]);
         var matchingPage = pages[i];
         break;
       }
@@ -131,7 +146,7 @@ export var startAddRecordToPage = (record, pageNum) => {
       name: pages[i].name,
       records: pages[i].records.concat(record)
     }
-    console.log('updatedPage', updatedPage);
+    // console.log('updatedPage', updatedPage);
     dispatch(updatePage(updatedPage, pageNum.number))
   };
 };
