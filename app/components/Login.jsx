@@ -72,6 +72,13 @@ export class Login extends React.Component {
     // } else {
     //   pages = [{name: "temp", number:101}, {name: "temp", number:102}]
     // }
+    var renderButton = () => {
+      if (isLoaded) {
+        return (
+          <button className="add-page" onClick={this.handleAddShelf.bind(this)}>Add a New Shelf!</button>
+        )
+      }
+    }
 
     var renderShelves = () => {
       if (isLoaded){
@@ -107,8 +114,7 @@ export class Login extends React.Component {
     return (
       <div>
         <p></p>
-        <button className="add-page" onClick={this.handleAddShelf.bind(this)}>Add a New Shelf!</button>
-
+        {renderButton()}
         {renderShelves()}
       </div>
     );
