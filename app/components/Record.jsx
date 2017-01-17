@@ -97,7 +97,7 @@ export class Record extends React.Component {
       <div style={{ opacity: isDragging ? 0.5 : 1 }}>
         <div className="record">
           <div className="record-text">{title}, {formats}, {artists}, {labels}, {year}</div>
-          <div className="record-red-button" onClick={this.handleClick.bind(this)}>x</div>
+          <div className="record-button" onClick={this.handleClick.bind(this)}>X</div>
         </div>
       </div>
     );

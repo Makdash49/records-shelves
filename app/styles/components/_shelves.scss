@@ -10,10 +10,11 @@
   height: 20px;
 }
 
-.record-red-button {
+.record-button {
+  font-size: 80%;
   position: relative;
   @include button;
-  background-color: red;
+  color: black;
   width: 14px;
   height: 14px;
   text-align: center;
@@ -30,7 +31,8 @@
  }
 
  .record-text {
-   width: 60%;
+   padding-left: 2%;
+   width: 80%;
    float: left;
    margin: 0px;
  }
