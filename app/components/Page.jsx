@@ -38,6 +38,20 @@ export class Page extends React.Component {
     dispatch(actions.toggleShelfEditable(number, editable));
   }
 
+  handleSubmit (e) {
+    e.preventDefault();
+    var {dispatch, id} = this.props
+
+    // var todoText = this.refs.todoText.value;
+    //
+    // if (todoText.length > 0) {
+    //   this.refs.todoText.value = '';
+    //   dispatch(actions.startAddEdit(id, todoText));
+    // } else {
+    //   this.refs.todoText.focus();
+    // }
+  }
+
   componentWillMount() {
     console.log('THIS.PROPS', this.props);
   }
@@ -88,7 +102,9 @@ export class Page extends React.Component {
       if (editable) {
         return (
           <div className="shelf">
-            EDITABLE
+              <form onSubmit={this.handleSubmit.bind(this)}>
+                <input type="text" ref="shelfText" defaultValue={name}/>
+              </form>
             <button className="my-green-button float-right" onClick={this.toggleEditable.bind(this)}>E</button>
             {renderRecords()}
           </div>
