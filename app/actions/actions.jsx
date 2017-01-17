@@ -152,6 +152,15 @@ export var startAddRecordToPage = (record, pageNum) => {
 };
 
 
+export var changeShelfTitle = (num, name) => {
+  return {
+    type: 'UPDATE_NAME',
+    num,
+    name
+  };
+};
+
+
 export var deleteTodo = (id) => {
   return {
     type: 'DELETE_TODO',

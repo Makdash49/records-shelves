@@ -175,6 +175,17 @@ export var pagesReducer = (state = {}, action) => {
           return page;
         }
       });
+    case 'UPDATE_NAME':
+      return state.map((page) => {
+        if (page.number === action.num) {
+          return {
+            ...page,
+            name: action.name
+          };
+        } else {
+          return page;
+        }
+      });
     default:
       return state;
   }
