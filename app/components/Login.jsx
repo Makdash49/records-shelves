@@ -77,9 +77,9 @@ export class Login extends React.Component {
       if (isLoaded){
         if (pages.length > 1) {
           pages.sort((a, b) => {
-            if(a.number < b.number) {
+            if(a.number > b.number) {
               return -1;
-            } else if (a.number > b.number) {
+            } else if (a.number < b.number) {
               return 1;
             } else {
               return 0
