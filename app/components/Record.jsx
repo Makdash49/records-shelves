@@ -32,10 +32,12 @@ const recordSource = {
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
     // console.log('ITEM', item);
-    // console.log('DROPRESULT', dropResult);
-    console.log('PROPS!!!!!!!', props);
-    props.dispatch(actions.startRemoveRecordFromPage(item, props.pageNum))
-    props.dispatch(actions.startAddRecordToPage(item, dropResult))
+    console.log('DROPRESULT', dropResult.number);
+    console.log('props.pageNum', props.pageNum);
+    if (dropResult.number != props.pageNum) {
+      props.dispatch(actions.startRemoveRecordFromPage(item, props.pageNum))
+      props.dispatch(actions.startAddRecordToPage(item, dropResult))
+    }
   }
 };
 
