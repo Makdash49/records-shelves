@@ -31,9 +31,9 @@ const recordSource = {
     // When dropped on a compatible target, do something
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
-    console.log('ITEM', item);
-    console.log('DROPRESULT', dropResult);
-    console.log('PROPS', props);
+    // console.log('ITEM', item);
+    // console.log('DROPRESULT', dropResult);
+    // console.log('PROPS', props);
     props.dispatch(actions.startAddRecordToPage(item, dropResult))
   }
 };

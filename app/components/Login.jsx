@@ -34,7 +34,7 @@ export class Login extends React.Component {
 
     setInterval(function() {
 
-    if (x <= 10) {
+    if (x <= 3) {
       openWeatherMap.getTemp(x).then(function (data) {
         var {dispatch} = that.props;
         // console.log('DATA:', data );

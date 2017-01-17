@@ -69,9 +69,9 @@ export var addPage = (page) => {
   }
 }
 
-export var addRecordToPage = (record) => {
+export var addRecordToPage = (updatedPage) => {
   return {
-    type: 'ADD_PAGE',
+    type: 'UDATE_PAGE',
     page
   }
 }
@@ -81,7 +81,21 @@ export var startAddRecordToPage = (record, pageNum) => {
     console.log('IN ACTIONS');
     console.log('RECORD', record);
     console.log('PAGENUM', pageNum);
-    console.log(getState());
+    var pages = getState().pages;
+    for (var i = 0; i < pages.length; i++) {
+      // console.log('PAGENUM', pageNum);
+      // console.log('PAGES[I].NUMBER', pages[i].number);
+      if (pageNum.number === pages[i].number) {
+        console.log('THIS IS THE PAGE', pages[i]);
+        var matchingPage = pages[i]
+      }
+      var updatedPage = {
+        number: pages[i].number,
+        name: pages[i].name,
+        records: pages[i].records.concat(record)
+      }
+      console.log('updatedPage', updatedPage);
+    }
   };
 };
 
