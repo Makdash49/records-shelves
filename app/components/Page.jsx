@@ -40,13 +40,15 @@ export class Page extends React.Component {
 
   handleEditSubmit (e) {
     e.preventDefault();
-    var {dispatch, number} = this.props
+    var {dispatch, number, editable} = this.props
 
     var shelfText = this.refs.shelfText.value;
 
     if (shelfText.length > 0) {
       this.refs.shelfText.value = '';
       dispatch(actions.changeShelfTitle(number, shelfText));
+      editable = !editable
+      dispatch(actions.toggleShelfEditable(number, editable));
     } else {
       this.refs.shelfText.focus();
     }
