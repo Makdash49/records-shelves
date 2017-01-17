@@ -107,7 +107,7 @@ export class Page extends React.Component {
               <form onSubmit={this.handleEditSubmit.bind(this)}>
                 <input type="text" ref="shelfText" defaultValue={name}/>
               </form>
-            <button className="my-green-button float-right" onClick={this.toggleEditable.bind(this)}>E</button>
+            <button className="title-edit" onClick={this.toggleEditable.bind(this)}>E</button>
             {renderRecords()}
           </div>
         )
@@ -115,7 +115,7 @@ export class Page extends React.Component {
         return (
           <div className="shelf">
             {name}
-            <button className="my-green-button float-right" onClick={this.toggleEditable.bind(this)}>E</button>
+            <button className="title-edit" onClick={this.toggleEditable.bind(this)}>E</button>
             {renderRecords()}
           </div>
         )

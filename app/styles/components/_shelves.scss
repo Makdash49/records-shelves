@@ -30,6 +30,26 @@
   }
  }
 
+ .title-edit {
+   font-size: 80%;
+   position: relative;
+   @include button;
+   color: black;
+   width: 14px;
+   height: 20px;
+   text-align: center;
+   vertical-align: middle;
+   text-align: center;
+   padding-top: 1px;
+   padding-bottom: 5px;
+   padding-left: 0px;
+   padding-right: 0px;
+   margin-top: 2px;
+   &:hover {
+     background: black;
+   }
+  }
+
  .record-text {
    padding-left: 2%;
    width: 80%;
