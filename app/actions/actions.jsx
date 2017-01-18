@@ -1,13 +1,13 @@
 import moment from 'moment';
 
-export var addPage = (shelf) => {
+export var addShelf = (shelf) => {
   return {
     type: 'ADD_SHELF',
     shelf
   }
 }
 
-export var updatePage = (shelf, num) => {
+export var updateShelf = (shelf, num) => {
   return {
     type: 'UPDATE_SHELF',
     shelf,
@@ -15,16 +15,16 @@ export var updatePage = (shelf, num) => {
   }
 }
 
-export var startRemoveRecordFromPage = (recordID, shelfNum) => {
+export var startRemoveRecordFromShelf = (recordID, shelfNum) => {
   return (dispatch, getState) => {
     var shelves = getState().shelves;
     for (var i = 0; i < shelves.length; i++) {
       if (shelfNum === shelves[i].number) {
-        var matchingPage = shelves[i];
+        var matchingShelf = shelves[i];
         break;
       }
     }
-    var records = matchingPage.records;
+    var records = matchingShelf.records;
     for (var x = 0; x < records.length; x++) {
       if (recordID === records[x].instanceID) {
         var index = x;
@@ -34,30 +34,30 @@ export var startRemoveRecordFromPage = (recordID, shelfNum) => {
     var r1 = records.slice(0,index);
     var r2 = records.slice(index + 1);
     var fewerRecords = r1.concat(r2)
-    var updatedPage = {
+    var updatedShelf = {
       number: shelfNum,
-      name: matchingPage.name,
+      name: matchingShelf.name,
       records: fewerRecords
     }
-    dispatch(updatePage(updatedPage, shelfNum));
+    dispatch(updateShelf(updatedShelf, shelfNum));
   };
 };
 
-export var startAddRecordToPage = (record, shelfNum) => {
+export var startAddRecordToShelf = (record, shelfNum) => {
   return (dispatch, getState) => {
     var shelves = getState().shelves;
     for (var i = 0; i < shelves.length; i++) {
       if (shelfNum.number === shelves[i].number) {
-        var matchingPage = shelves[i];
+        var matchingShelf = shelves[i];
         break;
       }
     }
-    var updatedPage = {
+    var updatedShelf = {
       number: shelves[i].number,
       name: shelves[i].name,
       records: shelves[i].records.concat(record)
     }
-    dispatch(updatePage(updatedPage, shelfNum.number))
+    dispatch(updateShelf(updatedShelf, shelfNum.number))
   };
 };
 

@@ -3,7 +3,7 @@ var axios = require('axios');
 const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/0/releases?shelf=';
 
 module.exports = {
-  getPage: function (shelfNumber){
+  getShelf: function (shelfNumber){
 
     return axios.get(DISCOGS_URL+shelfNumber+"&per_shelf=350").then(function (res){
       var res = res;
@@ -57,7 +57,7 @@ module.exports = {
       }
     }, function (res) {
       if (res.data === undefined) {
-        throw new Error("Page Not Found")
+        throw new Error("Shelf Not Found")
       } else {
         throw new Error(res.data.message);
       }

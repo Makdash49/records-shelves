@@ -35,8 +35,8 @@ const recordSource = {
     console.log('DROPRESULT', dropResult.number);
     console.log('props.shelfNum', props.shelfNum);
     if (dropResult.number != props.shelfNum) {
-      props.dispatch(actions.startRemoveRecordFromPage(item.instanceID, props.shelfNum))
-      props.dispatch(actions.startAddRecordToPage(item, dropResult))
+      props.dispatch(actions.startRemoveRecordFromShelf(item.instanceID, props.shelfNum))
+      props.dispatch(actions.startAddRecordToShelf(item, dropResult))
     }
   }
 };
@@ -87,7 +87,7 @@ export class Record extends React.Component {
     e.preventDefault();
     var {dispatch, id, shelfNum, instanceID} = this.props;
     // dispatch(actions.startDeleteTodo(id));
-    dispatch(actions.startRemoveRecordFromPage(instanceID, shelfNum))
+    dispatch(actions.startRemoveRecordFromShelf(instanceID, shelfNum))
 
   }
   render() {

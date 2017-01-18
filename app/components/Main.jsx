@@ -25,13 +25,13 @@ export class Main extends React.Component {
   handleAddShelf (e) {
     e.preventDefault();
     var {dispatch} = this.props;
-    var newPage = {
+    var newShelf = {
       editable: false,
       number: moment().unix(),
       name: "New Shelf",
       records: []
     }
-    dispatch(actions.addPage(newPage));
+    dispatch(actions.addShelf(newShelf));
   }
 
   onLogin() {
@@ -48,9 +48,9 @@ export class Main extends React.Component {
     setInterval(function() {
 
     if (x <= 3) {
-      discogsAPI.getPage(x).then(function (data) {
+      discogsAPI.getShelf(x).then(function (data) {
         var {dispatch} = that.props;
-        dispatch(actions.addPage(data.shelf))
+        dispatch(actions.addShelf(data.shelf))
         dispatch(actions.nowLoaded())
       }, function (e) {
         });
