@@ -1,16 +1,10 @@
 import * as redux from 'redux';
 import thunk from 'redux-thunk';
 
-import {searchTextReducer, showCompletedReducer, todosReducer, authReducer, productsReducer, userIDsReducer, shelvesReducer, isLoadedReducer} from 'reducers';
+import {shelvesReducer, isLoadedReducer} from 'reducers';
 
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
-    searchText: searchTextReducer,
-    showCompleted: showCompletedReducer,
-    todos: todosReducer,
-    auth: authReducer,
-    products: productsReducer,
-    userIDs: userIDsReducer,
     shelves: shelvesReducer,
     isLoaded: isLoadedReducer
   });
