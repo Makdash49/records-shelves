@@ -5,7 +5,7 @@ const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/
 module.exports = {
   getShelf: function (shelfNumber){
 
-    return axios.get(DISCOGS_URL+shelfNumber+"&per_shelf=350").then(function (res){
+    return axios.get(DISCOGS_URL+shelfNumber+"&per_page=350").then(function (res){
       var res = res;
       var shelfArray = [];
 
