@@ -4,7 +4,7 @@ import { DragSource } from 'react-dnd';
 import * as Redux from 'react-redux';
 var discogsAPI = require('discogsAPI');
 import {connect} from 'react-redux';
-import Page from 'Page';
+import Shelf from 'Shelf';
 var $ = require('jquery');
 
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -17,7 +17,7 @@ export class Main extends React.Component {
 
   constructor (props) {
     super(props);
-    this.onLogin = this.onLogin.bind(this);
+    // this.onLogin = this.onLogin.bind(this);
   }
 
 
@@ -91,15 +91,15 @@ export class Main extends React.Component {
               return 0
             }
           });
-          return pages.map((page) => {
+          return pages.map((shelf) => {
             return (
-              <Page key={page.number} {...page}/>
+              <Shelf key={shelf.number} {...shelf}/>
             )
           });
         } else {
-          return pages.map((page) => {
+          return pages.map((shelf) => {
             return (
-              <Page key={page.number} {...page}/>
+              <Shelf key={shelf.number} {...shelf}/>
             )
           })
         }
@@ -119,14 +119,6 @@ export class Main extends React.Component {
     );
   }
 };
-
-// export default Redux.connect()(Login);
-
-// export default connect(
-//   (state) => {
-//     return state;
-//   }
-// )(Login);
 
 Main = DragDropContext(HTML5Backend)(Main);
 export default connect(
