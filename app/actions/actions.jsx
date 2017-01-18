@@ -17,9 +17,6 @@ export var updatePage = (page, num) => {
 
 export var startRemoveRecordFromPage = (recordID, pageNum) => {
   return (dispatch, getState) => {
-    console.log('IN ACTIONS');
-    console.log('RECORDID', recordID);
-    console.log('PAGENUM', pageNum);
     var pages = getState().pages;
     for (var i = 0; i < pages.length; i++) {
       if (pageNum === pages[i].number) {
@@ -48,13 +45,9 @@ export var startRemoveRecordFromPage = (recordID, pageNum) => {
 
 export var startAddRecordToPage = (record, pageNum) => {
   return (dispatch, getState) => {
-    // console.log('IN ACTIONS');
-    // console.log('RECORD', record);
-    // console.log('PAGENUM', pageNum);
     var pages = getState().pages;
     for (var i = 0; i < pages.length; i++) {
       if (pageNum.number === pages[i].number) {
-        // console.log('THIS IS THE PAGE', pages[i]);
         var matchingPage = pages[i];
         break;
       }
@@ -64,7 +57,6 @@ export var startAddRecordToPage = (record, pageNum) => {
       name: pages[i].name,
       records: pages[i].records.concat(record)
     }
-    // console.log('updatedPage', updatedPage);
     dispatch(updatePage(updatedPage, pageNum.number))
   };
 };
