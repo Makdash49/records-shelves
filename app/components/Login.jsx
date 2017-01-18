@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
 import { DragSource } from 'react-dnd';
-// import { ItemTypes } from './Constants';
 
 import * as Redux from 'react-redux';
-var openWeatherMap = require('openWeatherMap');
+var discogsAPI = require('discogsAPI');
 import {connect} from 'react-redux';
 import Page from 'Page';
 var $ = require('jquery');
@@ -49,7 +48,7 @@ export class Login extends React.Component {
     setInterval(function() {
 
     if (x <= 3) {
-      openWeatherMap.getTemp(x).then(function (data) {
+      discogsAPI.getPage(x).then(function (data) {
         var {dispatch} = that.props;
         // console.log('DATA:', data );
         dispatch(actions.addPage(data.page))
