@@ -50,11 +50,9 @@ export class Main extends React.Component {
     if (x <= 3) {
       discogsAPI.getPage(x).then(function (data) {
         var {dispatch} = that.props;
-        // console.log('DATA:', data );
         dispatch(actions.addPage(data.page))
         dispatch(actions.nowLoaded())
       }, function (e) {
-          // console.log('ERROR: ', e);
         });
       }
       else return;
@@ -66,11 +64,7 @@ export class Main extends React.Component {
 
   render() {
     var {pages, isLoaded} = this.props
-    // if (pages) {
-    //   // console.log('Pages', pages);
-    // } else {
-    //   pages = [{name: "temp", number:101}, {name: "temp", number:102}]
-    // }
+
     var renderButton = () => {
       if (isLoaded) {
         return (

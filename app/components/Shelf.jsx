@@ -20,9 +20,6 @@ function collect(connect, monitor) {
 
 const pageTarget = {
   drop(props) {
-    // console.log('SOMETHING JUST HAPPENED!!!!!!');;
-    // console.log('PROPS', props);
-
     return {
       number: props.number,
     };
@@ -145,5 +142,3 @@ export class Shelf extends React.Component {
 
 Shelf = DropTarget(ItemTypes.RECORD, pageTarget, collect)(Shelf)
 export default connect()(Shelf)
-// export default DropTarget(ItemTypes.RECORD, pageTarget, collect)(Page);
-// export default DropTarget(ItemTypes.KNIGHT, squareTarget, collect)(BoardSquare);
