@@ -1,1 +1,1 @@
-GiftVote is an app to help facilitate dialogue about what gifts to buy.
+Coding Challenge - Web Project for Aclima
