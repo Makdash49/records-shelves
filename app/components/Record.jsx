@@ -1,12 +1,9 @@
-// import React from 'react';
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
 import * as actions from 'actions';
 
 import {DragSource} from 'react-dnd';
-// var store = require('configureStore').configure();
-
 
 var ItemTypes =  {
   RECORD: 'record'
@@ -41,27 +38,6 @@ const recordSource = {
   }
 };
 
-
-// const cardSource = {
-//   beginDrag(props) {
-//     // Return the data describing the dragged item
-//     const item = { id: props.id };
-//     return item;
-//   },
-//
-  // endDrag(props, monitor, component) {
-  //   if (!monitor.didDrop()) {
-  //     return;
-  //   }
-  //
-  //   // When dropped on a compatible target, do something
-  //   const item = monitor.getItem();
-  //   const dropResult = monitor.getDropResult();
-  //   CardActions.moveCardToList(item.id, dropResult.listId);
-  // }
-// };
-
-
 function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
@@ -86,7 +62,6 @@ export class Record extends React.Component {
   handleClick (e) {
     e.preventDefault();
     var {dispatch, id, shelfNum, instanceID} = this.props;
-    // dispatch(actions.startDeleteTodo(id));
     dispatch(actions.startRemoveRecordFromShelf(instanceID, shelfNum))
 
   }
@@ -105,8 +80,6 @@ export class Record extends React.Component {
 };
 
 Record.propTypes = propTypes;
-
-// export default DragSource(ItemTypes.RECORD, recordSource, collect)(Record);
 
 Record = DragSource(ItemTypes.RECORD, recordSource, collect)(Record);
 export default connect()(Record)

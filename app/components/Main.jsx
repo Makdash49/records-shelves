@@ -15,13 +15,6 @@ import * as actions from 'actions';
 
 export class Main extends React.Component {
 
-  constructor (props) {
-    super(props);
-    // this.onLogin = this.onLogin.bind(this);
-  }
-
-
-
   handleAddShelf (e) {
     e.preventDefault();
     var {dispatch} = this.props;
