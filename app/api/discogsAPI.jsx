@@ -1,11 +1,11 @@
 var axios = require('axios');
 
-const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/0/releases?page=';
+const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/0/releases?shelf=';
 
 module.exports = {
-  getPage: function (pageNumber){
+  getPage: function (shelfNumber){
 
-    return axios.get(DISCOGS_URL+pageNumber+"&per_page=350").then(function (res){
+    return axios.get(DISCOGS_URL+shelfNumber+"&per_shelf=350").then(function (res){
       var res = res;
       var shelfArray = [];
 
@@ -47,10 +47,10 @@ module.exports = {
         throw new Error(res.data.message);
       } else {
         return {
-          page: {
+          shelf: {
             editable: false,
-            number: pageNumber,
-            name: 'Shelf ' + pageNumber,
+            number: shelfNumber,
+            name: 'Shelf ' + shelfNumber,
             records: shelfArray
           }
         }

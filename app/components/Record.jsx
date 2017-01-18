@@ -33,9 +33,9 @@ const recordSource = {
     const dropResult = monitor.getDropResult();
     // console.log('ITEM', item);
     console.log('DROPRESULT', dropResult.number);
-    console.log('props.pageNum', props.pageNum);
-    if (dropResult.number != props.pageNum) {
-      props.dispatch(actions.startRemoveRecordFromPage(item.instanceID, props.pageNum))
+    console.log('props.shelfNum', props.shelfNum);
+    if (dropResult.number != props.shelfNum) {
+      props.dispatch(actions.startRemoveRecordFromPage(item.instanceID, props.shelfNum))
       props.dispatch(actions.startAddRecordToPage(item, dropResult))
     }
   }
@@ -85,9 +85,9 @@ const propTypes = {
 export class Record extends React.Component {
   handleClick (e) {
     e.preventDefault();
-    var {dispatch, id, pageNum, instanceID} = this.props;
+    var {dispatch, id, shelfNum, instanceID} = this.props;
     // dispatch(actions.startDeleteTodo(id));
-    dispatch(actions.startRemoveRecordFromPage(instanceID, pageNum))
+    dispatch(actions.startRemoveRecordFromPage(instanceID, shelfNum))
 
   }
   render() {

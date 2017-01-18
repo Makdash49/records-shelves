@@ -50,7 +50,7 @@ export class Main extends React.Component {
     if (x <= 3) {
       discogsAPI.getPage(x).then(function (data) {
         var {dispatch} = that.props;
-        dispatch(actions.addPage(data.page))
+        dispatch(actions.addPage(data.shelf))
         dispatch(actions.nowLoaded())
       }, function (e) {
         });
@@ -63,20 +63,20 @@ export class Main extends React.Component {
   }
 
   render() {
-    var {pages, isLoaded} = this.props
+    var {shelves, isLoaded} = this.props
 
     var renderButton = () => {
       if (isLoaded) {
         return (
-          <button className="add-page" onClick={this.handleAddShelf.bind(this)}>Add a New Shelf!</button>
+          <button className="add-shelf" onClick={this.handleAddShelf.bind(this)}>Add a New Shelf!</button>
         )
       }
     }
 
     var renderShelves = () => {
       if (isLoaded){
-        if (pages.length > 1) {
-          pages.sort((a, b) => {
+        if (shelves.length > 1) {
+          shelves.sort((a, b) => {
             if(a.number > b.number) {
               return -1;
             } else if (a.number < b.number) {
@@ -85,13 +85,13 @@ export class Main extends React.Component {
               return 0
             }
           });
-          return pages.map((shelf) => {
+          return shelves.map((shelf) => {
             return (
               <Shelf key={shelf.number} {...shelf}/>
             )
           });
         } else {
-          return pages.map((shelf) => {
+          return shelves.map((shelf) => {
             return (
               <Shelf key={shelf.number} {...shelf}/>
             )

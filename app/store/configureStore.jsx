@@ -1,7 +1,7 @@
 import * as redux from 'redux';
 import thunk from 'redux-thunk';
 
-import {searchTextReducer, showCompletedReducer, todosReducer, authReducer, productsReducer, userIDsReducer, pagesReducer, isLoadedReducer} from 'reducers';
+import {searchTextReducer, showCompletedReducer, todosReducer, authReducer, productsReducer, userIDsReducer, shelvesReducer, isLoadedReducer} from 'reducers';
 
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
@@ -11,7 +11,7 @@ export var configure = (initialState = {}) => {
     auth: authReducer,
     products: productsReducer,
     userIDs: userIDsReducer,
-    pages: pagesReducer,
+    shelves: shelvesReducer,
     isLoaded: isLoadedReducer
   });
 

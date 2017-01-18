@@ -1,26 +1,26 @@
 import moment from 'moment';
 
-export var addPage = (page) => {
+export var addPage = (shelf) => {
   return {
-    type: 'ADD_PAGE',
-    page
+    type: 'ADD_SHELF',
+    shelf
   }
 }
 
-export var updatePage = (page, num) => {
+export var updatePage = (shelf, num) => {
   return {
-    type: 'UPDATE_PAGE',
-    page,
+    type: 'UPDATE_SHELF',
+    shelf,
     num
   }
 }
 
-export var startRemoveRecordFromPage = (recordID, pageNum) => {
+export var startRemoveRecordFromPage = (recordID, shelfNum) => {
   return (dispatch, getState) => {
-    var pages = getState().pages;
-    for (var i = 0; i < pages.length; i++) {
-      if (pageNum === pages[i].number) {
-        var matchingPage = pages[i];
+    var shelves = getState().shelves;
+    for (var i = 0; i < shelves.length; i++) {
+      if (shelfNum === shelves[i].number) {
+        var matchingPage = shelves[i];
         break;
       }
     }
@@ -35,29 +35,29 @@ export var startRemoveRecordFromPage = (recordID, pageNum) => {
     var r2 = records.slice(index + 1);
     var fewerRecords = r1.concat(r2)
     var updatedPage = {
-      number: pageNum,
+      number: shelfNum,
       name: matchingPage.name,
       records: fewerRecords
     }
-    dispatch(updatePage(updatedPage, pageNum));
+    dispatch(updatePage(updatedPage, shelfNum));
   };
 };
 
-export var startAddRecordToPage = (record, pageNum) => {
+export var startAddRecordToPage = (record, shelfNum) => {
   return (dispatch, getState) => {
-    var pages = getState().pages;
-    for (var i = 0; i < pages.length; i++) {
-      if (pageNum.number === pages[i].number) {
-        var matchingPage = pages[i];
+    var shelves = getState().shelves;
+    for (var i = 0; i < shelves.length; i++) {
+      if (shelfNum.number === shelves[i].number) {
+        var matchingPage = shelves[i];
         break;
       }
     }
     var updatedPage = {
-      number: pages[i].number,
-      name: pages[i].name,
-      records: pages[i].records.concat(record)
+      number: shelves[i].number,
+      name: shelves[i].name,
+      records: shelves[i].records.concat(record)
     }
-    dispatch(updatePage(updatedPage, pageNum.number))
+    dispatch(updatePage(updatedPage, shelfNum.number))
   };
 };
 

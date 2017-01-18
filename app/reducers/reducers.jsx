@@ -128,62 +128,62 @@ export var userIDsReducer = (state = [], action) => {
   };
 };
 
-export var pagesReducer = (state = {}, action) => {
+export var shelvesReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'ADD_PAGE':
+    case 'ADD_SHELF':
       return [
         ...state,
-        action.page
+        action.shelf
       ];
-    case 'UPDATE_PAGE':
-    console.log('ACTION.PAGE', action.page);
+    case 'UPDATE_SHELF':
+    console.log('ACTION.SHELF', action.shelf);
     console.log('ACTION.NUM', action.num);
       // for (var i = 0; i < state.length; i++) {
       //   if (state[i].number === action.num ) {
-      //     state[i] = action.page;
+      //     state[i] = action.shelf;
       //     break;
       //   }
       // }
       // console.log('STATE', state);
       // return state;
-      return state.map((page) => {
-        if (page.number === action.num) {
+      return state.map((shelf) => {
+        if (shelf.number === action.num) {
           return {
-            ...action.page
+            ...action.shelf
           };
         } else {
-          return page;
+          return shelf;
         }
       });
     case 'UPDATE_EDITABLE':
     console.log('ACTION.NUM', action.num);
       // for (var i = 0; i < state.length; i++) {
       //   if (state[i].number === action.num ) {
-      //     state[i] = action.page;
+      //     state[i] = action.shelf;
       //     break;
       //   }
       // }
       // console.log('STATE', state);
       // return state;
-      return state.map((page) => {
-        if (page.number === action.num) {
+      return state.map((shelf) => {
+        if (shelf.number === action.num) {
           return {
-            ...page,
+            ...shelf,
             editable: action.editable
           };
         } else {
-          return page;
+          return shelf;
         }
       });
     case 'UPDATE_NAME':
-      return state.map((page) => {
-        if (page.number === action.num) {
+      return state.map((shelf) => {
+        if (shelf.number === action.num) {
           return {
-            ...page,
+            ...shelf,
             name: action.name
           };
         } else {
-          return page;
+          return shelf;
         }
       });
 

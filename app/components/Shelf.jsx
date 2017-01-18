@@ -18,7 +18,7 @@ function collect(connect, monitor) {
   };
 }
 
-const pageTarget = {
+const shelfTarget = {
   drop(props) {
     return {
       number: props.number,
@@ -102,7 +102,7 @@ export class Shelf extends React.Component {
       return records.map((record) => {
         // console.log('INSTANCEID!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', record.instanceID);
         return (
-          <Record key={record.instanceID} pageNum={number} {...record}/>
+          <Record key={record.instanceID} shelfNum={number} {...record}/>
         )
       })
     }
@@ -140,5 +140,5 @@ export class Shelf extends React.Component {
   }
 };
 
-Shelf = DropTarget(ItemTypes.RECORD, pageTarget, collect)(Shelf)
+Shelf = DropTarget(ItemTypes.RECORD, shelfTarget, collect)(Shelf)
 export default connect()(Shelf)
