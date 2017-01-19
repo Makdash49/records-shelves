@@ -28,17 +28,37 @@ export class Main extends React.Component {
   //   dispatch(actions.addShelf(newShelf));
   // }
 
-    handleAddShelf (e) {
-      var allShelves = this.props.shelves;
-      console.log('ALLSHELVES', allShelves);
+  handleAddShelf (e) {
+    var allShelves = this.props.shelves;
+    // console.log('ALLSHELVES', allShelves);
+    var alphabetHash = {};
+    var alphabetShelvesArray = [];
 
-      for (var i = 0; i < allShelves.length; i++ ) {
-        var shelfRecords = allShelves[i].records;
-        for (var x = 0; x < shelfRecords.length; x++) {
-          console.log(shelfRecords[x].title);
+    for (var i = 0; i < allShelves.length; i++ ) {
+      var shelfRecords = allShelves[i].records;
+      for (var x = 0; x < shelfRecords.length; x++) {
+        // console.log(shelfRecords[x].title[0].toUpperCase());
+        var firstLetterUppercase = shelfRecords[x].title[0].toUpperCase();
+
+        if (!alphabetHash[firstLetterUppercase]) {
+          alphabetHash[firstLetterUppercase] = [shelfRecords[x]]
+        } else {
+          alphabetHash[firstLetterUppercase].push(shelfRecords[x])
         }
       }
     }
+    console.log('ALPHABETHASH', alphabetHash);
+
+    for (var key in alphabetHash) {
+      var newShelf = {}
+      newShelf["editable"] = false;
+      newShelf["number"] = key;
+      newShelf["name"] = "Shelf " + key;
+      newShelf["records"] = alphabetHash[key]
+      alphabetShelvesArray.push(newShelf);
+    }
+    console.log(alphabetShelvesArray);
+  }
 
   onLogin() {
     var {dispatch} = this.props;
