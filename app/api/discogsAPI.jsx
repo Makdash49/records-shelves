@@ -1,9 +1,10 @@
 var axios = require('axios');
 
-const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/0/releases?shelf=';
+const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/0/releases?page=';
 
 module.exports = {
   getShelf: function (shelfNumber){
+    console.log('SHELFNUMBER', shelfNumber);
 
     return axios.get(DISCOGS_URL+shelfNumber+"&per_page=350").then(function (res){
       var res = res;
