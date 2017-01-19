@@ -1,8 +1,13 @@
 .main {
-  width: 75%;
+  width: 78%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.page-title {
+  color: white;
+  text-align: center;
 }
 
 
@@ -50,14 +55,13 @@
   padding-left: 0px;
   padding-right: 0px;
   margin-top: 2px;
-  margin-left: 40px;
+  margin-left: 10px;
   &:hover {
     background: black;
   }
  }
 
  .add-shelf {
-   font-size: 80%;
    position: relative;
    @include button;
    color: black;
@@ -70,11 +74,15 @@
    padding-bottom: 5px;
    padding-left: 0px;
    padding-right: 0px;
-   margin-top: 2px;
+   margin-top: 20px;
    &:hover {
      background: gray;
    }
   }
+
+.buttons {
+  text-align:center;
+}
 
  .title-edit {
    display: inline-block;
@@ -108,16 +116,9 @@
  }
 
  body {
-     // background-image: url("http://kingofwallpapers.com/soft-wallpapers/soft-wallpapers-012.jpg");
-     // background-image: url("https://www.budsies.com/blog/wp-content/uploads/2016/05/gift-8.jpg");
-     //  background-image: url("http://kingofwallpapers.com/soft-wallpapers/soft-wallpapers-013.jpg");
      background-image: url("http://wallpapercave.com/wp/pEeUsp1.jpg");
      background-repeat: no-repeat;
      background-attachment: fixed;
-
-     // background-color: #cccccc;
-     // background-position: center top;
-     // background-size: 100% auto;
  }
 
  .loading {

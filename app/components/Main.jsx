@@ -59,6 +59,17 @@ export class Main extends React.Component {
   render() {
     var {shelves, isLoaded} = this.props
 
+    var pageTitle = () => {
+      if (isLoaded) {
+        return (
+          <div className="page-title">
+            <h1>Discogs - Blacklight Collection</h1>
+            <h4>Shelves by Mark McQuillen</h4>
+          </div>
+        )
+      }
+    }
+
     var renderButton = () => {
       if (isLoaded) {
         return (
@@ -104,6 +115,7 @@ export class Main extends React.Component {
     return (
       <div className="main">
         <p></p>
+        {pageTitle()}
         {renderButton()}
         {renderShelves()}
       </div>
