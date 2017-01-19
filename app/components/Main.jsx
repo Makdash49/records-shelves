@@ -16,26 +16,26 @@ import * as actions from 'actions';
 export class Main extends React.Component {
 
 // THE ORIGINAL AND TRUE HANDLEADDSHELF
-  // handleAddShelf (e) {
-  //   e.preventDefault();
-  //   var {dispatch, sortRecords} = this.props;
-  //   var number;
-  //   if (sortRecords) {
-  //     number = '†' + moment().unix()
-  //   } else {
-  //     number = moment().unix()
-  //   }
-  //
-  //   var newShelf = {
-  //     editable: false,
-  //     number: number,
-  //     name: "Your New Shelf",
-  //     records: []
-  //   }
-  //   dispatch(actions.addShelf(newShelf));
-  // }
-
   handleAddShelf (e) {
+    e.preventDefault();
+    var {dispatch, sortRecords} = this.props;
+    var number;
+    if (sortRecords) {
+      number = '†' + moment().unix()
+    } else {
+      number = moment().unix()
+    }
+
+    var newShelf = {
+      editable: false,
+      number: number,
+      name: "Your New Shelf",
+      records: []
+    }
+    dispatch(actions.addShelf(newShelf));
+  }
+
+  handleChronologize (e) {
     e.preventDefault();
     var {dispatch, sortRecords} = this.props;
 
@@ -142,12 +142,13 @@ export class Main extends React.Component {
       }
     }
 
-    var renderButton = () => {
+    var renderButtons = () => {
       if (isLoaded) {
         return (
           <div>
             <button className="add-shelf" onClick={this.handleAddShelf.bind(this)}>ADD NEW SHELF</button>
-            <button className="add-shelf" onClick={this.handleAlphabetize.bind(this)}>ALPHABETIZE!</button>
+            <button className="add-shelf" onClick={this.handleAlphabetize.bind(this)}>ALPHABETIZE</button>
+            <button className="add-shelf" onClick={this.handleChronologize.bind(this)}>CHRONOLOGIZE</button>
           </div>
         )
       }
@@ -191,7 +192,7 @@ export class Main extends React.Component {
       <div className="main">
         <p></p>
         {pageTitle()}
-        {renderButton()}
+        {renderButtons()}
         {renderShelves()}
       </div>
     );
