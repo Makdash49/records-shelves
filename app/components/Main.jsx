@@ -101,7 +101,7 @@ export class Main extends React.Component {
 
     }
     return (
-      <div>
+      <div className="main">
         <p></p>
         {renderButton()}
         {renderShelves()}
