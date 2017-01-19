@@ -1,12 +1,13 @@
 import * as redux from 'redux';
 import thunk from 'redux-thunk';
 
-import {shelvesReducer, isLoadedReducer} from 'reducers';
+import {shelvesReducer, isLoadedReducer, sortRecordsReducer} from 'reducers';
 
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
     shelves: shelvesReducer,
-    isLoaded: isLoadedReducer
+    isLoaded: isLoadedReducer,
+    sortRecords: sortRecordsReducer
   });
 
   var store = redux.createStore(reducer, initialState, redux.compose(

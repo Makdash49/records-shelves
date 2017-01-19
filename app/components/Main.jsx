@@ -59,14 +59,9 @@ export class Main extends React.Component {
     }
     console.log('ALPHABETSHELVESARRAY: ', alphabetShelvesArray);
     var {dispatch} = this.props;
+    dispatch(actions.makeSortRecordsTrue());
     dispatch(actions.loadAlphabetShelves(alphabetShelvesArray));
   }
-
-  // onLogin() {
-  //   var {dispatch} = this.props;
-  //   this.refs.btn.setAttribute("disabled", "disabled");
-  //   dispatch(actions.startLogin());
-  // }
 
   componentDidMount() {
     var that = this;
@@ -91,7 +86,7 @@ export class Main extends React.Component {
   }
 
   render() {
-    var {shelves, isLoaded} = this.props
+    var {shelves, isLoaded, sortRecords} = this.props
 
     var pageTitle = () => {
       if (isLoaded) {
@@ -126,13 +121,13 @@ export class Main extends React.Component {
           });
           return shelves.map((shelf) => {
             return (
-              <Shelf key={shelf.number} {...shelf}/>
+              <Shelf key={shelf.number} sortRecords={sortRecords} {...shelf}/>
             )
           });
         } else {
           return shelves.map((shelf) => {
             return (
-              <Shelf key={shelf.number} {...shelf}/>
+              <Shelf key={shelf.number} sortRecords={sortRecords} {...shelf}/>
             )
           })
         }

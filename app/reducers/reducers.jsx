@@ -60,3 +60,12 @@ export var isLoadedReducer = (state = false, action) => {
         return state;
   }
 }
+
+export var sortRecordsReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'MAKE_SORTED':
+      return true;
+      default:
+        return state;
+  }
+}

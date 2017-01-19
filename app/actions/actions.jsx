@@ -98,3 +98,9 @@ export var nowLoaded = () => {
     type: 'MAKE_TRUE',
   };
 };
+
+export var makeSortRecordsTrue = () => {
+  return {
+    type: 'MAKE_SORTED',
+  };
+};

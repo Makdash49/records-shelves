@@ -87,18 +87,21 @@ export class Shelf extends React.Component {
 
 
   render() {
-    var {number, name, records, editable, connectDropTarget} = this.props;
+    var {number, name, records, editable, connectDropTarget, sortRecords} = this.props;
 
     var renderRecords = () => {
-      records.sort((a, b) => {
-        if(a.title > b.title) {
-          return -1;
-        } else if (a.title < b.title) {
-          return 1;
-        } else {
-          return 0
-        }
-      });
+
+      if (sortRecords) {
+        records.sort((a, b) => {
+          if(a.title > b.title) {
+            return -1;
+          } else if (a.title < b.title) {
+            return 1;
+          } else {
+            return 0
+          }
+        });
+      }
 
       return records.map((record) => {
         return (
