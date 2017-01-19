@@ -57,14 +57,16 @@ export class Main extends React.Component {
       newShelf["records"] = alphabetHash[key]
       alphabetShelvesArray.push(newShelf);
     }
-    console.log(alphabetShelvesArray);
+    console.log('ALPHABETSHELVESARRAY: ', alphabetShelvesArray);
+    var {dispatch} = this.props;
+    dispatch(actions.loadAlphabetShelves(alphabetShelvesArray));
   }
 
-  onLogin() {
-    var {dispatch} = this.props;
-    this.refs.btn.setAttribute("disabled", "disabled");
-    dispatch(actions.startLogin());
-  }
+  // onLogin() {
+  //   var {dispatch} = this.props;
+  //   this.refs.btn.setAttribute("disabled", "disabled");
+  //   dispatch(actions.startLogin());
+  // }
 
   componentDidMount() {
     var that = this;

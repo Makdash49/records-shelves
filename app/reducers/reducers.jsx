@@ -45,6 +45,8 @@ export var shelvesReducer = (state = {}, action) => {
         };
       };
       return [...state];
+    case 'LOAD_ALPHABET':
+        return action.newShelves;
     default:
       return state;
   }

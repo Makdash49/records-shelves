@@ -15,6 +15,13 @@ export var updateShelf = (shelf, num) => {
   }
 }
 
+export var loadAlphabetShelves = (newShelves) => {
+  return {
+    type: 'LOAD_ALPHABET',
+    newShelves
+  }
+}
+
 export var startRemoveRecordFromShelf = (recordID, shelfNum) => {
   return (dispatch, getState) => {
     var shelves = getState().shelves;
