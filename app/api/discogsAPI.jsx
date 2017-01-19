@@ -1,6 +1,6 @@
 var axios = require('axios');
 
-const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/0/releases?shelf=';
+const DISCOGS_URL= 'https://api.discogs.com/users/blacklight/collection/folders/0/releases?page=';
 
 module.exports = {
   getShelf: function (shelfNumber){
