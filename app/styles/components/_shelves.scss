@@ -84,7 +84,8 @@
  body {
      // background-image: url("http://kingofwallpapers.com/soft-wallpapers/soft-wallpapers-012.jpg");
      // background-image: url("https://www.budsies.com/blog/wp-content/uploads/2016/05/gift-8.jpg");
-     background-image: url("http://kingofwallpapers.com/soft-wallpapers/soft-wallpapers-013.jpg");
+     //  background-image: url("http://kingofwallpapers.com/soft-wallpapers/soft-wallpapers-013.jpg");
+     background-image: url("http://wallpapercave.com/wp/pEeUsp1.jpg");
      background-repeat: no-repeat;
      background-attachment: fixed;
 
@@ -92,3 +93,19 @@
      // background-position: center top;
      // background-size: 100% auto;
  }
+
+ .loading {
+   padding-top: 100px;
+   color: white;
+   text-align: center;
+   vertical-align: middle;
+   line-height: 90px;
+ }
+
+ img {
+   border-radius: 40px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 22px;
+}
