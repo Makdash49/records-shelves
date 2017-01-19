@@ -93,13 +93,16 @@ export class Main extends React.Component {
         }
       } else {
         return (
-          <p>Loading........</p>
+          <div className="loading">
+            <img src="http://i.imgur.com/8YsAmq3.gif" alt="Loading"/>
+            <h1>LOADING...</h1>
+          </div>
         )
       }
 
     }
     return (
-      <div>
+      <div className="main">
         <p></p>
         {renderButton()}
         {renderShelves()}
