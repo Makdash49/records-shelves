@@ -15,20 +15,19 @@ import * as actions from 'actions';
 
 export class Main extends React.Component {
 
-// THE ORIGINAL AND TRUE HANDLEADDSHELF
-  // handleAddShelf (e) {
-  //   e.preventDefault();
-  //   var {dispatch} = this.props;
-  //   var newShelf = {
-  //     editable: false,
-  //     number: moment().unix(),
-  //     name: "New Shelf",
-  //     records: []
-  //   }
-  //   dispatch(actions.addShelf(newShelf));
-  // }
-
   handleAddShelf (e) {
+    e.preventDefault();
+    var {dispatch} = this.props;
+    var newShelf = {
+      editable: false,
+      number: moment().unix(),
+      name: "Your New Shelf",
+      records: []
+    }
+    dispatch(actions.addShelf(newShelf));
+  }
+
+  handleAlphabetize (e) {
     var allShelves = this.props.shelves;
     // console.log('ALLSHELVES', allShelves);
     var alphabetHash = {};
@@ -102,7 +101,10 @@ export class Main extends React.Component {
     var renderButton = () => {
       if (isLoaded) {
         return (
-          <button className="add-shelf" onClick={this.handleAddShelf.bind(this)}>Add a New Shelf!</button>
+          <div>
+            <button className="add-shelf" onClick={this.handleAddShelf.bind(this)}>ADD NEW SHELF</button>
+            <button className="add-shelf" onClick={this.handleAlphabetize.bind(this)}>ALPHABETIZE!</button>
+          </div>
         )
       }
     }
