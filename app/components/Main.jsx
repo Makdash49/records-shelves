@@ -56,6 +56,19 @@ export class Main extends React.Component {
       }
     }
     console.log('CHRONOHASH', chronoHash);
+
+    for (var key in chronoHash) {
+      var newShelf = {}
+      newShelf["editable"] = false;
+      newShelf["number"] = key;
+      newShelf["name"] = "Shelf " + key + "s";
+      newShelf["records"] = chronoHash[key]
+      chronoShelvesArray.push(newShelf);
+    }
+    console.log('CHRONOSHELVESARRAY: ', chronoShelvesArray);
+    var {dispatch} = this.props;
+    dispatch(actions.makeSortRecordsTrue());
+    dispatch(actions.loadAlphabetShelves(chronoShelvesArray));
   }
 
   handleAlphabetize (e) {
