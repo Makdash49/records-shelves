@@ -15,23 +15,47 @@ import * as actions from 'actions';
 
 export class Main extends React.Component {
 
+// THE ORIGINAL AND TRUE HANDLEADDSHELF
+  // handleAddShelf (e) {
+  //   e.preventDefault();
+  //   var {dispatch, sortRecords} = this.props;
+  //   var number;
+  //   if (sortRecords) {
+  //     number = '†' + moment().unix()
+  //   } else {
+  //     number = moment().unix()
+  //   }
+  //
+  //   var newShelf = {
+  //     editable: false,
+  //     number: number,
+  //     name: "Your New Shelf",
+  //     records: []
+  //   }
+  //   dispatch(actions.addShelf(newShelf));
+  // }
+
   handleAddShelf (e) {
     e.preventDefault();
     var {dispatch, sortRecords} = this.props;
-    var number;
-    if (sortRecords) {
-      number = '†' + moment().unix()
-    } else {
-      number = moment().unix()
-    }
 
-    var newShelf = {
-      editable: false,
-      number: number,
-      name: "Your New Shelf",
-      records: []
+    var allShelves = this.props.shelves;
+    var chronoHash = {};
+    var chronoShelvesArray = [];
+
+    for (var i = 0; i < allShelves.length; i++) {
+      var shelfRecords = allShelves[i].records;
+      for (var x = 0; x < shelfRecords.length; x++) {
+        var year = shelfRecords[x].year.toString();
+        var decade = year.slice(0,3) + '0';
+        if (!chronoHash[decade]) {
+          chronoHash[decade] = [shelfRecords[x]];
+        } else {
+          chronoHash[decade].push(shelfRecords[x])
+        }
+      }
     }
-    dispatch(actions.addShelf(newShelf));
+    console.log('CHRONOHASH', chronoHash);
   }
 
   handleAlphabetize (e) {
@@ -40,7 +64,7 @@ export class Main extends React.Component {
     var alphabetHash = {};
     var alphabetShelvesArray = [];
 
-    for (var i = 0; i < allShelves.length; i++ ) {
+    for (var i = 0; i < allShelves.length; i++) {
       var shelfRecords = allShelves[i].records;
       for (var x = 0; x < shelfRecords.length; x++) {
         // console.log(shelfRecords[x].title[0].toUpperCase());
@@ -76,7 +100,7 @@ export class Main extends React.Component {
 
     setInterval(function() {
 
-    if (x <= 10) {
+    if (x <= 2) {
       discogsAPI.getShelf(x).then(function (data) {
         var {dispatch} = that.props;
         dispatch(actions.addShelf(data.shelf))
