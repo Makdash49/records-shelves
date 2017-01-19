@@ -17,10 +17,17 @@ export class Main extends React.Component {
 
   handleAddShelf (e) {
     e.preventDefault();
-    var {dispatch} = this.props;
+    var {dispatch, sortRecords} = this.props;
+    var number;
+    if (sortRecords) {
+      number = '†' + moment().unix()
+    } else {
+      number = moment().unix()
+    }
+
     var newShelf = {
       editable: false,
-      number: moment().unix(),
+      number: number,
       name: "Your New Shelf",
       records: []
     }
