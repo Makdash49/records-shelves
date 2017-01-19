@@ -15,17 +15,30 @@ import * as actions from 'actions';
 
 export class Main extends React.Component {
 
-  handleAddShelf (e) {
-    e.preventDefault();
-    var {dispatch} = this.props;
-    var newShelf = {
-      editable: false,
-      number: moment().unix(),
-      name: "New Shelf",
-      records: []
+// THE ORIGINAL AND TRUE HANDLEADDSHELF
+  // handleAddShelf (e) {
+  //   e.preventDefault();
+  //   var {dispatch} = this.props;
+  //   var newShelf = {
+  //     editable: false,
+  //     number: moment().unix(),
+  //     name: "New Shelf",
+  //     records: []
+  //   }
+  //   dispatch(actions.addShelf(newShelf));
+  // }
+
+    handleAddShelf (e) {
+      var allShelves = this.props.shelves;
+      console.log('ALLSHELVES', allShelves);
+
+      for (var i = 0; i < allShelves.length; i++ ) {
+        var shelfRecords = allShelves[i].records;
+        for (var x = 0; x < shelfRecords.length; x++) {
+          console.log(shelfRecords[x].title);
+        }
+      }
     }
-    dispatch(actions.addShelf(newShelf));
-  }
 
   onLogin() {
     var {dispatch} = this.props;
@@ -41,7 +54,6 @@ export class Main extends React.Component {
     setInterval(function() {
 
     if (x <= 3) {
-      console.log('X', x);
       discogsAPI.getShelf(x).then(function (data) {
         var {dispatch} = that.props;
         dispatch(actions.addShelf(data.shelf))

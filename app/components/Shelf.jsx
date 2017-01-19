@@ -54,7 +54,6 @@ export class Shelf extends React.Component {
   handleDeleteShelf (e) {
     e.preventDefault();
     var {dispatch, number} = this.props
-    console.log('HANDLEDELETESHELF!!!!!!');
 
     dispatch(actions.deleteShelf(number));
   }

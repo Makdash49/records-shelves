@@ -28,9 +28,6 @@ const recordSource = {
     // When dropped on a compatible target, do something
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
-    // console.log('ITEM', item);
-    console.log('DROPRESULT', dropResult.number);
-    console.log('props.shelfNum', props.shelfNum);
     if (dropResult.number != props.shelfNum) {
       props.dispatch(actions.startRemoveRecordFromShelf(item.instanceID, props.shelfNum))
       props.dispatch(actions.startAddRecordToShelf(item, dropResult))
