@@ -7,8 +7,24 @@
 
 
 .shelf {
-  border: 10px solid #A9A9A9;
+  // border: 10px solid #A9A9A9;
+  border: 30px solid brown;
+  background-color: black;
+  border-radius: 40px;
+  margin-bottom: 40px;
+}
+
+.shelf-brown-bar {
   background-color: brown;
+}
+
+.shelf-title {
+  background-color: white;
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center
 }
 
 .record {
@@ -56,25 +72,26 @@
    padding-right: 0px;
    margin-top: 2px;
    &:hover {
-     background: black;
+     background: gray;
    }
   }
 
  .title-edit {
+   display: inline-block;
    font-size: 80%;
    position: relative;
    @include button;
    color: black;
-   width: 14px;
-   height: 20px;
+  //  height: 20px;
    text-align: center;
    vertical-align: middle;
    text-align: center;
-   padding-top: 1px;
+   padding-top: 5px;
    padding-bottom: 5px;
-   padding-left: 0px;
-   padding-right: 0px;
+   padding-left: 6px;
+   padding-right: 6px;
    margin-top: 2px;
+   margin-right: 20px;
    &:hover {
      background: black;
    }

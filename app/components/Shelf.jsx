@@ -111,20 +111,28 @@ export class Shelf extends React.Component {
       if (editable) {
         return (
           <div className="shelf">
-              <form onSubmit={this.handleEditSubmit.bind(this)}>
-                <input type="text" ref="shelfText" defaultValue={name}/>
-              </form>
-            <button className="title-edit" onClick={this.toggleEditable.bind(this)}>E</button>
-            <button className="title-edit" onClick={this.handleDeleteShelf.bind(this)}>D</button>
+            <div className="shelf-brown-bar">
+              <div className="shelf-title">
+                <form onSubmit={this.handleEditSubmit.bind(this)}>
+                  <h3><input type="text" ref="shelfText" defaultValue={name}/></h3>
+                </form>
+              </div>
+              <button className="title-edit" onClick={this.toggleEditable.bind(this)}>Edit Shelf Title</button>
+              <button className="title-edit" onClick={this.handleDeleteShelf.bind(this)}>Delete Shelf</button>
+            </div>
             {renderRecords()}
           </div>
         )
       } else {
         return (
           <div className="shelf">
-            {name}
-            <button className="title-edit" onClick={this.toggleEditable.bind(this)}>E</button>
-            <button className="title-edit" onClick={this.handleDeleteShelf.bind(this)}>D</button>
+            <div className="shelf-brown-bar">
+              <div className="shelf-title">
+                <h3>{name}</h3>
+              </div>
+              <button className="title-edit" onClick={this.toggleEditable.bind(this)}>Edit Shelf Title</button>
+              <button className="title-edit" onClick={this.handleDeleteShelf.bind(this)}>Delete Shelf</button>
+            </div>
             {renderRecords()}
           </div>
         )
