@@ -68,7 +68,7 @@ export class Main extends React.Component {
     console.log('CHRONOSHELVESARRAY: ', chronoShelvesArray);
     var {dispatch} = this.props;
     dispatch(actions.makeSortRecordsTrue("year"));
-    dispatch(actions.loadAlphabetShelves(chronoShelvesArray));
+    dispatch(actions.loadSortedShelves(chronoShelvesArray));
   }
 
   handleAlphabetize (e) {
@@ -103,7 +103,7 @@ export class Main extends React.Component {
     console.log('ALPHABETSHELVESARRAY: ', alphabetShelvesArray);
     var {dispatch} = this.props;
     dispatch(actions.makeSortRecordsTrue("title"));
-    dispatch(actions.loadAlphabetShelves(alphabetShelvesArray));
+    dispatch(actions.loadSortedShelves(alphabetShelvesArray));
   }
 
   componentDidMount() {
@@ -113,7 +113,7 @@ export class Main extends React.Component {
 
     setInterval(function() {
 
-    if (x <= 10) {
+    if (x <= 2) {
       discogsAPI.getShelf(x).then(function (data) {
         var {dispatch} = that.props;
         dispatch(actions.addShelf(data.shelf))
@@ -146,9 +146,9 @@ export class Main extends React.Component {
       if (isLoaded) {
         return (
           <div>
-            <button className="add-shelf" onClick={this.handleAddShelf.bind(this)}>ADD NEW SHELF</button>
-            <button className="add-shelf" onClick={this.handleAlphabetize.bind(this)}>ALPHABETIZE</button>
-            <button className="add-shelf" onClick={this.handleChronologize.bind(this)}>CHRONOLOGIZE</button>
+            <button className="top-buttons" onClick={this.handleAddShelf.bind(this)}>ADD NEW SHELF</button>
+            <button className="top-buttons" onClick={this.handleAlphabetize.bind(this)}>ALPHABETIZE</button>
+            <button className="top-buttons" onClick={this.handleChronologize.bind(this)}>CHRONOLOGIZE</button>
           </div>
         )
       }
@@ -192,7 +192,9 @@ export class Main extends React.Component {
       <div className="main">
         <p></p>
         {pageTitle()}
-        {renderButtons()}
+        <div className="allButtons">
+          {renderButtons()}
+        </div>
         {renderShelves()}
       </div>
     );

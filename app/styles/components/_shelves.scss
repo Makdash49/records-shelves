@@ -45,7 +45,7 @@
   font-size: 80%;
   position: relative;
   @include button;
-  color: black;
+  color: white;
   width: 14px;
   height: 14px;
   text-align: center;
@@ -62,7 +62,7 @@
   }
  }
 
- .add-shelf {
+ .top-buttons {
    position: relative;
    @include button;
    color: black;
@@ -76,7 +76,8 @@
    padding-left: 0px;
    padding-right: 0px;
    margin-top: 20px;
-   margin-right: 40px;
+   margin-right: 20px;
+   margin-left: 20px;
    &:hover {
      background: gray;
    }
@@ -84,6 +85,12 @@
 
 .buttons {
   text-align:center;
+
+}
+
+.allButtons {
+  text-align:center;
+
 }
 
  .title-edit {

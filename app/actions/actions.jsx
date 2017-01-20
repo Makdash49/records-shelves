@@ -15,9 +15,9 @@ export var updateShelf = (shelf, num) => {
   }
 }
 
-export var loadAlphabetShelves = (newShelves) => {
+export var loadSortedShelves = (newShelves) => {
   return {
-    type: 'LOAD_ALPHABET',
+    type: 'LOAD_SORTED_SHELVES',
     newShelves
   }
 }
