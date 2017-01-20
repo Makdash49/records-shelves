@@ -53,7 +53,6 @@ export class Main extends React.Component {
         }
       }
     }
-    console.log('CHRONOHASH', chronoHash);
 
     for (var key in chronoHash) {
       var newShelf = {}
@@ -63,7 +62,6 @@ export class Main extends React.Component {
       newShelf["records"] = chronoHash[key]
       chronoShelvesArray.push(newShelf);
     }
-    console.log('CHRONOSHELVESARRAY: ', chronoShelvesArray);
     var {dispatch} = this.props;
     dispatch(actions.makeSortRecordsTrue("year"));
     dispatch(actions.loadSortedShelves(chronoShelvesArray));
@@ -87,7 +85,6 @@ export class Main extends React.Component {
         }
       }
     }
-    console.log('ALPHABETHASH', alphabetHash);
 
     for (var key in alphabetHash) {
       var newShelf = {}
@@ -97,7 +94,6 @@ export class Main extends React.Component {
       newShelf["records"] = alphabetHash[key]
       alphabetShelvesArray.push(newShelf);
     }
-    console.log('ALPHABETSHELVESARRAY: ', alphabetShelvesArray);
     var {dispatch} = this.props;
     dispatch(actions.makeSortRecordsTrue("title"));
     dispatch(actions.loadSortedShelves(alphabetShelvesArray));
