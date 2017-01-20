@@ -15,7 +15,6 @@ import * as actions from 'actions';
 
 export class Main extends React.Component {
 
-// THE ORIGINAL AND TRUE HANDLEADDSHELF
   handleAddShelf (e) {
     e.preventDefault();
     var {dispatch, sortRecords} = this.props;
@@ -55,11 +54,22 @@ export class Main extends React.Component {
     }
 
     for (var key in chronoHash) {
+      var chronoRecords = chronoHash[key];
+      chronoRecords.sort((a, b) => {
+        if(a.year > b.year) {
+          return -1;
+        } else if (a.year < b.year) {
+          return 1;
+        } else {
+          return 0
+        }
+      });
+
       var newShelf = {}
       newShelf["editable"] = false;
-      newShelf["number"] = key;
+      newShelf["number"] = "chrono" + key;
       newShelf["name"] = "Shelf " + key + "s";
-      newShelf["records"] = chronoHash[key]
+      newShelf["records"] = chronoRecords
       chronoShelvesArray.push(newShelf);
     }
     var {dispatch} = this.props;
@@ -87,11 +97,22 @@ export class Main extends React.Component {
     }
 
     for (var key in alphabetHash) {
+      var alphaRecords = alphabetHash[key]
+      alphaRecords.sort((a, b) => {
+        if(a.title > b.title) {
+          return -1;
+        } else if (a.title < b.title) {
+          return 1;
+        } else {
+          return 0
+        }
+      });
+
       var newShelf = {}
       newShelf["editable"] = false;
-      newShelf["number"] = key;
+      newShelf["number"] = "alpha" + key;
       newShelf["name"] = "Shelf " + key;
-      newShelf["records"] = alphabetHash[key]
+      newShelf["records"] = alphaRecords
       alphabetShelvesArray.push(newShelf);
     }
     var {dispatch} = this.props;
