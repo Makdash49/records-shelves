@@ -1,1 +1,1 @@
-Discogs Shelves with Drag n Drop
+Discogs Shelves with Drag n Drop and sort Alphabetically and Chronologically.
