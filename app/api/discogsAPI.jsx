@@ -50,7 +50,7 @@ module.exports = {
           shelf: {
             editable: false,
             number: shelfNumber,
-            name: 'Shelf ' + shelfNumber,
+            name: 'Shelf ' + shelfNumber + ' of 10',
             records: shelfArray
           }
         }
