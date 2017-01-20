@@ -93,9 +93,9 @@ export class Shelf extends React.Component {
 
       if (sortRecords) {
         records.sort((a, b) => {
-          if(a.title > b.title) {
+          if(a[sortRecords] > b[sortRecords]) {
             return -1;
-          } else if (a.title < b.title) {
+          } else if (a[sortRecords] < b[sortRecords]) {
             return 1;
           } else {
             return 0

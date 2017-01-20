@@ -64,7 +64,7 @@ export var isLoadedReducer = (state = false, action) => {
 export var sortRecordsReducer = (state = false, action) => {
   switch (action.type) {
     case 'MAKE_SORTED':
-      return true;
+      return action.prop;
       default:
         return state;
   }

@@ -67,7 +67,7 @@ export class Main extends React.Component {
     }
     console.log('CHRONOSHELVESARRAY: ', chronoShelvesArray);
     var {dispatch} = this.props;
-    dispatch(actions.makeSortRecordsTrue());
+    dispatch(actions.makeSortRecordsTrue("year"));
     dispatch(actions.loadAlphabetShelves(chronoShelvesArray));
   }
 
@@ -102,7 +102,7 @@ export class Main extends React.Component {
     }
     console.log('ALPHABETSHELVESARRAY: ', alphabetShelvesArray);
     var {dispatch} = this.props;
-    dispatch(actions.makeSortRecordsTrue());
+    dispatch(actions.makeSortRecordsTrue("title"));
     dispatch(actions.loadAlphabetShelves(alphabetShelvesArray));
   }
 

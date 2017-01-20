@@ -99,8 +99,9 @@ export var nowLoaded = () => {
   };
 };
 
-export var makeSortRecordsTrue = () => {
+export var makeSortRecordsTrue = (prop) => {
   return {
     type: 'MAKE_SORTED',
+    prop
   };
 };
