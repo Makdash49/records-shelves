@@ -36,10 +36,8 @@ export class Main extends React.Component {
   }
 
   handleChronologize (e) {
-    e.preventDefault();
-    var {dispatch, sortRecords} = this.props;
-
     var allShelves = this.props.shelves;
+
     var chronoHash = {};
     var chronoShelvesArray = [];
 
@@ -73,14 +71,13 @@ export class Main extends React.Component {
 
   handleAlphabetize (e) {
     var allShelves = this.props.shelves;
-    // console.log('ALLSHELVES', allShelves);
+
     var alphabetHash = {};
     var alphabetShelvesArray = [];
 
     for (var i = 0; i < allShelves.length; i++) {
       var shelfRecords = allShelves[i].records;
       for (var x = 0; x < shelfRecords.length; x++) {
-        // console.log(shelfRecords[x].title[0].toUpperCase());
         var firstLetterUppercase = shelfRecords[x].title[0].toUpperCase();
 
         if (!alphabetHash[firstLetterUppercase]) {
