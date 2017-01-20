@@ -121,8 +121,8 @@ export class Shelf extends React.Component {
                 </form>
               </div>
               <div className="buttons">
-                <button className="title-edit" onClick={this.toggleEditable.bind(this)}>Edit Shelf Title</button>
-                <button className="title-edit" onClick={this.handleDeleteShelf.bind(this)}>Delete Shelf</button>
+                <button className="shelf-buttons" onClick={this.toggleEditable.bind(this)}>Edit Shelf Title</button>
+                <button className="shelf-buttons" onClick={this.handleDeleteShelf.bind(this)}>Delete Shelf</button>
               </div>
             </div>
             {renderRecords()}
@@ -136,8 +136,8 @@ export class Shelf extends React.Component {
                 <h3>{name}</h3>
               </div>
               <div className="buttons">
-                <button className="title-edit" onClick={this.toggleEditable.bind(this)}>Edit Shelf Title</button>
-                <button className="title-edit" onClick={this.handleDeleteShelf.bind(this)}>Delete Shelf</button>
+                <button className="shelf-buttons" onClick={this.toggleEditable.bind(this)}>Edit Shelf Title</button>
+                <button className="shelf-buttons" onClick={this.handleDeleteShelf.bind(this)}>Delete Shelf</button>
               </div>
             </div>
             {renderRecords()}
