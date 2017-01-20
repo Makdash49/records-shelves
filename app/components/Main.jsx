@@ -113,7 +113,7 @@ export class Main extends React.Component {
 
     setInterval(function() {
 
-    if (x <= 2) {
+    if (x <= 10) {
       discogsAPI.getShelf(x).then(function (data) {
         var {dispatch} = that.props;
         dispatch(actions.addShelf(data.shelf))
