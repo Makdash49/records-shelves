@@ -62,19 +62,19 @@ export var startAddRecordToShelf = (record, shelfNum) => {
 
     var records = matchingShelf.records.concat(record)
 
-    var sortRecords = "year";
+    var sortRecords = getState().sortRecords;
 
-    records.sort((a, b) => {
-      if(a[sortRecords] > b[sortRecords]) {
-        return -1;
-      } else if (a[sortRecords] < b[sortRecords]) {
-        return 1;
-      } else {
-        return 0
-      }
-    });
-
-
+    if (sortRecords) {
+      records.sort((a, b) => {
+        if(a[sortRecords] > b[sortRecords]) {
+          return -1;
+        } else if (a[sortRecords] < b[sortRecords]) {
+          return 1;
+        } else {
+          return 0
+        }
+      });
+    }
 
     var updatedShelf = {
       number: matchingShelf.number,

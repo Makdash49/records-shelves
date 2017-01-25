@@ -91,18 +91,6 @@ export class Shelf extends React.Component {
 
     var renderRecords = () => {
 
-      // if (sortRecords === "title") {
-      //   records.sort((a, b) => {
-      //     if(a[sortRecords] > b[sortRecords]) {
-      //       return -1;
-      //     } else if (a[sortRecords] < b[sortRecords]) {
-      //       return 1;
-      //     } else {
-      //       return 0
-      //     }
-      //   });
-      // }
-
       return records.map((record) => {
         return (
           <Record key={record.instanceID} shelfNum={number} {...record}/>
