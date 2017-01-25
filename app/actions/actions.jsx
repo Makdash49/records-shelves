@@ -59,10 +59,27 @@ export var startAddRecordToShelf = (record, shelfNum) => {
         break;
       }
     }
+
+    var records = matchingShelf.records.concat(record)
+
+    var sortRecords = "year";
+
+    records.sort((a, b) => {
+      if(a[sortRecords] > b[sortRecords]) {
+        return -1;
+      } else if (a[sortRecords] < b[sortRecords]) {
+        return 1;
+      } else {
+        return 0
+      }
+    });
+
+
+
     var updatedShelf = {
-      number: shelves[i].number,
-      name: shelves[i].name,
-      records: shelves[i].records.concat(record)
+      number: matchingShelf.number,
+      name: matchingShelf.name,
+      records: records
     }
     dispatch(updateShelf(updatedShelf, shelfNum.number))
   };
